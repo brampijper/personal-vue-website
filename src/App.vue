@@ -1,7 +1,5 @@
 <template>
-  <div class="full-width center-content">
-    <TheNavbar />
-  </div>
+  <TheNavbar />
 </template>
 
 <script>

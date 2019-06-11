@@ -1,3 +1,14 @@
-$base-color: #F1F1F2;
-$secondary-color: #bcbabe;
-$accent-color: #1995ad; 
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+//base font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+
+$base-color: #00293C;
+$secondary-color: #F62A00;
+$font-color: #F1F3CE; 
+
