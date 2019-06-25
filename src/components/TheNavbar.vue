@@ -26,6 +26,6 @@
 #borderDiv {
   margin: 0 auto;
   width: 80%;
-  border-bottom: 2px solid rgb(212, 212, 212);
+  border-bottom: 1px solid rgb(212, 212, 212);
 }
 </style>
