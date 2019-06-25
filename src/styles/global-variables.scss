@@ -3,6 +3,23 @@
     padding: 0px;
     border: 0px;
     font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+}
+
+body {
+    background-color: rgb(245, 245, 245); 
+}
+
+a {
+    color: rgb(58, 58, 58);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 19px;
+    transition: all 1s;
+}
+
+a:hover {
+    color: #F62A00; 
 }
 
 //base font
