@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fullHeightContainer">
     <TheNavbar />
     <TheHeader />
   </div>
@@ -16,3 +16,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.fullHeightContainer {
+  max-height: 100vh;
+}
+</style>
