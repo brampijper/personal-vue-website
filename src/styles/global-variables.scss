@@ -1,3 +1,11 @@
+//base font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+
+$base-color: #3498db;
+$secondary-color: #F62A00;
+$font-color: #F1F3CE; 
+
+
 * {
     margin: 0px;
     padding: 0px;
@@ -14,19 +22,11 @@ body {
 a {
     color: rgb(58, 58, 58);
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 19px;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 a:hover {
-    color: #F62A00; 
+    color: $base-color; 
 }
-
-//base font
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
-
-$base-color: #00293C;
-$secondary-color: #F62A00;
-$font-color: #F1F3CE; 
-

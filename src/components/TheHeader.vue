@@ -6,12 +6,24 @@
 
 <style lang="scss">
 .header-container {
-  background-color: #3498db;
-  height: 87.7vh;
+  background-color: $base-color;
+  height: 82.9vh;
+  text-align: center;
 }
 div > h1 {
-  font-size: 150px;
+  margin-top: -9.2vw;
+  position: absolute;
+  font-size: 16vw;
   color: #1f2726;
-  text-align: center;
+  letter-spacing: 0.3em;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (min-width: 1200px) {
+  div > h1 {
+    font-size: 250px;
+    margin-top: -148px;
+  }
 }
 </style>
