@@ -7,11 +7,11 @@
 <style lang="scss">
 .header-container {
   background-color: $base-color;
-  height: 71.8vh;
+  height: 100vh;
   text-align: center;
 
   h1 {
-    margin-top: -9.2vw;
+    margin-top: calc(-25px - 6.5vw);
     position: absolute;
     font-size: 16vw;
     color: #1f2726;
@@ -21,15 +21,16 @@
   }
 }
 
-@media screen and (max-width: 700px) {
-  .header-container {
-    height: 77.4vh;
-  }
-}
 @media screen and (min-width: 1200px) {
   .header-container > h1 {
     font-size: 200px;
     margin-top: -117px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .header-container > h1 {
+    margin-top: -9vw;
   }
 }
 </style>
