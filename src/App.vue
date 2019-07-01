@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss">
 .fullHeightContainer {
-  max-height: 100vh;
+  max-height: 92vh;
+  overflow: hidden;
 }
 </style>
