@@ -1,25 +1,18 @@
 <template>
-  <div class="fullHeightContainer">
-    <TheNavbar />
-    <TheHeader />
+  <div>
+    <AboutMeComponent />
+    <TheProjectsComponent />
   </div>
 </template>
 
 <script>
-import TheNavbar from "./components/TheNavbar.vue";
-import TheHeader from "./components/TheHeader.vue";
+import AboutMeComponent from "./components/AboutMeComponent.vue";
+import TheProjectsComponent from "./components/TheProjectsComponent.vue";
 
 export default {
   components: {
-    TheNavbar,
-    TheHeader
+    AboutMeComponent,
+    TheProjectsComponent
   }
 };
 </script>
-
-<style lang="scss">
-.fullHeightContainer {
-  max-height: 92vh;
-  overflow: hidden;
-}
-</style>
