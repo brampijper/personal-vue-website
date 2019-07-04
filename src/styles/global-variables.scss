@@ -12,6 +12,7 @@ $font-color: #F1F3CE;
     border: 0px;
     font-family: 'Roboto', sans-serif;
     list-style-type: none;
+    font-weight:300;
 }
 
 body {
@@ -20,13 +21,9 @@ body {
 }
 
 a {
-    color: rgb(58, 58, 58);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 19px;
     transition: all 0.5s;
 }
 
 a:hover {
-    color: $base-color; 
+    color: black; 
 }
