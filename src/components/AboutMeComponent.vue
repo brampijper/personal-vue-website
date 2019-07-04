@@ -1,13 +1,19 @@
 <template>
   <div>
-    <a href="#" @click="notExtended = !notExtended">
-      <transition name="extend">
-        <div v-if="notExtended" class="small-container">
-          <h4><a href="#">ABOUT BRAM</a></h4>
-        </div>
-        <div v-else class="main-container"></div>
-      </transition>
-    </a>
+    <div
+      v-if="notExtended"
+      class="small-container"
+      @click="notExtended = !notExtended"
+    >
+      <h4><a href="#">ABOUT BRAM</a></h4>
+    </div>
+    <div v-else class="main-container">
+      <div class="top-container">
+        <a href="#" @click="notExtended = !notExtended">
+          <font-awesome-icon icon="times" />
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,6 +38,7 @@ export default {
   width: 100%;
   height: calc(20px + 1vw);
   transition: 1s;
+  cursor: pointer;
 
   h4 {
     letter-spacing: 5px;
@@ -51,6 +58,16 @@ export default {
   width: 100%;
   height: 100vh;
   background-color: aquamarine;
-  transition: 2s;
+  transition: 1.5s;
+
+  .top-container {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: right;
+    svg {
+      padding: 35px 50px 0px 0px;
+      font-size: 55px;
+    }
+  }
 }
 </style>
