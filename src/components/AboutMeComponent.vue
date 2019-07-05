@@ -1,19 +1,25 @@
 <template>
   <div>
-    <div
-      v-if="notExtended"
-      class="small-container"
-      @click="notExtended = !notExtended"
-    >
-      <h4><a href="#">ABOUT BRAM</a></h4>
-    </div>
-    <div v-else class="main-container">
-      <div class="top-container">
-        <a href="#" @click="notExtended = !notExtended">
-          <font-awesome-icon icon="times" />
-        </a>
+    <transition name="fade" mode="out-in">
+      <div
+        v-if="!extended"
+        key="3"
+        class="small-container"
+        @click="extended = !extended"
+      >
+        <h4>
+          <a href="#">ABOUT BRAM</a>
+        </h4>
       </div>
-    </div>
+
+      <div v-if="extended" key="1" class="main-container">
+        <div class="icon-container">
+          <a v-if="extended" key="2" href="#" @click="extended = !extended">
+            <font-awesome-icon icon="times" />
+          </a>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -21,7 +27,7 @@
 export default {
   data() {
     return {
-      notExtended: true
+      extended: false
     };
   }
 };
@@ -58,16 +64,35 @@ export default {
   width: 100%;
   height: 100vh;
   background-color: aquamarine;
-  transition: 1.5s;
 
-  .top-container {
+  .icon-container {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
     text-align: right;
+    overflow: hidden;
     svg {
       padding: 35px 50px 0px 0px;
       font-size: 55px;
+      color: black;
+      transition: all 1s;
+      transform: rotate(0deg);
+      transform-origin: 25% 75%;
+    }
+
+    svg:hover {
+      color: white;
+      transform: rotate(90deg);
     }
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: height 1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  height: calc(40px + 3vw);
 }
 </style>
