@@ -1,13 +1,32 @@
 <template>
-  <transition name="extend" mode="out-in">
-    <slot></slot>
+  <transition appear name="extend" mode="out-in">
+    <div v-show="extended" class="extend-transition-wrapper">
+      <slot></slot>
+    </div>
   </transition>
 </template>
 
+<script>
+export default {
+  props: {
+    extended: {
+      type: Boolean,
+      default: false
+    }
+  }
+};
+</script>
+
 <style lang="scss">
+.extend-transition-wrapper {
+  height: 100vh;
+  will-change: height;
+  position: relative;
+}
+
 .extend-enter-active,
 .extend-leave-active {
-  transition: 0.9s;
+  transition: 1.5s ease-out;
 }
 
 .extend-enter-to,
