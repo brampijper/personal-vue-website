@@ -1,15 +1,18 @@
 <template>
   <div>
-    <div v-if="!extended" class="small-container" @click="extended = !extended">
+    <div
+      v-show="!extended"
+      class="small-container"
+      @click="extended = !extended"
+    >
       <h4>
         <a href="#">ABOUT BRAM</a>
       </h4>
     </div>
-
-    <ExtendTransition>
-      <div v-if="extended" key="1" class="main-container">
+    <ExtendTransition :extended="extended">
+      <div class="main-container">
         <div class="icon-container">
-          <a v-if="extended" key="2" href="#" @click="extended = !extended">
+          <a v-show="extended" href="#" @click="extended = !extended">
             <font-awesome-icon icon="times" />
           </a>
         </div>
@@ -55,11 +58,11 @@ export default {
   transition: 0.7s;
   transition-timing-function: ease-out;
 }
+
 .main-container {
   position: absolute;
   width: 100%;
-  height: 100vh;
-  will-change: height;
+  height: 100%;
   background-color: aquamarine;
   .icon-container {
     width: 100%;
