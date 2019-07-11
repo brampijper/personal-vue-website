@@ -1,7 +1,7 @@
 <template>
   <div>
-    <AboutMeComponent />
     <TheProjectsComponent />
+    <AboutMeComponent />
   </div>
 </template>
 
