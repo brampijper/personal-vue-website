@@ -9,23 +9,30 @@
         <a href="#">ABOUT BRAM</a>
       </h4>
     </div>
-    <ExtendTransition :extended="extended">
+    <ExtendTransition :extended="extended" mode="out-in" appear>
       <div class="main-container">
-        <div class="icon-container">
-          <a v-show="extended" href="#" @click="extended = !extended">
-            <font-awesome-icon icon="times" />
-          </a>
-        </div>
+        <FadeTransition :extended="extended" appear>
+          <div class="icon-container">
+            <a v-show="extended" href="#" @click="extended = !extended">
+              <font-awesome-icon icon="times" />
+            </a>
+          </div>
+        </FadeTransition>
+        <CardGroup :extended="extended"> </CardGroup>
       </div>
     </ExtendTransition>
   </div>
 </template>
 
 <script>
-import ExtendTransition from "./ExtendTransition.vue";
+import ExtendTransition from "./transitions/ExtendTransition.vue";
+import FadeTransition from "./transitions/FadeTransition.vue";
+import CardGroup from "./CardGroup.vue";
 export default {
   components: {
-    ExtendTransition
+    ExtendTransition,
+    FadeTransition,
+    CardGroup
   },
   data() {
     return {
