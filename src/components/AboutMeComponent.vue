@@ -11,7 +11,7 @@
     </div>
     <ExtendTransition :extended="extended" mode="out-in" appear>
       <div class="main-container">
-        <FadeTransition :extended="extended" appear>
+        <FadeTransition :extended="extended" :style="{ zIndex: '2' }" appear>
           <div class="icon-container">
             <a v-show="extended" href="#" @click="extended = !extended">
               <font-awesome-icon icon="times" />
@@ -72,10 +72,11 @@ export default {
   height: 100%;
   background-color: aquamarine;
   .icon-container {
-    width: 100%;
+    position: absolute;
     background-color: rgba(0, 0, 0, 0);
-    text-align: right;
+    right: 0;
     overflow: hidden;
+    z-index: 2;
     svg {
       padding: 35px 50px 0px 0px;
       font-size: 55px;
