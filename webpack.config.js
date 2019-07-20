@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+let config = {};
+config.prod = require("./dev.env");
 
 module.exports = {
   entry: {
@@ -47,6 +49,9 @@ module.exports = {
       inject: true
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(config.prod)
+    })
   ]
 };
