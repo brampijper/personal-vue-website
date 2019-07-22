@@ -19,9 +19,11 @@ export default {
 
 <style lang="scss">
 .extend-transition-wrapper {
+  max-height: 100vh;
   height: 100vh;
   will-change: height;
   position: relative;
+  overflow: hidden; 
 }
 
 .extend-enter-active,
