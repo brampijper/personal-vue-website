@@ -3,7 +3,7 @@
     <div
       v-show="!extended"
       class="small-container"
-      @click="extended = !extended"
+      @click="onClickAbout"
     >
       <h4>
         <a href="#">ABOUT BRAM</a>
@@ -13,7 +13,7 @@
       <div class="main-container">
         <FadeTransition :extended="extended" :style="{ zIndex: '2' }" appear>
           <div class="icon-container">
-            <a v-show="extended" href="#" @click="extended = !extended">
+            <a v-show="extended" href="#" @click="onClickAbout">
               <font-awesome-icon icon="times" />
             </a>
           </div>
@@ -38,7 +38,14 @@ export default {
     return {
       extended: false
     };
-  }
+  },
+  methods: {
+    onClickAbout() {
+      this.extended = !this.extended
+      this.$emit('clicked', this.extended)
+    }
+  },
+
 };
 </script>
 
@@ -68,9 +75,10 @@ export default {
 
 .main-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
   background-color: aquamarine;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
   .icon-container {
     position: absolute;
     background-color: rgba(0, 0, 0, 0);
