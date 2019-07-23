@@ -3,10 +3,14 @@
     <ul>
       <li v-for="project in projects" :key="project.id">
         <div class="card-container">
-          <p>{{ project.full_name }}</p>
+          <p class="title">{{ project.name }}</p>
+          <div class="center">
+            <p>{{ project.text }}</p>
+          </div>
           <a :href="project.pages" target="_blank"> View Website </a>
         </div>
       </li>
+      <div class="spacing"></div>
     </ul>
   </div>
 </template>
@@ -24,7 +28,7 @@ export default {
     const octokit = Octokit({
       auth: this.VUE_APP_OCTOKIT,
       userAgent: "brampijper",
-      log: console
+      Accept: "application/vnd.github.16.28.4.raw"
     });
 
     octokit.repos
@@ -34,14 +38,32 @@ export default {
       .then(({ data }) => {
         data.filter(project => {
           if (!project.archived && project.has_pages) {
-            let myLength = project.full_name.length;
-            project.pages =
-              this.pagesBaseUrl + project.full_name.substring(11, myLength);
-            this.projects.push(project);
+            octokit.repos
+              .getReadme({
+                owner: "brampijper",
+                repo: project.name
+              })
+              .then(({ data }) => {
+                project.text = this.b64DecodeUnicode(data.content, project);
+                project.pages =
+                  this.pagesBaseUrl +
+                  project.full_name.substring(11, project.full_name.length);
+                this.projects.push(project);
+              });
           }
-          console.log(this.projects);
         });
       });
+  },
+  methods: {
+    b64DecodeUnicode(str) {
+      return decodeURIComponent(
+        Array.prototype.map
+          .call(atob(str), function(c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
+    }
   }
 };
 </script>
@@ -51,7 +73,6 @@ ul {
   position: absolute;
   text-align: center;
   width: 100vw;
-  max-height: 100%;
 
   li {
     display: inline-flex;
@@ -69,8 +90,23 @@ ul {
     .card-container {
       display: grid;
       margin: 0 auto;
-      grid-template-rows: 80% 20% auto;
+      grid-template-rows: 10% 80% 10% auto;
       margin-bottom: 10px;
+
+      .title {
+        font-weight: 600;
+        padding: 5px;
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-style: italic;
+        font-weight: 300;
+        width: 85%;
+        margin: 0 auto;
+      }
 
       a {
         align-self: end;
@@ -82,5 +118,10 @@ ul {
 li:hover {
   box-shadow: 0 14px 28px rgba(148, 106, 106, 0.15),
     0 10px 10px rgba(0, 0, 0, 0.12);
+}
+
+.spacing {
+  height: 100px;
+  width: 100px;
 }
 </style>
