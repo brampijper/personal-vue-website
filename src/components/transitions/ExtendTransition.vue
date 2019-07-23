@@ -23,7 +23,10 @@ export default {
   height: 100vh;
   will-change: height;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .extend-enter-active,

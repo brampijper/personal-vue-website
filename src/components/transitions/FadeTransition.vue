@@ -42,12 +42,12 @@ export default {
   },
 
   methods: {
-    setAbsolutePosition(el) {
-      console.log(this.group);
-      if (this.group) {
-        console.log(el);
-        // el.style.position = "absolute";
-      }
+    setAbsolutePosition() {
+      // console.log(this.group);
+      // if (this.group) {
+      // console.log(el);
+      // el.style.position = "absolute";
+      // }
     }
   }
 };
