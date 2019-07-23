@@ -10,9 +10,10 @@
 .icon-container {
   position: absolute;
   background-color: rgba(0, 0, 0, 0);
-  right: 0;
   overflow: hidden;
   z-index: 2;
+  text-align: right;
+  right: 0;
 
   svg {
     padding: 35px 50px 0px 0px;
