@@ -3,10 +3,16 @@ const webpack = require("webpack");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 let config = {};
 config.prod = require("./dev.env");
+// const path = require("path");
 
 module.exports = {
   entry: {
     app: "./src/app.js"
+  },
+  output: {
+    // path: path.resolve(__dirname, "/")
+    // publicPath: "/",
+    // filename: "app.js"
   },
   mode: "development",
   devServer: {
