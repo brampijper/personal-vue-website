@@ -1,63 +1,13 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
-let config = {};
-config.prod = require("./dev.env");
-// const path = require("path");
+const commonConfig = require('./build-utils/webpack.common');
+const webpackMerge = require('webpack-merge');
 
-module.exports = {
-  entry: {
-    app: "./src/app.js"
-  },
-  output: {
-    // path: path.resolve(__dirname, "/")
-    // publicPath: "/",
-    // filename: "app.js"
-  },
-  mode: "development",
-  devServer: {
-    hot: true
-  },
-  devtool: "inline-source-map",
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          "vue-style-loader",
-          "css-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-              data: '@import "./src/styles/global-variables.scss";'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.vue$/,
-        loader: "vue-loader"
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "index.html",
-      inject: true
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": JSON.stringify(config.prod)
-    })
-  ]
-};
+module.exports = (env) => {
+    if (!env) {
+        throw new Error('You must pass an --env.env flag into your build for webpack to work!')
+    };
+
+    console.log(env);
+    const envConfig = require(`./build-utils/webpack.${env.env}.js`);
+
+    return webpackMerge(commonConfig, envConfig);
+}
