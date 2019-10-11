@@ -19,14 +19,12 @@ export default {
 
 <style lang="scss">
 .extend-transition-wrapper {
+  background-color: aquamarine;
   max-height: 100vh;
   height: 100vh;
   will-change: height;
   position: relative;
   overflow: hidden;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 
 .extend-enter-active,
