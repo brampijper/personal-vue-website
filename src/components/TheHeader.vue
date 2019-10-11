@@ -2,57 +2,38 @@
   <div>
     <TheHeaderTopBar
       v-show="!extended"
-      @click.native="
-        onClick();
-        pickTagLines();
-      "
-    >
+      @click.native="onClick(); pickTagLines();">
     </TheHeaderTopBar>
 
-    <ExtendTransition :extended="extended" mode="out-in" appear>
-      <TheHeaderExtended />
+    <ExtendTransition class="extended-wrapper" :extended="extended" mode="out-in" appear>
 
-      <FadeTransition
-        :extended="extended"
-        :style="{
-          zIndex: '2',
-          height: '100vh'
-        }"
-        appear
-      >
-        <div class="extended-header-wrapper">
-          <TheHeaderExtendedButton
-            @click.native="
-              onClick();
-              resetTagLines();
-            "
-          />
-          <TheHeaderExtendedIntro class="item" />
-          <TheHeaderExtendedCards :tag-lines="tagLines" class="item" />
-        </div>
-      </FadeTransition>
+          <AppIconClosed @click.native="onClick(); resetTagLines();"/>
+
+          <p class="intro-text">
+              This will be the place to view the projects I'm currently working on and
+              recent achievements.
+              As my development skillset will continue to grow I dare to agree my
+              projects will become more exciting. ;-)
+          </p>
+
+          <AppCard :cards="tagLines" cardSize="small"/>
+        
     </ExtendTransition>
   </div>
 </template>
 
 <script>
-import TheHeaderExtended from "./TheHeaderExtended.vue";
 import TheHeaderTopBar from "./TheHeaderTopBar.vue";
 import ExtendTransition from "./transitions/ExtendTransition.vue";
-import FadeTransition from "./transitions/FadeTransition.vue";
-import TheHeaderExtendedCards from "./TheHeaderExtendedCards.vue";
-import TheHeaderExtendedButton from "./TheHeaderExtendedButton.vue";
-import TheHeaderExtendedIntro from "./TheHeaderExtendedIntro.vue";
+import AppIconClosed from "./interface/AppIconClosed.vue";
+import AppCard from "./interface/AppCard.vue";
 
 export default {
   components: {
     TheHeaderTopBar,
-    TheHeaderExtended,
     ExtendTransition,
-    FadeTransition,
-    TheHeaderExtendedCards,
-    TheHeaderExtendedButton,
-    TheHeaderExtendedIntro
+    AppIconClosed,
+    AppCard
   },
   data() {
     return {
@@ -99,14 +80,12 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.extended-header-wrapper {
-  display: grid;
-  grid-template-rows: 45% 55%;
-
-  .item {
-    height: 50vh;
-  }
+<style scoped lang="scss">
+.intro-text {
+  line-height: 1.3;
+  font-size: 35px;
+  font-size: 3.5vmin;
+  text-align: center;
 }
+
 </style>
