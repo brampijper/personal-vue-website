@@ -8,6 +8,7 @@
 
 <style lang="scss">
 .small-container {
+  top: 0;
   position: absolute;
   background-color: aquamarine;
   display: flex;
