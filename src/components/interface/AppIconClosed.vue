@@ -10,23 +10,33 @@
 .icon-container {
   position: absolute;
   background-color: rgba(0, 0, 0, 0);
-  overflow: hidden;
   z-index: 2;
   text-align: right;
   right: 0;
+  margin: 50px 70px 60px 60px;
+  top: 0;
 
   svg {
-    padding: 35px 50px 0px 0px;
-    font-size: 55px;
+    font-size: 100px;
     color: black;
     transition: all 0.6s;
     transform: rotate(0deg);
-    transform-origin: 25% 75%;
+    transform-origin: 50% 50%;
   }
 
   svg:hover {
     color: white;
     transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .icon-container {
+    margin: 0px 10px 10px 10px;
+    
+    svg {
+      font-size: 50px;
+    }
   }
 }
 </style>
