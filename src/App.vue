@@ -1,12 +1,15 @@
 <template>
   <div>
     <TheHeader @clicked="onExtending" />
-    <AppCard
-      v-show="!extended"
-      :cards="githubProjects"
-      class="project-cards"
-      card-size="medium">
-    </AppCard>
+
+    <transition name='fade'>
+      <AppCard
+        v-show="!extended"
+        :cards="githubProjects"
+        class="project-cards"
+        card-size="medium">
+      </AppCard>
+=    </transition>
 
   </div>
 </template>
@@ -96,5 +99,23 @@ a:hover {
   position:fixed;
   top:0;
   margin-top:100px;
+  opacity: 1;
+}
+
+.fade-enter-active {
+  transition: 2.5s ease-in;
+}
+
+.fade-leave-active {
+  transition: 0.3s ease-out;
+}
+
+.fade-enter-to,
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave-to, .fade-enter {
+  opacity: 0;
 }
 </style>
