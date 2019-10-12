@@ -1,5 +1,5 @@
 <template>
-  <transition v-bind="$attrs" name="extend">
+  <transition name="extend">
     <div v-show="extended" class="extend-transition-wrapper">
       <slot></slot>
     </div>
