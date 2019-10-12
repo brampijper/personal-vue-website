@@ -28,7 +28,6 @@ export default {
       extended: false,
       VUE_APP_OCTOKIT: process.env.VUE_APP_OCTOKIT_VAR,
       githubProjects: [],
-      githubPageURL: "https://brampijper.github.io/"
     };
   },
   created() {
@@ -45,7 +44,7 @@ export default {
       .then(({ data }) => {
         data.filter(project => {
           if (!project.archived && project.has_pages) {
-            this.convertURL(project)
+            project.url = "https://brampijper.github.io/" +  this.extractChars(project.full_name, 11); 
             this.githubProjects.push(project);
           };
         });
@@ -55,9 +54,8 @@ export default {
     onExtending(value) {
       this.extended = value;
     },
-    convertURL(project) {
-      project.url = this.githubPageURL + project.full_name.substring(11, project.full_name.length);
-      return project.url;
+    extractChars(str, indexStart) {
+      return str.substring(indexStart, str.length);
     }
   }
 };
