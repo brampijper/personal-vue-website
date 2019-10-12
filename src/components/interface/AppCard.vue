@@ -45,8 +45,11 @@ export default {
     }
 
     .small {
-        height: 125px;
-        width: 125px;
+        height: 15vh;
+        width: 25vmin;
+        display: inline-grid;
+        place-items: center;
+        justify-self: center;
     }
 
     .card {
@@ -66,7 +69,6 @@ export default {
             font-weight: 600;
             padding: 5px;
         }
-
 
         .card-link {
             align-self: end;
