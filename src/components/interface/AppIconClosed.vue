@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .icon-container {
   position: absolute;
   background-color: rgba(0, 0, 0, 0);
