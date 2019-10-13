@@ -8,7 +8,7 @@
       <AppCard
         v-show="!extended"
         :cards="githubProjects"
-        class="project-cards"
+        :class="!extended ? '' : 'fixed-position'"
         card-size="medium">
       </AppCard>
     </transition>
@@ -102,12 +102,9 @@ a:hover {
     color: black; 
 }
 
-.project-cards {
-  // position:fixed;
+.fixed-position {
   top:0;
-  opacity: 1;
-    margin: 0 auto;
-    margin-top: 100px;
+  position:fixed;
 }
 
 .fade-enter-active {
