@@ -2,6 +2,8 @@
   <div>
     <TheHeader @clicked="onExtending" />
 
+    <AppIconLoading :loading="isLoading" />
+
     <transition name='fade'>
       <AppCard
         v-show="!extended"
@@ -9,7 +11,7 @@
         class="project-cards"
         card-size="medium">
       </AppCard>
-=    </transition>
+    </transition>
 
   </div>
 </template>
@@ -19,11 +21,13 @@ const Octokit = require("@octokit/rest");
 
 import TheHeader from "./components/TheHeader.vue";
 import AppCard from "./components/interface/AppCard.vue";
+import AppIconLoading from "./components/interface/AppIconLoading.vue";
 
 export default {
   components: {
     TheHeader,
-    AppCard
+    AppCard,
+    AppIconLoading
 
   },
   data() {
@@ -31,6 +35,7 @@ export default {
       extended: false,
       VUE_APP_OCTOKIT: process.env.VUE_APP_OCTOKIT_VAR,
       githubProjects: [],
+      isLoading: true
     };
   },
   created() {
@@ -48,6 +53,7 @@ export default {
         data.filter(project => {
           if (!project.archived && project.has_pages) {
             project.url = "https://brampijper.github.io/" +  this.extractChars(project.full_name, 11); 
+            this.isLoading = false; 
             this.githubProjects.push(project);
           };
         });
@@ -65,6 +71,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 //base font
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
 
