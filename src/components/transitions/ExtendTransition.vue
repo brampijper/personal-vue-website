@@ -38,10 +38,10 @@ export default {
 }
 
 .extend-leave-to {
-  height: calc(20px + 1vw);
+  height: calc(15px + 4vh);
 }
 
 .extend-enter {
-  height: calc(40px + 3vw);
+  height: calc(40px + 4vh);
 }
 </style>
