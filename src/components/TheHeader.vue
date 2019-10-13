@@ -67,37 +67,39 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+@import "~rfs/scss";
 
 .content-wrapper {
-  margin: 12vw 5vw 5vw 5vw;
+  margin: 18vw 5vw 5vw 5vw;
   display:grid;
   height: 80vh;
     
   h1 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 4rem;
+    @include font-size(4rem);
     font-weight: 900;
     line-height:1;
     margin: 0 0 10px 0;
   }
 
   h2 {
-    font-size: 2rem;
+    @include font-size(2rem);
   }
+}
 
-  .paragraph-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 6vw 0 0 0;
-    gap: 10vw;
 
-    p {
-      font-family: "Roboto Mono", monospace;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.4;
-      font-size: 1.7rem;
-    }
+.paragraph-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 6vw 0 0 0;
+  gap: 10vw;
+
+  p {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    @include font-size(1.5rem);
   }
 }
 
@@ -106,7 +108,6 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
-  width: 50%;
   margin: 0 auto;
 
   .icon-name {
@@ -121,6 +122,7 @@ export default {
   a {
     text-align:center;
     text-decoration: none;
+    margin: 25px;
   }
 
   svg {
@@ -137,29 +139,19 @@ export default {
   }
 }
 
-@media (max-width: 720px) {
+  /* custom css for "touch targets" */
+@media (hover:none), (hover:on-demand) { 
+  .paragraph-wrapper {
+    grid-template-columns: 1fr;
+  }
+
   .content-wrapper {
+    margin-top: 6vw;
+    
     h1 {
-      font-size: 2rem;
+      margin-right: 60px;
     }
-
-    h2 {
-      font-size:1.5rem;
-      word-break:words;
-    }
-
-    .title-wrapper {
-      width: 90vw;
-
-      .paragraph-wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-
-        p {
-          font-size: 1.1rem;
-        }
-      }
-    }
+  }
 
     .social-wrapper {
       width:100%;
@@ -174,6 +166,11 @@ export default {
         margin-top: 5px;
       }
     }
+}
+
+@media (min-width: 950px) {
+  .content-wrapper {
+    margin: 10vw 15vw 10vw 15vw;
   }
 }
 
