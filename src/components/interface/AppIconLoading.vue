@@ -1,8 +1,10 @@
 <template>
-    <font-awesome-icon
-        :class="loading ? '' : 'paused'"
-        size="6x"
-        icon="spinner" />
+    <div class="icon-container">
+        <font-awesome-icon
+            :class="loading ? '' : 'paused'"
+            size="6x"
+            icon="spinner" />
+    </div>
 </template>
 
 <script>
@@ -17,13 +19,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.icon-container {
+    position:fixed;
+    height: 40vh;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 svg {
     z-index:2;
-    position: fixed;
-    top: 30%;
-    left: 50%;
     animation: rotation 2s linear infinite;
-
 }
 
 .paused {
