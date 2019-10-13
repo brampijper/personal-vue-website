@@ -103,10 +103,11 @@ a:hover {
 }
 
 .project-cards {
-  position:fixed;
+  // position:fixed;
   top:0;
-  margin-top:100px;
   opacity: 1;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
 .fade-enter-active {
