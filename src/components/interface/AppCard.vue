@@ -11,6 +11,10 @@
                     <p>
                         {{ card.description }}
                     </p>
+                    <div class="eye-holder">
+                        <font-awesome-icon size="2x" icon="eye"> </font-awesome-icon>
+                        <span> View Website </span>
+                    </div>
                 </div>
             </a>
         </div>
@@ -33,12 +37,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .card-container {
   text-align: center;
   width: 100vw;
   display: flex;
   flex-wrap:wrap;
   justify-content:center;
+  margin-top:100px;
 }
 
 .medium {
@@ -58,7 +64,7 @@ export default {
 
 .card-content {
     display: grid;
-    grid-template-rows: 10% 80% 10% auto;
+    grid-template-rows: 10% 60% 30% auto;
     align-items:center;
     margin: 0px 10px 25px 10px;
     padding: 0 15px 15px 15px;
@@ -75,7 +81,6 @@ export default {
     .card-title {
         font-weight: 600;
         padding: 5px;
-        z-index:2;
         margin-top:25px;
     }
 }
@@ -91,6 +96,18 @@ export default {
 
 .card {
     position:relative;
+}
+
+.eye-holder {
+    z-index:2;
+    opacity:0;
+    transition: all 1s;
+}
+
+.eye-holder span {
+    display:block;
+    font-size: 0.8rem;
+    margin-top:7px;
 }
 
 .link-spanner{
@@ -123,4 +140,9 @@ export default {
     height: 265px;
     opacity: 0.75;
 }
+
+.card:hover .eye-holder {
+    opacity:1;
+}
+
 </style>
