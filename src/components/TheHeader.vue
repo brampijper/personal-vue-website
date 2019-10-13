@@ -7,9 +7,9 @@
 
     <ExtendTransition class="overlay-wrapper" :extended="extended" mode="out-in" appear>
 
-      <div class="content-wrapper">
           <AppIconClosed @click.native="onClick()" />
 
+      <div class="content-wrapper">
           <div class="title-wrapper">
             <h1>Hello, I'm Bram</h1>
             <h2> Creative being & web developer. </h2>
@@ -99,7 +99,7 @@ export default {
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
-    @include font-size(1.5rem);
+    @include font-size(1.4rem);
   }
 }
 
@@ -143,10 +143,12 @@ export default {
 @media (hover:none), (hover:on-demand) { 
   .paragraph-wrapper {
     grid-template-columns: 1fr;
+    width: 90vw;
   }
 
   .content-wrapper {
     margin-top: 6vw;
+    display:block;
     
     h1 {
       margin-right: 60px;
