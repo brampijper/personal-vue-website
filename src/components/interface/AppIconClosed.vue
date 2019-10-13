@@ -8,13 +8,13 @@
 
 <style lang="scss">
 .icon-container {
-  position: absolute;
+  position: absolute; 
   background-color: rgba(0, 0, 0, 0);
   z-index: 2;
   text-align: right;
   right: 0;
   margin: 50px 70px 60px 60px;
-  top: 0;
+  top: 0 ;
 
   svg {
     font-size: 100px;
