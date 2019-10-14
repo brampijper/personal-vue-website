@@ -45,6 +45,8 @@ export default {
   flex-wrap:wrap;
   justify-content:center;
   margin-top:100px;
+  position:absolute;
+  z-index:1;
 }
 
 .medium {
