@@ -1,17 +1,17 @@
 <template>
   <div>
     <TheHeader @clicked="onExtending" />
-
+    
     <AppIconLoading :loading="isLoading" />
 
-    <transition name='fade'>
+    <FadeTransition>
       <AppCard
-        v-show="!extended"
+        v-if="!extended"
         :cards="githubProjects"
-        :class="!extended ? '' : 'fixed-position'"
+        class='abs-position'
         card-size="medium">
       </AppCard>
-    </transition>
+    </FadeTransition>
 
   </div>
 </template>
@@ -22,17 +22,19 @@ const Octokit = require("@octokit/rest");
 import TheHeader from "./components/TheHeader.vue";
 import AppCard from "./components/interface/AppCard.vue";
 import AppIconLoading from "./components/interface/AppIconLoading.vue";
+import FadeTransition from "./components/transitions/FadeTransition.vue"
 
 export default {
   components: {
     TheHeader,
     AppCard,
-    AppIconLoading
+    AppIconLoading,
+    FadeTransition
 
   },
   data() {
     return {
-      extended: false,
+      extended: true,
       VUE_APP_OCTOKIT: process.env.VUE_APP_OCTOKIT_VAR,
       githubProjects: [],
       isLoading: true
@@ -95,32 +97,15 @@ body {
 }
 
 a {
-    transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 a:hover {
-    color: black; 
+  color: black; 
 }
 
-.fixed-position {
+.abs-position {
   top:0;
-  position:fixed;
-}
-
-.fade-enter-active {
-  transition: 2.5s ease-in;
-}
-
-.fade-leave-active {
-  transition: 0.3s ease-out;
-}
-
-.fade-enter-to,
-.fade-leave {
-  opacity: 1;
-}
-
-.fade-leave-to, .fade-enter {
-  opacity: 0;
+  position: absolute;
 }
 </style>
