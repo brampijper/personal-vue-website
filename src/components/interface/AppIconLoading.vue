@@ -1,5 +1,5 @@
 <template>
-    <div class="icon-container">
+    <div class="icon-container" v-if="loading">
         <font-awesome-icon
             :class="loading ? '' : 'paused'"
             size="6x"
