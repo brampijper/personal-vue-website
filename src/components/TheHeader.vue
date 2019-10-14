@@ -5,37 +5,40 @@
       @click.native="onClick()">
     </TheHeaderTopBar>
 
-    <ExtendTransition class="overlay-wrapper" :extended="extended" mode="out-in" appear>
+    <ExtendTransition class="overlay-wrapper" :extended="extended" mode="out-in">
+      <FadeTransition name="fade">
 
-          <AppIconClosed @click.native="onClick()" />
-
-      <div class="content-wrapper">
-          <div class="title-wrapper">
+        <div v-show="extended" class="header__content">
+          <article class="content__title">
             <h1>Hello, I'm Bram</h1>
             <h2> Creative being & web developer. </h2>
+          </article>
 
-            <div class="paragraph-wrapper">
-              <p> Currenty looking for a developer position at a company that is working on having a positive impact on the world. </p>
-              <p> Previously worked at Das Banner, a creative advertising agency for creating smoothly animated advertisements.</p>
-            </div>
+          <primary-button class="content__button" buttonSize="big" :onClick="onClick"> 
+            View Projects
+          </primary-button>
+
+          <article class="content__intro">
+            <p class="intro__first"> Currenty looking for a developer position at a company that is working on having a positive impact on the world. </p>
+            <p class="intro__second"> Previously worked at Das Banner, a creative advertising agency for creating smoothly animated advertisements.</p>
+          </article>
+
+          <div class="content__social">
+            <a href="mailto:brampijper@gmail.com" target="_blank">
+              <font-awesome-icon size="4x" icon="at" />
+              <span class="social__name"> Email </span> 
+            </a>
+            <a href="https://www.linkedin.com/in/bram-pijper-6a9306129/" target="_blank">
+              <font-awesome-icon size="4x" :icon="[ 'fab', 'linkedin' ]" />
+              <span class="social__name"> LinkedIn </span> 
+            </a>
+            <a href="https://github.com/brampijper" target="_blank">
+              <font-awesome-icon size="4x" :icon="[ 'fab', 'github']" />
+              <span class="social__name"> Github </span>
+            </a>
           </div>
-
-            <div class="social-wrapper">
-              <a href="mailto:brampijper@gmail.com" target="_blank">
-                <font-awesome-icon size="4x" icon="at" />
-                <span class="icon-name"> Email </span> 
-              </a>
-              <a href="https://www.linkedin.com/in/bram-pijper-6a9306129/" target="_blank">
-                <font-awesome-icon size="4x" :icon="[ 'fab', 'linkedin' ]" />
-                <span class="icon-name"> LinkedIn </span> 
-              </a>
-              <a href="https://github.com/brampijper" target="_blank">
-                <font-awesome-icon size="4x" :icon="[ 'fab', 'github']" />
-                <span class="icon-name"> Github </span>
-              </a>
-            </div>
         </div>
-  
+      </FadeTransition>
     </ExtendTransition>
   </div>
 </template>
@@ -43,19 +46,19 @@
 <script>
 import TheHeaderTopBar from "./TheHeaderTopBar.vue";
 import ExtendTransition from "./transitions/ExtendTransition.vue";
-import AppIconClosed from "./interface/AppIconClosed.vue";
-import AppCard from "./interface/AppCard.vue";
+import PrimaryButton from "./interface/PrimaryButton.vue";
+import FadeTransition from "./transitions/FadeTransition.vue";
 
 export default {
   components: {
     TheHeaderTopBar,
     ExtendTransition,
-    AppIconClosed,
-    AppCard
+    PrimaryButton,
+    FadeTransition
   },
   data() {
     return {
-      extended: false,
+      extended: true,
     };
   },
   methods: {
@@ -69,60 +72,65 @@ export default {
 <style scoped lang="scss">
 @import "~rfs/scss";
 
-.content-wrapper {
-  margin: 18vw 5vw 5vw 5vw;
-  display:grid;
-  height: 80vh;
-    
-  h1 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    @include font-size(4rem);
-    font-weight: 900;
-    line-height:1;
-    margin: 0 0 10px 0;
-  }
-
-  h2 {
-    @include font-size(2rem);
-  }
+.overlay-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index:2;
 }
 
+.header__content {
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+    margin: 0vw 10vw 0vw 10vw
+}
 
-.paragraph-wrapper {
-  display: grid;
+.content__title {
+  margin-bottom: 50px;
+}
+    
+.content__title h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  @include font-size(4rem);
+  font-weight: 900;
+  line-height:1;
+  margin: 0 0 10px 0;
+}
+
+.content__title h2 {
+  @include font-size(2rem);
+  grid-column-start:1;
+  grid-row-start: 2;
+}
+
+.content__intro {
+  grid-column-start:1;
+  grid-column-end: 3;
+  display:grid;
   grid-template-columns: 1fr 1fr;
-  margin: 6vw 0 0 0;
-  gap: 10vw;
+  grid-column-gap: 25px;
 
   p {
+    @include font-size(1.4rem);
     font-family: "Roboto Mono", monospace;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
-    @include font-size(1.4rem);
   }
 }
 
-.social-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  margin: 0 auto;
-
-  .icon-name {
-    display:block;
-    font-size: 1.2rem;
-    text-align:center;
-    margin-top:15px;
-    font-family: "Roboto Mono", monospace;
-    text-decoration: none;
-  }
+.content__social {
+  justify-self: center;
+  align-self:center;
+  grid-column-start:1;
+  grid-column-end: 3;
+  display:flex;
 
   a {
     text-align:center;
     text-decoration: none;
-    margin: 25px;
+    margin:35px;
   }
 
   svg {
@@ -139,40 +147,95 @@ export default {
   }
 }
 
-  /* custom css for "touch targets" */
-@media (hover:none), (hover:on-demand) { 
-  .paragraph-wrapper {
-    grid-template-columns: 1fr;
-    width: 90vw;
-  }
-
-  .content-wrapper {
-    margin-top: 6vw;
-    display:block;
-    
-    h1 {
-      margin-right: 60px;
-    }
-  }
-
-    .social-wrapper {
-      width:100%;
-      margin-top:4vw;
-
-      svg {
-        width: 0.7em;
-      }
-
-      span {
-        font-size: 1rem;
-        margin-top: 5px;
-      }
-    }
+.content__button {
+  width:190px;
+  margin-top:15px;
 }
 
-@media (min-width: 950px) {
-  .content-wrapper {
-    margin: 10vw 15vw 10vw 15vw;
+.social__name {
+  display:block;
+  font-size: 1.2rem;
+  text-align:center;
+  margin-top:15px;
+  font-family: "Roboto Mono", monospace;
+  text-decoration: none;
+}
+
+  /* custom css for "touch targets" */
+@media (hover:none), (hover:on-demand) {
+  .header__content {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:auto;
+    width: 90vw;
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  .content__title {
+    margin-bottom:0;
+    margin-top: 5vw;
+  }
+
+  .content__intro {
+    display:block;
+  }
+  .content__intro, .content__social {
+    grid-column-start: auto;
+    grid-column-end: auto;
+  }
+
+  .content__social a {
+    margin:4vw;
+  }
+
+  .content__button {
+    width:90vw;
+    height: 43px;
+    font-size: 15px;
+  }
+}
+
+@media (any-hover: hover) {
+  @media (max-width: 500px) {
+    .content__intro {
+      display:block;
+    }
+  } 
+
+@media (max-width:800px) {
+  .header__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .content__button {
+    width: 80vw;
+  }
+
+  .content__intro, .content__social {
+    grid-column-start: auto;
+    grid-column-end: auto;
+  }
+
+  .content__social a {
+    margin: 5vw 5vw 5vw 5vw;
+  }
+}
+
+
+}
+
+@media (min-width: 1050px) {
+  .header__content {
+    max-width: 1000px;
+    margin: 0vw 10vw 0vw 10vw
+    // outline: 44px solid white;
+    // outline-offset: 41px;
+  }
+
+  .content__social {
+    margin-top:50px;
   }
 }
 
