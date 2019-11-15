@@ -19,8 +19,8 @@
           </primary-button>
 
           <article class="content__intro">
-            <p class="intro__first"> Currenty looking for a developer position at a company that is working on having a positive impact on the world. </p>
-            <p class="intro__second"> Previously worked at Das Banner, a creative advertising agency for creating smoothly animated advertisements.</p>
+            <p class="intro__first"> Currenty working on sustainable projects as a creative developer at <a href="https://www.schuttelaar-partners.com/" target="_blank">Schuttelaar & Partners</a> in The Hague. Work that has a positive impact on people around the world. </p>
+            <p class="intro__second"> Previously worked at <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>, a creative advertising agency for creating smoothly animated advertisements.</p>
           </article>
 
           <div class="content__social">
@@ -113,10 +113,15 @@ export default {
 
   p {
     @include font-size(1.4rem);
+    // font-size: 4.7vmin;
     font-family: "Roboto Mono", monospace;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
+  }
+
+  a {
+    color:black;
   }
 }
 
@@ -179,20 +184,44 @@ export default {
 
   .content__intro {
     display:block;
+
+    p {
+      @include font-size(1.15rem);
+    }
   }
   .content__intro, .content__social {
     grid-column-start: auto;
     grid-column-end: auto;
   }
 
-  .content__social a {
-    margin:4vw;
+  .intro__second {
+    margin-top:20px;
+  }
+
+  .content__social {
+    align-self: flex-start;
+    a {
+      margin:4vw;
+      max-height: 70px;
+      max-width: 70px;
+
+      svg {
+      max-height: 50px;
+      max-width: 50px;
+      }
+    }
+
+    span {
+      @include font-size(1rem);
+    }
   }
 
   .content__button {
     width:90vw;
     height: 43px;
     font-size: 15px;
+    margin-top:0px;
+    align-self:flex-start;
   }
 }
 
@@ -229,8 +258,8 @@ export default {
 @media (min-width: 1050px) {
   .header__content {
     max-width: 1000px;
-    margin: 0vw 10vw 0vw 10vw
-    // outline: 44px solid white;
+    margin: 0vw 10vw 0vw 10vw;
+    // outline: 24px solid black;
     // outline-offset: 41px;
   }
 
