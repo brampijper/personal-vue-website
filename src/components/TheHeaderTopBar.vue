@@ -16,7 +16,7 @@
   align-items: center;
   text-decoration: underline;
   width: 100%;
-  height: calc(20px + 1vw);
+  height: calc(15px + 4vh);
   transition: 1s;
   cursor: pointer;
   h4 {
@@ -26,7 +26,7 @@
   }
 }
 .small-container:hover {
-  height: calc(40px + 3vw);
+  height: calc(40px + 4vh);
   transition: 0.7s;
   transition-timing-function: ease-out;
 }

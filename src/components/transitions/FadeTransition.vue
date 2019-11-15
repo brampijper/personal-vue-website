@@ -17,7 +17,11 @@
 }
 
 .fade-leave-active {
+<<<<<<< HEAD
   transition: all 0.3s ease-out;
+=======
+  transition: all 1s ease-out;
+>>>>>>> 4b19e8c487257169981a97e194e21422c6d90e8d
 }
 
 .fade-enter-to,
