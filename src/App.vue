@@ -17,7 +17,7 @@
 </template>
 
 <script>
-const Octokit = require("@octokit/rest");
+const {Octokit} = require("@octokit/rest");
 
 import TheHeader from "./components/TheHeader.vue";
 import AppCard from "./components/interface/AppCard.vue";
