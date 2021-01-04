@@ -48,13 +48,12 @@ export default {
     });
 
     octokit.repos
-      .listForUser({
-        username: "brampijper"
+      .listForOrg({
+        org: "brampijper-gh-pages"
       })
       .then(({ data }) => {
         data.filter(project => {
-          if (!project.archived && project.has_pages) {
-            project.url = "https://brampijper.github.io/" +  this.extractChars(project.full_name, 11); 
+          if (project.homepage) {
             this.isLoading = false; 
             this.githubProjects.push(project);
           };
