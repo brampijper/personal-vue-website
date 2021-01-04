@@ -11,7 +11,7 @@
         <div v-show="extended" class="header__content">
           <article class="content__title">
             <h1>Hello, I'm Bram</h1>
-            <h2> Creative being & web developer. </h2>
+            <h2> Creative being &amp; web developer. </h2>
           </article>
 
           <primary-button class="content__button" buttonSize="big" :onClick="onClick"> 
@@ -19,11 +19,11 @@
           </primary-button>
 
           <article class="content__intro">
-            <p class="intro__first"> Currenty working on sustainable projects as a creative developer at <a href="https://www.schuttelaar-partners.com/" target="_blank">Schuttelaar & Partners</a> in The Hague. Work that has a positive impact on people around the world. </p>
-            <p class="intro__second"> Previously worked at <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>, a creative advertising agency for creating smoothly animated advertisements.</p>
+            <p class="intro__first"> Currenty building my idea's online, while keeping up with my interests: <br> <i> sports, digital currencies, travelling, cooking, reading and mindfulness. </i></p>
+            <p class="intro__second"> I worked as a junior developer at <a href="https://www.schuttelaar-partners.com/" target="_blank">Schuttelaar &amp; Partners.</a>. Before that I was part of the <a href="https://www.dasbanner.com" target="_blank">Das Banner</a> team: a creative advertising agency.</p>
           </article>
 
-          <div class="content__social">
+          <div class="content__social"> 
             <a href="mailto:brampijper@gmail.com" target="_blank">
               <font-awesome-icon size="4x" icon="at" />
               <span class="social__name"> Email </span> 
