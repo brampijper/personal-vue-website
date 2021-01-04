@@ -9,15 +9,15 @@
   opacity: 1;
   will-change: opacity;
   position: relative;
-  transition: all 2s;
+  transition: all 1s;
 }
 
 .fade-enter-active {
-  transition: all 2.3s ease-in;
+  transition: all 1s ease-in;
 }
 
 .fade-leave-active {
-  transition: all 1s ease-out;
+  transition: all .7s ease-out;
 }
 
 .fade-enter-to,
