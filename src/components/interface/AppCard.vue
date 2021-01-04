@@ -2,7 +2,7 @@
     <div class="card-container">
         <div class="card" v-for="card in cards" :key="card.id">
             <span class="card-topbar"> </span>
-            <a class="card-link" :href="card.url" target="_blank">
+            <a class="card-link" :href="card.homepage" target="_blank">
                 <span class="link-spanner"> </span>
                 <div :class="cardSize + ' card-content'"> 
                     <p class="card-title">
