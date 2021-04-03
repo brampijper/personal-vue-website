@@ -1,39 +1,62 @@
 <template>
   <div>
-    <TheHeaderTopBar
-      v-show="!extended"
-      @click.native="onClick()">
+    <TheHeaderTopBar v-show="!extended" @click.native="onClick()">
     </TheHeaderTopBar>
 
-    <ExtendTransition class="overlay-wrapper" :extended="extended" mode="out-in">
+    <ExtendTransition
+      class="overlay-wrapper"
+      :extended="extended"
+      mode="out-in"
+    >
       <FadeTransition name="fade">
-
         <div v-show="extended" class="header__content">
           <article class="content__title">
             <h1>Hello, I'm Bram</h1>
-            <h2> Creative being &amp; web developer. </h2>
+            <h2>Creative being &amp; web developer.</h2>
           </article>
 
-          <primary-button class="content__button" buttonSize="big" :onClick="onClick"> 
+          <PrimaryButton
+            class="content__button"
+            button-size="big"
+            :on-click="onClick"
+          >
             View Projects
-          </primary-button>
+          </PrimaryButton>
 
           <article class="content__intro">
-            <p class="intro__first"> Currenty building my idea's online, while keeping up with my interests: <br> <i> sports, digital currencies, travelling, cooking, reading and mindfulness. </i></p>
-            <p class="intro__second"> I worked as a junior developer at <a href="https://www.schuttelaar-partners.com/" target="_blank">Schuttelaar &amp; Partners.</a>. Before that I was part of the <a href="https://www.dasbanner.com" target="_blank">Das Banner</a> team: a creative advertising agency.</p>
+            <p class="intro__first">
+              Currenty building my idea's online, while keeping up with my
+              interests: <br />
+              <i>
+                sports, digital currencies, traveling, cooking, reading and
+                mindfulness.
+              </i>
+            </p>
+            <p class="intro__second">
+              I worked as a junior developer at
+              <a href="https://www.schuttelaar-partners.com/" target="_blank"
+                >Schuttelaar &amp; Partners.</a
+              >
+              Before that I was part of the
+              <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>
+              team. A creative advertising agency.
+            </p>
           </article>
 
-          <div class="content__social"> 
+          <div class="content__social">
             <a href="mailto:brampijper@gmail.com" target="_blank">
               <font-awesome-icon size="4x" icon="at" />
-              <span class="social__name"> Email </span> 
+              <span class="social__name"> Email </span>
             </a>
-            <a href="https://www.linkedin.com/in/bram-pijper-6a9306129/" target="_blank">
-              <font-awesome-icon size="4x" :icon="[ 'fab', 'linkedin' ]" />
-              <span class="social__name"> LinkedIn </span> 
+            <a
+              href="https://www.linkedin.com/in/bram-pijper-6a9306129/"
+              target="_blank"
+            >
+              <font-awesome-icon size="4x" :icon="['fab', 'linkedin']" />
+              <span class="social__name"> LinkedIn </span>
             </a>
             <a href="https://github.com/brampijper" target="_blank">
-              <font-awesome-icon size="4x" :icon="[ 'fab', 'github']" />
+              <font-awesome-icon size="4x" :icon="['fab', 'github']" />
               <span class="social__name"> Github </span>
             </a>
           </div>
@@ -58,14 +81,14 @@ export default {
   },
   data() {
     return {
-      extended: true,
+      extended: true
     };
   },
   methods: {
     onClick() {
       this.extended = !this.extended;
       this.$emit("clicked", this.extended);
-    },
+    }
   }
 };
 </script>
@@ -76,38 +99,39 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index:2;
+  z-index: 2;
 }
 
 .header__content {
-  display:grid;
+  display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
-    margin: 0vw 10vw 0vw 10vw
+  margin: 0vw 10vw 0vw 10vw;
 }
 
 .content__title {
   margin-bottom: 50px;
 }
-    
+
 .content__title h1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   @include font-size(4rem);
   font-weight: 900;
-  line-height:1;
+  line-height: 1;
   margin: 0 0 10px 0;
 }
 
 .content__title h2 {
   @include font-size(2rem);
-  grid-column-start:1;
+  grid-column-start: 1;
   grid-row-start: 2;
 }
 
 .content__intro {
-  grid-column-start:1;
+  grid-column-start: 1;
   grid-column-end: 3;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 25px;
 
@@ -121,26 +145,26 @@ export default {
   }
 
   a {
-    color:black;
+    color: black;
   }
 }
 
 .content__social {
   justify-self: center;
-  align-self:center;
-  grid-column-start:1;
+  align-self: center;
+  grid-column-start: 1;
   grid-column-end: 3;
-  display:flex;
+  display: flex;
 
   a {
-    text-align:center;
+    text-align: center;
     text-decoration: none;
-    margin:35px;
+    margin: 35px;
   }
 
   svg {
-    transition: transform .2s ease-out;
-    color:black;
+    transition: transform 0.2s ease-out;
+    color: black;
   }
 
   a:hover > svg {
@@ -148,66 +172,67 @@ export default {
   }
 
   a:hover > span {
-    color:white;
+    color: white;
   }
 }
 
 .content__button {
-  width:190px;
-  margin-top:15px;
+  width: 190px;
+  margin-top: 15px;
 }
 
 .social__name {
-  display:block;
+  display: block;
   font-size: 1.2rem;
-  text-align:center;
-  margin-top:15px;
+  text-align: center;
+  margin-top: 15px;
   font-family: "Roboto Mono", monospace;
   text-decoration: none;
 }
 
-  /* custom css for "touch targets" */
-@media (hover:none), (hover:on-demand) {
+/* custom css for "touch targets" */
+@media (hover: none), (hover: on-demand) {
   .header__content {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows:auto;
+    grid-template-rows: auto;
     width: 90vw;
     height: 100vh;
     margin: 0 auto;
   }
 
   .content__title {
-    margin-bottom:0;
+    margin-bottom: 0;
     margin-top: 5vw;
   }
 
   .content__intro {
-    display:block;
+    display: block;
 
     p {
       @include font-size(1.15rem);
     }
   }
-  .content__intro, .content__social {
+  .content__intro,
+  .content__social {
     grid-column-start: auto;
     grid-column-end: auto;
   }
 
   .intro__second {
-    margin-top:20px;
+    margin-top: 20px;
   }
 
   .content__social {
     align-self: flex-start;
     a {
-      margin:4vw;
+      margin: 4vw;
       max-height: 70px;
       max-width: 70px;
 
       svg {
-      max-height: 50px;
-      max-width: 50px;
+        max-height: 50px;
+        max-width: 50px;
       }
     }
 
@@ -217,42 +242,41 @@ export default {
   }
 
   .content__button {
-    width:90vw;
+    width: 90vw;
     height: 43px;
     font-size: 15px;
-    margin-top:0px;
-    align-self:flex-start;
+    margin-top: 0px;
+    align-self: flex-start;
   }
 }
 
 @media (any-hover: hover) {
   @media (max-width: 500px) {
     .content__intro {
-      display:block;
+      display: block;
     }
-  } 
-
-@media (max-width:800px) {
-  .header__content {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
   }
 
-  .content__button {
-    width: 80vw;
+  @media (max-width: 800px) {
+    .header__content {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .content__button {
+      width: 80vw;
+    }
+
+    .content__intro,
+    .content__social {
+      grid-column-start: auto;
+      grid-column-end: auto;
+    }
+
+    .content__social a {
+      margin: 5vw 5vw 5vw 5vw;
+    }
   }
-
-  .content__intro, .content__social {
-    grid-column-start: auto;
-    grid-column-end: auto;
-  }
-
-  .content__social a {
-    margin: 5vw 5vw 5vw 5vw;
-  }
-}
-
-
 }
 
 @media (min-width: 1050px) {
@@ -264,8 +288,7 @@ export default {
   }
 
   .content__social {
-    margin-top:50px;
+    margin-top: 50px;
   }
 }
-
 </style>
