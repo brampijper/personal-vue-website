@@ -33,7 +33,7 @@
 @media (max-width: 720px) {
   .icon-container {
     margin: 0px 10px 10px 10px;
-    
+
     svg {
       font-size: 50px;
     }
