@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-      <slot></slot>
+    <slot></slot>
   </transition>
 </template>
 
@@ -17,7 +17,7 @@
 }
 
 .fade-leave-active {
-  transition: all .7s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 .fade-enter-to,
@@ -25,7 +25,8 @@
   opacity: 1;
 }
 
-.fade-leave-to, .fade-enter {
+.fade-leave-to,
+.fade-enter {
   opacity: 0;
 }
 </style>

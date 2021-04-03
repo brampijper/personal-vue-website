@@ -1,46 +1,50 @@
 <template>
-    <div class="icon-container" v-if="loading">
-        <font-awesome-icon
-            :class="loading ? '' : 'paused'"
-            size="6x"
-            icon="spinner" />
-    </div>
+  <div v-if="loading" class="icon-container">
+    <font-awesome-icon
+      :class="loading ? '' : 'paused'"
+      size="6x"
+      icon="spinner"
+    />
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        loading: { 
-            required: true,
-            type: Boolean
-        }
+  props: {
+    loading: {
+      required: true,
+      type: Boolean
     }
-}
+  }
+};
 </script>
 
 <style scoped lang="scss">
-
 .icon-container {
-    position:fixed;
-    height: 40vh;
-    width:100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  height: 40vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 svg {
-    z-index:2;
-    animation: rotation 2s linear infinite;
+  z-index: 2;
+  animation: rotation 2s linear infinite;
 }
 
 .paused {
-    animation-play-state: paused !important;
-    display:none;
+  animation-play-state: paused !important;
+  display: none;
 }
 
 @keyframes rotation {
-    0% { -webkit-transform: rotate(0deg)}
-    100% {-webkit-transform: rotate(359deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
 }
 </style>
