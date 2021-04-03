@@ -11,13 +11,13 @@
 <script>
 import FadeTransition from "./transitions/FadeTransition.vue";
 export default {
+  components: {
+    FadeTransition
+  },
   props: {
     tagLines: {
       type: Array
     }
-  },
-  components: {
-    FadeTransition
   }
 };
 </script>
