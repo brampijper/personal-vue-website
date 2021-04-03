@@ -1,0 +1,16 @@
+{
+    "clients": [
+      {
+        "name": "Sofia Kakkava",
+        "description": "This website was created for an online coaching business, where customers can buy coaching packages with the integrated Stripe API.",
+        "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
+        "homepage": "https://nervous-kilby-9071bf.netlify.app/"
+      },
+      {
+        "name": "Amsterdam Nanny",
+        "description": "This landing page was created for an nanny business in Amsterdam.",
+        "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
+        "homepage": "https://www.thenannyamsterdam.com/"
+      }
+    ]
+  }
