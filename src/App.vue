@@ -1,28 +1,40 @@
 <template>
-  <div>
+  <main>
     <TheHeader @clicked="onExtending" />
-    
+
     <AppIconLoading :loading="isLoading" />
 
-    <FadeTransition>
+    <div class="projects-container">
+      <FadeTransition>
+        <AppCard
+          v-if="!extended"
+          :cards="githubProjects"
+          class="projects"
+          card-size="medium"
+          title="Personal Projects"
+        >
+        </AppCard>
+      </FadeTransition>
       <AppCard
         v-if="!extended"
-        :cards="githubProjects"
-        class='abs-position'
-        card-size="medium">
+        :cards="clients"
+        class="projects dark-mode"
+        card-size="medium"
+        title="Client Websites"
+      >
       </AppCard>
-    </FadeTransition>
-
-  </div>
+    </div>
+  </main>
 </template>
 
 <script>
-const {Octokit} = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 
 import TheHeader from "./components/TheHeader.vue";
 import AppCard from "./components/interface/AppCard.vue";
 import AppIconLoading from "./components/interface/AppIconLoading.vue";
-import FadeTransition from "./components/transitions/FadeTransition.vue"
+import FadeTransition from "./components/transitions/FadeTransition.vue";
+import { clients } from "../clients-data.json";
 
 export default {
   components: {
@@ -30,13 +42,13 @@ export default {
     AppCard,
     AppIconLoading,
     FadeTransition
-
   },
   data() {
     return {
       extended: true,
       VUE_APP_OCTOKIT: process.env.VUE_APP_OCTOKIT_VAR,
       githubProjects: [],
+      clients: clients,
       isLoading: true
     };
   },
@@ -54,9 +66,9 @@ export default {
       .then(({ data }) => {
         data.filter(project => {
           if (project.homepage) {
-            this.isLoading = false; 
+            this.isLoading = false;
             this.githubProjects.push(project);
-          };
+          }
         });
       });
   },
@@ -72,21 +84,22 @@ export default {
 </script>
 
 <style lang="scss">
-
 //base font
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
 
 $base-color: #3498db;
-$secondary-color: #F62A00;
-$font-color: #F1F3CE; 
+$secondary-color: #f62a00;
+$font-color: #f1f3ce;
+$font-family: "Roboto", sans-serif;
 
 * {
   margin: 0px;
   padding: 0px;
   border: 0px;
-  font-family: "Roboto", sans-serif;
+}
+
+html {
   list-style-type: none;
-  font-weight: 300;
 }
 
 body {
@@ -95,16 +108,45 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  max-height: 100vh;
+}
+
+p,
+h2,
+span {
+  font-family: $font-family;
+  font-weight: 300;
+}
+
 a {
   transition: all 0.5s;
+  text-decoration: none;
 }
 
 a:hover {
-  color: black; 
+  color: black;
 }
 
-.abs-position {
-  top:0;
-  position: absolute;
+a:visited {
+  color: inherit;
+}
+
+.projects-container {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  min-height: 40rem;
+  gap: 5rem;
 }
 </style>
