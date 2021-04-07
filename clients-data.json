@@ -8,7 +8,7 @@
       },
       {
         "name": "Amsterdam Nanny",
-        "description": "This landing page was created for an nanny business in Amsterdam.",
+        "description": "This landing page was created for a nanny business in Amsterdam.",
         "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
         "homepage": "https://www.thenannyamsterdam.com/"
       }
