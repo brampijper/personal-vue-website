@@ -2,8 +2,6 @@ const commonPaths = require("./common-paths");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
-let devConfig = {};
-devConfig.prod = require("../dev.env");
 
 const config = {
   entry: "./src/app.js",
@@ -35,10 +33,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html"
     }),
-    new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": JSON.stringify(devConfig.prod)
-    })
+    new VueLoaderPlugin()
   ]
 };
 
