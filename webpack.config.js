@@ -1,5 +1,5 @@
 const commonConfig = require("./build-utils/webpack.common");
-const webpackMerge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 
 module.exports = env => {
   if (!env) {
@@ -7,9 +7,8 @@ module.exports = env => {
       "You must pass an --env.env flag into your build for webpack to work!"
     );
   }
+  const envString = env.hasOwnProperty('dev') ? 'dev' : 'prod';
+  const envConfig = require(`./build-utils/webpack.${envString}.js`);
 
-  console.log(env);
-  const envConfig = require(`./build-utils/webpack.${env.env}.js`);
-
-  return webpackMerge(commonConfig, envConfig);
+  return merge(commonConfig, envConfig);
 };
