@@ -1,8 +1,10 @@
+const commonPaths = require("./common-paths");
+
 const config = {
   mode: "development",
   devtool: "eval-source-map",
   devServer: {
-    contentBase: "./dist"
+    contentBase: commonPaths.outputPath
   },
   module: {
     rules: [
