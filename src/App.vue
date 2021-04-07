@@ -32,7 +32,7 @@ import TheHeader from "./components/TheHeader.vue";
 import AppCard from "./components/interface/AppCard.vue";
 import AppIconLoading from "./components/interface/AppIconLoading.vue";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
-import { clients } from "../clients-data.json";
+import data from "../clients-data.json";
 
 export default {
   components: {
@@ -46,12 +46,12 @@ export default {
       extended: true,
       VUE_APP_OCTOKIT: process.env.VUE_APP_OCTOKIT_VAR,
       githubProjects: [],
-      clients: clients,
+      clients: data.clients,
       isLoading: true
     };
   },
   created() {
-    const octokit = Octokit({
+    const octokit = new Octokit({
       auth: this.VUE_APP_OCTOKIT,
       userAgent: "brampijper",
       Accept: "application/vnd.github.16.28.4.raw"
@@ -120,6 +120,7 @@ span {
 a {
   transition: all 0.5s;
   text-decoration: none;
+  color: black;
 }
 
 a:hover {
