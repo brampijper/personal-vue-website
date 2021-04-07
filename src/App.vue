@@ -4,26 +4,24 @@
 
     <AppIconLoading :loading="isLoading" />
 
-    <div class="projects-container">
-      <FadeTransition>
+    <FadeTransition>
+      <div v-if="!extended" class="projects-container">
         <AppCard
-          v-if="!extended"
           :cards="githubProjects"
           class="projects"
           card-size="medium"
           title="Personal Projects"
         >
         </AppCard>
-      </FadeTransition>
-      <AppCard
-        v-if="!extended"
-        :cards="clients"
-        class="projects dark-mode"
-        card-size="medium"
-        title="Client Websites"
-      >
-      </AppCard>
-    </div>
+        <AppCard
+          :cards="clients"
+          class="projects dark-mode"
+          card-size="medium"
+          title="Client Websites"
+        >
+        </AppCard>
+      </div>
+    </FadeTransition>
   </main>
 </template>
 
