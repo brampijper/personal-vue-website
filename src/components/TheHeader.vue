@@ -1,7 +1,6 @@
 <template>
   <div>
-    <TheHeaderTopBar v-show="!extended" @click.native="onClick()">
-    </TheHeaderTopBar>
+    <TheHeaderTopBar v-show="!extended" @click.native="onClick()" />
 
     <ExtendTransition
       class="overlay-wrapper"
@@ -137,7 +136,6 @@ export default {
 
   p {
     @include font-size(1.4rem);
-    // font-size: 4.7vmin;
     font-family: "Roboto Mono", monospace;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
@@ -160,6 +158,7 @@ export default {
     text-align: center;
     text-decoration: none;
     margin: 35px;
+    color: black;
   }
 
   svg {
@@ -173,6 +172,7 @@ export default {
 
   a:hover > span {
     color: white;
+    transition: color 0.3s;
   }
 }
 
