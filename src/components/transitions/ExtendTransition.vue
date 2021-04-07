@@ -29,7 +29,7 @@ export default {
 
 .extend-enter-active,
 .extend-leave-active {
-  transition: 0.9s ease-out;
+  transition: 0.9s ease-in-out;
 }
 
 .extend-enter-to,
@@ -38,7 +38,7 @@ export default {
 }
 
 .extend-leave-to {
-  height: calc(15px + 4vh);
+  height: 0;
 }
 
 .extend-enter {
