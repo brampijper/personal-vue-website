@@ -4,7 +4,7 @@
         "name": "Sofia Kakkava",
         "description": "This website was created for an online coaching business, where customers can buy coaching packages with the integrated Stripe API.",
         "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
-        "homepage": "https://nervous-kilby-9071bf.netlify.app/"
+        "homepage": "https://sofiakakkava.com/"
       },
       {
         "name": "Amsterdam Nanny",
