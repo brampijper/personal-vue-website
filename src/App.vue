@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       extended: true,
-      VUE_APP_OCTOKIT: process.env.VUE_APP_OCTOKIT_VAR,
+      VUE_APP_OCTOKIT: octokit.var,
       githubProjects: [],
       clients: data.clients,
       isLoading: true
