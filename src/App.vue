@@ -7,17 +7,17 @@
     <FadeTransition>
       <div v-if="!extended" class="projects-container">
         <AppCard
-          :cards="githubProjects"
+          :cards="clients"
           class="projects"
           card-size="medium"
-          title="Personal Projects"
+          title="Client Websites"
         >
         </AppCard>
         <AppCard
-          :cards="clients"
+          :cards="githubProjects"
           class="projects dark-mode"
           card-size="medium"
-          title="Client Websites"
+          title="Personal Projects"
         >
         </AppCard>
       </div>
