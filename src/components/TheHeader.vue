@@ -143,7 +143,7 @@ export default {
   }
 
   a {
-    color: black;
+    text-decoration: underline;
   }
 }
 
