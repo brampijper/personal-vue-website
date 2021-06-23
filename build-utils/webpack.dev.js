@@ -19,7 +19,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": JSON.stringify(devConfig.prod)
+      "octokit.var": JSON.stringify(process.env.VUE_APP_OCTOKIT_VAR)
     })
   ]
 };
