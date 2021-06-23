@@ -14,7 +14,7 @@
       },
       {
         "name": "Laudes Foundation",
-        "description": "I translated the design to built a functional front-end website when I was working as a front-end developer at Schuttelaar & Partners (2020)",
+        "description": "I translated the design into a functional front-end website when I was working as a front-end developer at Schuttelaar & Partners (2020)",
         "technologies": ["Pimcore CMS", "PHP", "CSS", "Laravel"],
         "homepage": "https://www.laudesfoundation.org"
       }
