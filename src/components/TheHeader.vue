@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeaderTopBar v-show="!extended" @click.native="onClick()" />
+    <TheHeaderTopBar v-show="!extended" @click="onClick()" />
 
     <ExtendTransition
       class="overlay-wrapper"
