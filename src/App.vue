@@ -39,7 +39,7 @@ export default {
     TheHeader,
     AppCard,
     AppIconLoading,
-    FadeTransition
+    FadeTransition,
   },
   data() {
     return {
@@ -47,22 +47,22 @@ export default {
       VUE_APP_OCTOKIT: octokit.var,
       githubProjects: [],
       clients: data.clients,
-      isLoading: true
+      isLoading: true,
     };
   },
   created() {
     const octokit = new Octokit({
       auth: this.VUE_APP_OCTOKIT,
       userAgent: "brampijper",
-      Accept: "application/vnd.github.16.28.4.raw"
+      Accept: "application/vnd.github.16.28.4.raw",
     });
 
     octokit.repos
       .listForOrg({
-        org: "brampijper-gh-pages"
+        org: "brampijper-gh-pages",
       })
       .then(({ data }) => {
-        data.filter(project => {
+        data.filter((project) => {
           if (project.homepage) {
             this.isLoading = false;
             this.githubProjects.push(project);
@@ -76,8 +76,8 @@ export default {
     },
     extractChars(str, indexStart) {
       return str.substring(indexStart, str.length);
-    }
-  }
+    },
+  },
 };
 </script>
 

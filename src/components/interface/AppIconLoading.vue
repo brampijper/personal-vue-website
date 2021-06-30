@@ -12,10 +12,11 @@
 export default {
   props: {
     loading: {
+      type: Boolean,
       required: true,
-      type: Boolean
-    }
-  }
+      default: true,
+    },
+  },
 };
 </script>
 
