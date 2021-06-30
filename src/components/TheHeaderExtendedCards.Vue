@@ -13,9 +13,9 @@ export default {
   props: {
     tagLines: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 };
 </script>
 
