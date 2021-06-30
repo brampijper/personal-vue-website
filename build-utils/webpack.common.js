@@ -1,7 +1,7 @@
 const commonPaths = require("./common-paths");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 
 const config = {
   entry: "./src/app.js",
@@ -9,12 +9,24 @@ const config = {
     filename: "bundle.js",
     path: commonPaths.outputPath
   },
+  resolve: {
+    alias: {
+      vue: "@vue/compat"
+    }
+  },
   module: {
     rules: [
       {
         test: /\.vue$/,
         loader: "vue-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          compilerOptions: {
+            compatConfig: {
+              MODE: 2
+            }
+          }
+        }
       },
       {
         test: /\.js$/,
