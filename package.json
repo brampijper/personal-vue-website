@@ -30,7 +30,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@fortawesome/vue-fontawesome": "^3.0.0-4",
     "@octokit/rest": "^18.5.2",
     "@vue/compat": "^3.1.2",
     "@vue/compiler-sfc": "^3.1.2",
