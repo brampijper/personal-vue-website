@@ -7,12 +7,12 @@ const config = {
   entry: "./src/app.js",
   output: {
     filename: "bundle.js",
-    path: commonPaths.outputPath
+    path: commonPaths.outputPath,
   },
   resolve: {
     alias: {
-      vue: "@vue/compat"
-    }
+      vue: "@vue/compat",
+    },
   },
   module: {
     rules: [
@@ -23,10 +23,10 @@ const config = {
         options: {
           compilerOptions: {
             compatConfig: {
-              MODE: 2
-            }
-          }
-        }
+              MODE: 2,
+            },
+          },
+        },
       },
       {
         test: /\.js$/,
@@ -34,19 +34,23 @@ const config = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
-      }
-    ]
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
-      template: "index.html"
+      template: "index.html",
     }),
-    new VueLoaderPlugin()
-  ]
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: false,
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
+  ],
 };
 
 module.exports = config;
