@@ -8,6 +8,7 @@ const config = {
   output: {
     filename: "bundle.js",
     path: commonPaths.outputPath,
+    sourceMapFilename: "[name].js.map",
   },
   resolve: {
     alias: {
@@ -49,6 +50,9 @@ const config = {
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: false,
       __VUE_PROD_DEVTOOLS__: false,
+      "process.env.OCTOKIT_API_KEY": JSON.stringify(
+        process.env.VUE_APP_OCTOKIT_VAR
+      ),
     }),
   ],
 };

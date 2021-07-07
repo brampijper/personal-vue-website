@@ -18,8 +18,8 @@ const config = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "octokit.var": JSON.stringify(process.env.VUE_APP_OCTOKIT_VAR),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
     }),
   ],
 };
