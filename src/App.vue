@@ -1,11 +1,11 @@
 <template>
   <main>
-    <TheHeader @clicked="onExtending" />
-
-    <AppIconLoading :loading="isLoading" />
-
+    <AboutMe
+      :display-about-me="displayAboutMe"
+      @toggle-display-about-me="toggleDisplayAboutMe"
+    />
     <FadeTransition>
-      <div v-if="!extended" class="projects-container">
+      <div v-if="!displayAboutMe" class="projects-container">
         <AppCard
           :cards="clients"
           class="projects"
@@ -14,7 +14,8 @@
         >
         </AppCard>
         <AppCard
-          :cards="githubProjects"
+          :cards="projects.value"
+          :loading="isLoading.value"
           class="projects dark-mode"
           card-size="medium"
           title="Personal Projects"
@@ -26,57 +27,42 @@
 </template>
 
 <script>
-const { Octokit } = require("@octokit/rest");
-
-import TheHeader from "./components/TheHeader.vue";
-import AppCard from "./components/interface/AppCard.vue";
-import AppIconLoading from "./components/interface/AppIconLoading.vue";
+import { ref, onMounted } from "vue";
+import AboutMe from "./components/layout/AboutMe.vue";
+import AppCard from "./components/ui/AppCard.vue";
+import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
 
 export default {
   components: {
-    TheHeader,
+    AboutMe,
     AppCard,
-    AppIconLoading,
     FadeTransition,
   },
-  data() {
-    return {
-      extended: true,
-      VUE_APP_OCTOKIT: octokit.var,
-      githubProjects: [],
-      clients: data.clients,
-      isLoading: true,
-    };
-  },
-  created() {
-    const octokit = new Octokit({
-      auth: this.VUE_APP_OCTOKIT,
-      userAgent: "brampijper",
-      Accept: "application/vnd.github.16.28.4.raw",
+  setup() {
+    const projects = ref([]);
+    const isLoading = ref(true);
+    const clients = ref(data.clients);
+    const displayAboutMe = ref(true);
+
+    onMounted(async () => {
+      const { loading, repositories } = await useGithubRepositories();
+      projects.value = repositories;
+      isLoading.value = loading;
     });
 
-    octokit.repos
-      .listForOrg({
-        org: "brampijper-gh-pages",
-      })
-      .then(({ data }) => {
-        data.filter((project) => {
-          if (project.homepage) {
-            this.isLoading = false;
-            this.githubProjects.push(project);
-          }
-        });
-      });
-  },
-  methods: {
-    onExtending(value) {
-      this.extended = value;
-    },
-    extractChars(str, indexStart) {
-      return str.substring(indexStart, str.length);
-    },
+    const toggleDisplayAboutMe = () => {
+      displayAboutMe.value = !displayAboutMe.value;
+    };
+
+    return {
+      projects,
+      isLoading,
+      clients,
+      displayAboutMe,
+      toggleDisplayAboutMe, // functions returned behave the same as methods
+    };
   },
 };
 </script>
