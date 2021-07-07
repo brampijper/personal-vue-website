@@ -1,6 +1,6 @@
 <template>
   <transition name="extend">
-    <div v-show="extended" class="extend-transition-wrapper">
+    <div v-if="displayAboutMe" class="extend-transition-wrapper">
       <slot></slot>
     </div>
   </transition>
@@ -9,11 +9,11 @@
 <script>
 export default {
   props: {
-    extended: {
+    displayAboutMe: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: true,
+    },
+  },
 };
 </script>
 
