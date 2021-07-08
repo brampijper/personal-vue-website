@@ -33,6 +33,7 @@ export default {
   height: calc(15px + 4vh);
   transition: 1s;
   cursor: pointer;
+  z-index: 4;
   h4 {
     transition: 1s;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
