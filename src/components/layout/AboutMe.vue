@@ -4,62 +4,66 @@
       <AppHeader v-if="!displayAboutMe" :on-click="startTransition" />
     </FadeTransition>
 
-    <ExtendTransition
-      class="overlay-wrapper"
-      :display-about-me="displayAboutMe"
-      mode="out-in"
-    >
+    <ExtendTransition>
       <div v-if="displayAboutMe" class="header__content">
-        <article class="content__title">
-          <h1>Hello, I'm Bram</h1>
-          <h2>Creative being &amp; web developer.</h2>
-        </article>
+        <FadeTransition>
+          <div class="content__wrap">
+            <div class="content__heading">
+              <article class="heading__title">
+                <h1>Hello, I'm Bram</h1>
+                <h2>Creative being &amp; web developer.</h2>
+              </article>
+              <PrimaryButton
+                class="content__button"
+                button-size="big"
+                :on-click="startTransition"
+              >
+                View Projects
+              </PrimaryButton>
+            </div>
 
-        <PrimaryButton
-          class="content__button"
-          button-size="big"
-          :on-click="startTransition"
-        >
-          View Projects
-        </PrimaryButton>
+            <!-- TURN INTO A SEPARATE COMPONENT ????  -->
+            <article class="content__intro">
+              <p class="intro__first">
+                Currently building my idea's online, while keeping up with my
+                interests: <br />
+                <i> being outdoors, cooking, reading and mindfulness. </i>
+              </p>
+              <p class="intro__second">
+                I worked as a junior developer at
+                <a href="https://www.schuttelaar-partners.com/" target="_blank"
+                  >Schuttelaar &amp; Partners.</a
+                >
+                Before that I was part of the
+                <a href="https://www.dasbanner.com" target="_blank"
+                  >Das Banner</a
+                >
+                team. A creative advertising agency.
+              </p>
+            </article>
+            <!--END  -->
 
-        <article class="content__intro">
-          <p class="intro__first">
-            Currenty building my idea's online, while keeping up with my
-            interests: <br />
-            <i>
-              sports, digital currencies, traveling, cooking, reading and
-              mindfulness.
-            </i>
-          </p>
-          <p class="intro__second">
-            I worked as a junior developer at
-            <a href="https://www.schuttelaar-partners.com/" target="_blank"
-              >Schuttelaar &amp; Partners.</a
-            >
-            Before that I was part of the
-            <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>
-            team. A creative advertising agency.
-          </p>
-        </article>
-
-        <div class="content__social">
-          <a href="mailto:brampijper@gmail.com" target="_blank">
-            <font-awesome-icon size="4x" icon="at" />
-            <span class="social__name"> Email </span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/bram-pijper-6a9306129/"
-            target="_blank"
-          >
-            <font-awesome-icon size="4x" :icon="['fab', 'linkedin']" />
-            <span class="social__name"> LinkedIn </span>
-          </a>
-          <a href="https://github.com/brampijper" target="_blank">
-            <font-awesome-icon size="4x" :icon="['fab', 'github']" />
-            <span class="social__name"> Github </span>
-          </a>
-        </div>
+            <!-- TURN INTO A SEPARATE COMPONENT -->
+            <div class="content__social">
+              <a href="mailto:brampijper@gmail.com" target="_blank">
+                <font-awesome-icon size="4x" icon="at" />
+                <span class="social__name"> Email </span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/bram-pijper-6a9306129/"
+                target="_blank"
+              >
+                <font-awesome-icon size="4x" :icon="['fab', 'linkedin']" />
+                <span class="social__name"> LinkedIn </span>
+              </a>
+              <a href="https://github.com/brampijper" target="_blank">
+                <font-awesome-icon size="4x" :icon="['fab', 'github']" />
+                <span class="social__name"> Github </span>
+              </a>
+            </div>
+            <!-- END -->
+          </div>
+        </FadeTransition>
       </div>
     </ExtendTransition>
   </div>
@@ -99,37 +103,48 @@ export default {
 <style scoped lang="scss">
 @import "~rfs/scss";
 
-.overlay-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
 .header__content {
+  height: 100vh;
+  display: flex;
+  background-color: aquamarine;
+  will-change: height;
+  overflow: hidden;
+}
+
+.content__wrap {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
-  margin: 0vw 10vw 0vw 10vw;
+  align-items: center;
+  justify-items: start;
+  height: 100%;
+  margin: 0 auto;
+  width: max-content;
+  height: max-content;
+  align-self: center;
+  row-gap: 4rem;
 }
 
-.content__title {
-  margin-bottom: 50px;
-}
+.content__heading {
+  display: flex;
+  flex-direction: row;
+  align-self: end;
+  gap: 5rem;
 
-.content__title h1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  @include font-size(4rem);
-  font-weight: 900;
-  line-height: 1;
-  margin: 0 0 10px 0;
-}
+  .heading__title h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    @include font-size(4rem);
+    font-weight: 900;
+    line-height: 1;
+    margin: 0 0 10px 0;
+  }
 
-.content__title h2 {
-  @include font-size(2rem);
-  grid-column-start: 1;
-  grid-row-start: 2;
+  .heading__title h2 {
+    @include font-size(2rem);
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
 }
 
 .content__intro {
@@ -145,6 +160,7 @@ export default {
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
+    max-width: 45ch;
   }
 
   a {
@@ -154,15 +170,13 @@ export default {
 
 .content__social {
   justify-self: center;
-  align-self: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
   display: flex;
+  align-items: flex-start;
+  gap: 4rem;
 
   a {
     text-align: center;
     text-decoration: none;
-    margin: 35px;
     color: black;
   }
 
@@ -195,105 +209,61 @@ export default {
   text-decoration: none;
 }
 
-/* custom css for "touch targets" */
-@media (hover: none), (hover: on-demand) {
-  .header__content {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    width: 90vw;
-    height: 100vh;
-    margin: 0 auto;
+@media (max-width: 1150px) {
+  .content__wrap {
+    grid-template-rows: 1fr;
   }
 
-  .content__title {
-    margin-bottom: 0;
-    margin-top: 5vw;
+  .content__heading {
+    gap: 0rem;
+    flex-direction: column;
   }
 
   .content__intro {
-    display: block;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
 
+@media (max-width: 668px) {
+  .content__wrap {
+    margin: 1rem;
+  }
+
+  .content__social {
+    gap: 0rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+//specific edge cases for small and tall screens
+@media (max-width: 668px) and (max-height: 750px) {
+  .content__wrap {
+    height: 100vh;
+    row-gap: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .content__intro {
     p {
-      @include font-size(1.15rem);
+      font-size: 1.1rem;
     }
   }
-  .content__intro,
-  .content__social {
-    grid-column-start: auto;
-    grid-column-end: auto;
-  }
-
-  .intro__second {
-    margin-top: 20px;
-  }
 
   .content__social {
-    align-self: flex-start;
+    margin: 1rem 0 1rem 0;
     a {
-      margin: 4vw;
-      max-height: 70px;
-      max-width: 70px;
-
-      svg {
-        max-height: 50px;
-        max-width: 50px;
-      }
-    }
-
-    span {
-      @include font-size(1rem);
+      font-size: 2vw;
     }
   }
 
   .content__button {
-    width: 90vw;
-    height: 43px;
-    font-size: 15px;
-    margin-top: 0px;
-    align-self: flex-start;
-  }
-}
-
-@media (any-hover: hover) {
-  @media (max-width: 500px) {
-    .content__intro {
-      display: block;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .header__content {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
-    }
-
-    .content__button {
-      width: 80vw;
-    }
-
-    .content__intro,
-    .content__social {
-      grid-column-start: auto;
-      grid-column-end: auto;
-    }
-
-    .content__social a {
-      margin: 5vw 5vw 5vw 5vw;
-    }
-  }
-}
-
-@media (min-width: 1050px) {
-  .header__content {
-    max-width: 1000px;
-    margin: 0vw 10vw 0vw 10vw;
-    // outline: 24px solid black;
-    // outline-offset: 41px;
-  }
-
-  .content__social {
-    margin-top: 50px;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
   }
 }
 </style>
