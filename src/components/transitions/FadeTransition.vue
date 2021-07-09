@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" appear>
+  <transition name="fade" appear mode="out-in">
     <slot></slot>
   </transition>
 </template>
