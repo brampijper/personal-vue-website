@@ -24,13 +24,13 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({}),
+    new MiniCssExtractPlugin(),
     new BundleAnalyzerPlugin({ analyzerMode: "static" }),
   ],
 };
