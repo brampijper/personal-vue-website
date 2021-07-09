@@ -32,7 +32,7 @@ const config = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    new BundleAnalyzerPlugin({ analyzerMode: "static" }),
+    new BundleAnalyzerPlugin({ analyzerMode: "disabled" }),
   ],
 };
 
