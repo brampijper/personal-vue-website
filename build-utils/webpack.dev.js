@@ -5,6 +5,9 @@ devConfig.prod = require("../dev.env");
 
 const config = {
   mode: "development",
+  output: {
+    sourceMapFilename: "[name].js.map",
+  },
   devtool: "eval-source-map",
   devServer: {
     contentBase: commonPaths.outputPath,
