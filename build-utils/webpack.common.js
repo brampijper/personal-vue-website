@@ -8,12 +8,6 @@ const config = {
   output: {
     filename: "bundle.js",
     path: commonPaths.outputPath,
-    sourceMapFilename: "[name].js.map",
-  },
-  resolve: {
-    alias: {
-      vue: "@vue/compat",
-    },
   },
   module: {
     rules: [
@@ -21,13 +15,6 @@ const config = {
         test: /\.vue$/,
         loader: "vue-loader",
         exclude: /node_modules/,
-        options: {
-          compilerOptions: {
-            compatConfig: {
-              MODE: 2,
-            },
-          },
-        },
       },
       {
         test: /\.js$/,
@@ -49,7 +36,7 @@ const config = {
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: false,
-      __VUE_PROD_DEVTOOLS__: false,
+      __VUE_PROD_DEVTOOLS__: true,
       "process.env.OCTOKIT_API_KEY": JSON.stringify(
         process.env.VUE_APP_OCTOKIT_VAR
       ),
