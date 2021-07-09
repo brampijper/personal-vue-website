@@ -1,5 +1,6 @@
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
@@ -8,15 +9,15 @@ const config = {
   optimization: {
     minimize: true,
     minimizer: [
-      (compiler) => {
-        const TerserPlugin = require("terser-webpack-plugin");
-        new TerserPlugin({}).apply(compiler);
-      },
-      new OptimizeCSSAssetsPlugin({
-        assetNameRegExp: /\.optimize\.css$/g,
-        cssProcessor: require("cssnano"),
-        cssProcessorPluginOptions: {
-          preset: ["default", { discardComments: { removeAll: true } }],
+      new TerserPlugin(), //minifies all js files.
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
         },
       }),
     ],
