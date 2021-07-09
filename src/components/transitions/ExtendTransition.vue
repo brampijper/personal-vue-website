@@ -20,7 +20,7 @@
   max-height: 0;
 }
 
-/* .extend-enter {
+.extend-enter {
   max-height: calc(40px + 4vh);
-} */
+}
 </style>
