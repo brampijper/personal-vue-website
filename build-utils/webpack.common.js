@@ -32,6 +32,8 @@ const config = {
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: "index.html",
+      favicon: "./src/images/favicon.png",
+      //can add meta tag obj here so it's injected in the index.html
     }),
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
