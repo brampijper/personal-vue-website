@@ -122,7 +122,7 @@ export default {
   width: max-content;
   height: max-content;
   align-self: center;
-  row-gap: 4rem;
+  row-gap: 6rem;
 }
 
 .content__heading {
@@ -172,7 +172,7 @@ export default {
   justify-self: center;
   display: flex;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 8rem;
 
   a {
     text-align: center;
@@ -223,17 +223,19 @@ export default {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  .content__social {
+    gap: 0rem;
+    width: 100%;
+    justify-self: unset;
+    align-items: unset;
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 668px) {
   .content__wrap {
     margin: 1rem;
-  }
-
-  .content__social {
-    gap: 0rem;
-    width: 100%;
-    justify-content: space-between;
   }
 }
 
