@@ -43,25 +43,7 @@
             </article>
             <!--END  -->
 
-            <!-- TURN INTO A SEPARATE COMPONENT -->
-            <div class="content__social">
-              <a href="mailto:brampijper@gmail.com" target="_blank">
-                <font-awesome-icon size="4x" icon="at" />
-                <span class="social__name"> Email </span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/bram-pijper-6a9306129/"
-                target="_blank"
-              >
-                <font-awesome-icon size="4x" :icon="['fab', 'linkedin']" />
-                <span class="social__name"> LinkedIn </span>
-              </a>
-              <a href="https://github.com/brampijper" target="_blank">
-                <font-awesome-icon size="4x" :icon="['fab', 'github']" />
-                <span class="social__name"> Github </span>
-              </a>
-            </div>
-            <!-- END -->
+            <SocialIcons />
           </div>
         </FadeTransition>
       </div>
@@ -71,8 +53,9 @@
 
 <script>
 import AppHeader from "./AppHeader.vue";
-import ExtendTransition from "../transitions/ExtendTransition.vue";
 import PrimaryButton from "../ui/AppButton.vue";
+import SocialIcons from "./SocialIcons.vue";
+import ExtendTransition from "../transitions/ExtendTransition.vue";
 import FadeTransition from "../transitions/FadeTransition.vue";
 
 export default {
@@ -81,6 +64,7 @@ export default {
     ExtendTransition,
     PrimaryButton,
     FadeTransition,
+    SocialIcons,
   },
   props: {
     displayAboutMe: {
@@ -168,45 +152,9 @@ export default {
   }
 }
 
-.content__social {
-  justify-self: center;
-  display: flex;
-  align-items: flex-start;
-  gap: 8rem;
-
-  a {
-    text-align: center;
-    text-decoration: none;
-    color: black;
-  }
-
-  svg {
-    transition: transform 0.2s ease-out;
-    color: black;
-  }
-
-  a:hover > svg {
-    transform: translate(0, -15px);
-  }
-
-  a:hover > span {
-    color: white;
-    transition: color 0.3s;
-  }
-}
-
 .content__button {
   width: 190px;
   margin-top: 15px;
-}
-
-.social__name {
-  display: block;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 15px;
-  font-family: "Roboto Mono", monospace;
-  text-decoration: none;
 }
 
 @media (max-width: 1150px) {
@@ -222,14 +170,6 @@ export default {
   .content__intro {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .content__social {
-    gap: 0rem;
-    width: 100%;
-    justify-self: unset;
-    align-items: unset;
-    justify-content: space-between;
   }
 }
 
@@ -252,13 +192,6 @@ export default {
   .content__intro {
     p {
       font-size: 1.1rem;
-    }
-  }
-
-  .content__social {
-    margin: 1rem 0 1rem 0;
-    a {
-      font-size: 2vw;
     }
   }
 
