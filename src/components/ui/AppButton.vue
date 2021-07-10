@@ -53,4 +53,13 @@ export default {
   cursor: pointer;
   will-change: auto;
 }
+
+//specific edge cases for small and tall screens
+@media (max-width: 668px) and (max-height: 750px) {
+  button {
+    height: 45px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+}
 </style>
