@@ -1,9 +1,18 @@
 <template>
   <main>
-    <AboutMe
-      :display-about-me="displayAboutMe"
-      @toggle-display-about-me="toggleDisplayAboutMe"
-    />
+    <!-- look into dynamic components works better i think -->
+    <!-- a ~.8s delay is happening between the extend and fade transition. -->
+    <!-- app header transition switch to max-height -->
+
+    <ExtendTransition>
+      <Intro
+        v-if="displayAboutMe"
+        @toggle-display-about-me="toggleDisplayAboutMe"
+      />
+
+      <AppHeader v-else :on-click="toggleDisplayAboutMe" />
+    </ExtendTransition>
+
     <FadeTransition>
       <div v-if="!displayAboutMe" class="projects-container">
         <AppCard
@@ -28,17 +37,22 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import AboutMe from "./components/layout/AboutMe.vue";
+import Intro from "./components/intro/intro.vue";
 import AppCard from "./components/ui/AppCard.vue";
+import AppHeader from "./components/layout/AppHeader.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
 
+import ExtendTransition from "./components/transitions/ExtendTransition.vue";
+
 export default {
   components: {
-    AboutMe,
+    Intro,
+    AppHeader,
     AppCard,
     FadeTransition,
+    ExtendTransition,
   },
   setup() {
     const projects = ref([]);
