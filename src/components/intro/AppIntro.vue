@@ -30,10 +30,10 @@ export default {
     IntroText,
     PrimaryButton,
   },
-  emits: ["toggleDisplayAboutMe"],
+  emits: ["toggleShowIntro"],
   setup(props, { emit }) {
     const startTransition = () => {
-      emit("toggleDisplayAboutMe");
+      emit("toggleShowIntro");
     };
 
     return {
