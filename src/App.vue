@@ -5,7 +5,7 @@
     <!-- app header transition switch to max-height -->
 
     <ExtendTransition>
-      <Intro
+      <AppIntro
         v-if="displayAboutMe"
         @toggle-display-about-me="toggleDisplayAboutMe"
       />
@@ -37,7 +37,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import Intro from "./components/intro/intro.vue";
+import AppIntro from "./components/intro/AppIntro.vue";
 import AppCard from "./components/ui/AppCard.vue";
 import AppHeader from "./components/layout/AppHeader.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
@@ -48,7 +48,7 @@ import ExtendTransition from "./components/transitions/ExtendTransition.vue";
 
 export default {
   components: {
-    Intro,
+    AppIntro,
     AppHeader,
     AppCard,
     FadeTransition,
