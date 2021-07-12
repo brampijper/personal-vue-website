@@ -1,14 +1,6 @@
 <template>
   <main>
-    <!-- look into dynamic components works better i think -->
-    <!-- a ~.8s delay is happening between the extend and fade transition. -->
-    <!-- app header transition switch to max-height -->
-
-    <ExtendTransition>
-      <AppIntro v-if="showIntro" @toggle-show-intro="toggleShowIntro" />
-
-      <AppHeader v-else :on-click="toggleShowIntro" />
-    </ExtendTransition>
+    <AppIntro :show-intro="showIntro" @toggle-show-intro="toggleShowIntro" />
 
     <FadeTransition>
       <div v-if="!showIntro" class="projects-container">
@@ -36,26 +28,21 @@
 import { ref, onMounted } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
 import AppCard from "./components/ui/AppCard.vue";
-import AppHeader from "./components/layout/AppHeader.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
 
-import ExtendTransition from "./components/transitions/ExtendTransition.vue";
-
 export default {
   components: {
     AppIntro,
-    AppHeader,
     AppCard,
     FadeTransition,
-    ExtendTransition,
   },
   setup() {
     const projects = ref([]);
     const isLoading = ref(true);
     const clients = ref(data.clients);
-    const showIntro = ref(true);
+    const showIntro = ref("show");
 
     onMounted(async () => {
       const { loading, repositories } = await useGithubRepositories();
@@ -64,7 +51,9 @@ export default {
     });
 
     const toggleShowIntro = () => {
-      showIntro.value = !showIntro.value;
+      showIntro.value == "show"
+        ? (showIntro.value = "")
+        : (showIntro.value = "show");
     };
 
     return {
