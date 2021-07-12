@@ -31,7 +31,7 @@ export default {
   align-items: center;
   width: 100%;
   height: calc(15px + 4vh);
-  transition: 1s;
+  /* transition: 1s; */
   cursor: pointer;
   z-index: 4;
   h4 {
@@ -46,7 +46,7 @@ export default {
 }
 .small-container:hover {
   height: calc(40px + 4vh);
-  transition: 0.7s;
+  /* transition: 0.7s; */
   transition-timing-function: ease-out;
 }
 </style>
