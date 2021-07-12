@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" appear mode="out-in">
+  <transition name="fade" appear>
     <slot></slot>
   </transition>
 </template>
@@ -9,15 +9,15 @@
   opacity: 1;
   will-change: opacity;
   position: relative;
-  transition: all 1s;
+  transition: opacity 0.7s;
 }
 
 .fade-enter-active {
-  transition: all 1s ease-in;
+  transition: opacity 0.7s ease-in;
 }
 
 .fade-leave-active {
-  transition: all 0.7s ease-out;
+  transition: opacity 0.3s ease-out;
 }
 
 .fade-enter-from,
