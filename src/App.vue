@@ -5,16 +5,13 @@
     <!-- app header transition switch to max-height -->
 
     <ExtendTransition>
-      <AppIntro
-        v-if="displayAboutMe"
-        @toggle-display-about-me="toggleDisplayAboutMe"
-      />
+      <AppIntro v-if="showIntro" @toggle-show-intro="toggleShowIntro" />
 
-      <AppHeader v-else :on-click="toggleDisplayAboutMe" />
+      <AppHeader v-else :on-click="toggleShowIntro" />
     </ExtendTransition>
 
     <FadeTransition>
-      <div v-if="!displayAboutMe" class="projects-container">
+      <div v-if="!showIntro" class="projects-container">
         <AppCard
           :cards="clients"
           class="projects"
@@ -58,7 +55,7 @@ export default {
     const projects = ref([]);
     const isLoading = ref(true);
     const clients = ref(data.clients);
-    const displayAboutMe = ref(true);
+    const showIntro = ref(true);
 
     onMounted(async () => {
       const { loading, repositories } = await useGithubRepositories();
@@ -66,16 +63,16 @@ export default {
       isLoading.value = loading;
     });
 
-    const toggleDisplayAboutMe = () => {
-      displayAboutMe.value = !displayAboutMe.value;
+    const toggleShowIntro = () => {
+      showIntro.value = !showIntro.value;
     };
 
     return {
       projects,
       isLoading,
       clients,
-      displayAboutMe,
-      toggleDisplayAboutMe, // functions returned behave the same as methods
+      showIntro,
+      toggleShowIntro, // functions returned behave the same as methods
     };
   },
 };
