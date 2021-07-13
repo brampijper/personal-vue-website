@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="icon-container">
     <a href="mailto:brampijper@gmail.com" target="_blank">
       <font-awesome-icon size="4x" icon="at" />
       <span> Email </span>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.icon-container {
   justify-self: center;
   display: flex;
   align-items: flex-start;
@@ -63,7 +63,7 @@ export default {
 }
 
 @media (max-width: 1150px) {
-  .container {
+  .icon-container {
     gap: 0rem;
     width: 100%;
     justify-self: unset;
