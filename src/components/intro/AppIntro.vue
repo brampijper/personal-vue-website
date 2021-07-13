@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="`container ${showIntro}`"
-    v-on="!showIntro ? { click: startTransition } : {}"
-  >
+  <div :class="`container ${showIntro}`" v-on="addClickHandler">
     <div class="header__content">
       <FadeTransition>
         <div v-if="showIntro" class="content__wrap">
@@ -18,15 +15,18 @@
           <IntroSocialIcons />
         </div>
       </FadeTransition>
-      <!-- <h2 v-if="!showIntro">About Bram</h2> -->
+      <FadeTransition>
+        <h2 v-if="!showIntro">About Bram</h2>
+      </FadeTransition>
     </div>
   </div>
 </template>
 
 <script>
+import { computed } from "vue";
 import IntroSocialIcons from "./IntroSocialIcons.vue";
-import IntroText from "./introText.vue";
-import IntroTitle from "./introTitle.vue";
+import IntroText from "./IntroText.vue";
+import IntroTitle from "./IntroTitle.vue";
 import PrimaryButton from "../ui/AppButton.vue";
 import FadeTransition from "../transitions/FadeTransition.vue";
 
@@ -51,23 +51,40 @@ export default {
       emit("toggleShowIntro");
     };
 
+    // only returns a click handler when needed
+    const addClickHandler = computed(() => {
+      return !props.showIntro ? { click: startTransition } : {};
+    });
+
     return {
       startTransition, // makes to method available to the template
+      addClickHandler,
     };
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .container.show {
   transition: max-height 1s ease-in-out;
   max-height: 100vh;
   background-color: aquamarine;
+  cursor: unset;
 }
 
 .container {
   transition: max-height 1s ease-in-out;
   max-height: 5vh;
   background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  h2 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+  }
 }
 
 .header__content {
@@ -75,7 +92,6 @@ export default {
   display: flex;
   will-change: height;
   overflow: hidden;
-  max-height: 100vh;
   .content__wrap {
     display: grid;
     grid-template-columns: 1fr;
