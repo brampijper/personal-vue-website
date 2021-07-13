@@ -16,11 +16,15 @@ export default async function useGithubRepositories() {
         org: "brampijper-gh-pages",
       });
       if (!res) {
-        console.log("no response received", res);
+        console.log("no response received");
       }
       res.data.filter((repo) => {
         if (repo.homepage) {
-          repositories.push(repo);
+          // pulling off the properties that I need
+          const { id, homepage, name, description } = repo;
+
+          //store the de-structured properties into an array.
+          repositories.push({ id, homepage, name, description });
         }
       });
       loading.value = false;
