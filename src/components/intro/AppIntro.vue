@@ -1,16 +1,18 @@
 <template>
-  <div :class="`container ${showIntro}`" v-on="addClickHandler">
+  <div :class="`intro-container ${showIntro}`" v-on="addClickHandler">
     <div class="header__content">
       <FadeTransition>
         <div v-if="showIntro" class="content__wrap">
-          <IntroTitle />
-          <PrimaryButton
-            class="content__button"
-            button-size="big"
-            :on-click="startTransition"
-          >
-            View Projects
-          </PrimaryButton>
+          <div class="wrap__intro">
+            <IntroTitle />
+            <PrimaryButton
+              class="content__button"
+              button-size="big"
+              :on-click="startTransition"
+            >
+              View Projects
+            </PrimaryButton>
+          </div>
           <IntroText />
           <IntroSocialIcons />
         </div>
@@ -64,34 +66,41 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.container.show {
+@import "~rfs/scss";
+
+.intro-container.show {
   transition: max-height 1s ease-in-out;
   max-height: 100vh;
   background-color: aquamarine;
   cursor: unset;
 }
 
-.container {
+.intro-container {
   transition: max-height 1s ease-in-out;
-  max-height: 5vh;
+  will-change: height;
+  max-height: calc(15px + 4vh);
   background-color: aquamarine;
-  display: flex;
-  align-items: center;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 
   h2 {
     position: absolute;
     width: 100%;
     text-align: center;
-    align-self: center;
+    top: 50%;
+    transform: translate(0%, -50%);
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    @include font-size(1.3rem);
+    font-weight: 900;
   }
 }
 
 .header__content {
   height: 100vh;
   display: flex;
-  will-change: height;
-  overflow: hidden;
   .content__wrap {
     display: grid;
     grid-template-columns: 1fr;
@@ -104,6 +113,14 @@ export default {
     height: max-content;
     align-self: center;
     row-gap: 6rem;
+
+    .wrap__intro {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-self: start;
+      gap: 5rem;
+    }
   }
 }
 
@@ -114,19 +131,29 @@ export default {
 }
 
 @media (max-width: 668px) {
-  .content__wrap {
-    margin: 1rem;
+  .header__content {
+    .content__wrap {
+      margin: 1rem;
+
+      .wrap__intro {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
   }
 }
 
 //specific edge cases for small and tall screens
 @media (max-width: 668px) and (max-height: 750px) {
-  .content__wrap {
-    height: 100vh;
-    row-gap: 0rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  .header__content {
+    .content__wrap {
+      height: 100vh;
+      gap: 0rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
   }
 }
 </style>
