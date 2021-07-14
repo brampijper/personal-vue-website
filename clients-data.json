@@ -1,18 +1,21 @@
 {
     "clients": [
       {
+        "id": 1,
         "name": "Sofia Kakkava",
         "description": "This website was created for an online coaching business. Integration with Strapi CSM, Gatsby (React) (2021)",
         "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
         "homepage": "https://sofiakakkava.com/"
       },
       {
+        "id": 2,
         "name": "Amsterdam Nanny",
         "description": "This landing page was created for a nanny business in Amsterdam. Integration with Contentful CMS, Gatsby (React) (2021)",
         "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
         "homepage": "https://www.thenannyamsterdam.com/"
       },
       {
+        "id": 3,
         "name": "Laudes Foundation",
         "description": "I translated the design into a functional front-end website when I was working as a front-end developer at Schuttelaar & Partners (2020)",
         "technologies": ["Pimcore CMS", "PHP", "CSS", "Laravel"],
