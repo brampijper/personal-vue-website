@@ -1,20 +1,12 @@
 <template>
   <div class="card">
-    <span class="card-topbar"> </span>
-    <a class="card-link" :href="url" target="_blank">
-      <span class="link-spanner"> </span>
-      <div :class="cardSize + ' card-content'">
-        <p class="card-title">
-          {{ name }}
-        </p>
+    <a class="card-content" :href="url" target="_blank">
+      <article class="card-title">
+        <h3>{{ name }}</h3>
         <p>
           {{ description }}
         </p>
-        <div class="eye-holder">
-          <font-awesome-icon size="2x" icon="eye"> </font-awesome-icon>
-          <span> View Website </span>
-        </div>
-      </div>
+      </article>
     </a>
   </div>
 </template>
@@ -45,88 +37,12 @@ export default {
 <style scoped lang="scss">
 @import "~rfs/scss";
 
-.medium {
-  width: 250px;
-  min-width: 200px;
-  max-height: 300px;
-  min-height: 250px;
-}
-
-.small {
-  height: 15vh;
-  width: 25vmin;
-  display: inline-grid;
-  place-items: center;
-  justify-self: center;
-}
-
-.card-content {
-  display: grid;
-  grid-template-rows: 10% 60% 30% auto;
-  align-items: center;
-  margin: 0px 10px 25px 10px;
-  padding: 0 15px 15px 15px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  color: black;
-  background-color: rgba($color: #ffffff, $alpha: 0.4);
-  border-radius: 2px;
-  letter-spacing: 1.5px;
-
-  > p {
-    z-index: 2;
-  }
-
-  .card-title {
-    font-weight: 600;
-    padding: 5px;
-    margin-top: 25px;
-  }
-}
-
-.card > span {
-  z-index: 1;
+.card {
+  width: 95vw;
 }
 
 .card > a {
-  z-index: 15;
   text-decoration: none;
-}
-
-.card {
-  position: relative;
-}
-
-.eye-holder {
-  z-index: 2;
-  opacity: 0;
-  transition: all 1s;
-}
-
-.eye-holder span {
-  display: block;
-  font-size: 0.8rem;
-  margin-top: 7px;
-}
-
-.link-spanner {
-  position: absolute;
-  width: 94%;
-  margin: 0 auto;
-  height: 92%;
-  top: 0;
-  left: 10px;
-  z-index: 1;
-}
-
-.card-topbar {
-  width: 280px;
-  display: block;
-  background-color: aquamarine;
-  height: 5px;
-  margin-left: 10px;
-  transition: all 1.1s;
-  position: absolute;
 }
 
 .card:hover > .card-content {
@@ -135,12 +51,43 @@ export default {
   cursor: pointer;
 }
 
-.card:hover > .card-topbar {
-  height: 265px;
-  opacity: 0.75;
+.card-content {
+  display: grid;
+  grid-template-rows: auto auto 30% auto;
+  justify-items: start;
+  padding: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: black;
+  background-color: rgba($color: #ffffff, $alpha: 0.4);
+  border-radius: 2px;
+  text-align: left;
+  min-height: 250px;
+
+  .card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    h3 {
+      @include font-size(1.2rem);
+      font-weight: 600;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+        Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    }
+
+    p {
+      @include font-size(1.3rem);
+    }
+  }
 }
 
-.card:hover .eye-holder {
-  opacity: 1;
+@media (min-width: 668px) {
+  .card {
+    max-width: 300px;
+    .card-content {
+      max-width: 300px;
+    }
+  }
 }
 </style>
