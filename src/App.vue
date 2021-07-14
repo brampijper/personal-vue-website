@@ -57,8 +57,7 @@ export default {
 
 <style lang="scss">
 //base font
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 $base-color: #3498db;
 $secondary-color: #f62a00;
 $font-color: #f1f3ce;
