@@ -7,7 +7,6 @@
       :url="project.homepage"
       :name="project.name"
       :description="project.description"
-      card-size="medium"
     >
     </AppCard>
   </div>
@@ -42,12 +41,21 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  margin: 0 auto;
   margin-top: 4rem;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   z-index: 1;
+  gap: 1rem;
+}
+
+@media (min-width: 668px) {
+  .container {
+    width: 90vw;
+    gap: 3rem;
+  }
 }
 </style>
