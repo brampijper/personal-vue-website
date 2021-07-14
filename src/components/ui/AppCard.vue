@@ -1,52 +1,42 @@
 <template>
-  <div>
-    <h2>{{ title }}</h2>
-    <div class="card-container">
-      <AppIconLoading :loading="loading" />
-      <div v-for="card in cards" :key="card.id" class="card">
-        <span class="card-topbar"> </span>
-        <a class="card-link" :href="card.homepage" target="_blank">
-          <span class="link-spanner"> </span>
-          <div :class="cardSize + ' card-content'">
-            <p class="card-title">
-              {{ card.name }}
-            </p>
-            <p>
-              {{ card.description }}
-            </p>
-            <div class="eye-holder">
-              <font-awesome-icon size="2x" icon="eye"> </font-awesome-icon>
-              <span> View Website </span>
-            </div>
-          </div>
-        </a>
+  <div class="card">
+    <span class="card-topbar"> </span>
+    <a class="card-link" :href="url" target="_blank">
+      <span class="link-spanner"> </span>
+      <div :class="cardSize + ' card-content'">
+        <p class="card-title">
+          {{ name }}
+        </p>
+        <p>
+          {{ description }}
+        </p>
+        <div class="eye-holder">
+          <font-awesome-icon size="2x" icon="eye"> </font-awesome-icon>
+          <span> View Website </span>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </template>
 
 <script>
-import AppIconLoading from "../ui/IconLoading.vue";
 export default {
-  components: {
-    AppIconLoading,
-  },
   props: {
-    cards: {
-      required: true,
-      type: Object,
-    },
-    loading: {
-      required: false,
-      type: Boolean,
-    },
     cardSize: {
       required: true,
       type: String,
     },
-    title: {
-      required: true,
+    url: {
       type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
     },
   },
 };
@@ -54,26 +44,6 @@ export default {
 
 <style scoped lang="scss">
 @import "~rfs/scss";
-.projects {
-  text-align: center;
-  align-self: center;
-  gap: 5rem;
-  h2 {
-    @include font-size(3rem);
-    font-weight: bold;
-    letter-spacing: 5px;
-    margin-top: 5rem;
-  }
-}
-
-.card-container {
-  text-align: center;
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  z-index: 1;
-}
 
 .medium {
   width: 250px;
@@ -172,27 +142,5 @@ export default {
 
 .card:hover .eye-holder {
   opacity: 1;
-}
-
-.projects.dark-mode {
-  background-color: #212121;
-  h2 {
-    color: aquamarine;
-  }
-}
-
-.dark-mode {
-  .card-content {
-    color: whitesmoke;
-    background-color: rgba($color: #ffffff, $alpha: 0.2);
-  }
-
-  .eye-holder {
-    color: aquamarine;
-  }
-
-  .card-topbar {
-    background-color: black;
-  }
 }
 </style>
