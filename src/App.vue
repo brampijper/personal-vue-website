@@ -36,7 +36,7 @@ export default {
     onMounted(async () => {
       const { loading, repositories } = await useGithubRepositories();
 
-      state.projects = [...repositories, ...data.clients];
+      state.projects = [...data.clients, ...repositories];
       state.loading = loading.value;
     });
 
