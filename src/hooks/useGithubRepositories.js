@@ -8,6 +8,9 @@ const octokit = new Octokit({
 });
 
 export default async function useGithubRepositories() {
+  const loading = ref(true);
+  const repositories = await fetchRepo();
+
   async function fetchRepo() {
     let repositories = [];
     loading.value = true;
@@ -33,8 +36,7 @@ export default async function useGithubRepositories() {
       throw new Error(err);
     }
   }
-  let loading = ref(null);
-  let repositories = ref(await fetchRepo());
+
   return {
     loading,
     repositories,
