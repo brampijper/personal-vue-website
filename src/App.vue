@@ -3,16 +3,11 @@
     <AppIntro :show-intro="showIntro" @toggle-show-intro="toggleShowIntro" />
 
     <FadeTransition>
-      <div v-if="!showIntro" class="projects-container">
-        <AppCard
-          :cards="state.projects"
-          :loading="state.loading"
-          class="projects"
-          card-size="medium"
-          title="Personal Projects"
-        >
-        </AppCard>
-      </div>
+      <AppProjects
+        v-if="!showIntro"
+        :projects="state.projects"
+        :loading="state.loading"
+      />
     </FadeTransition>
   </main>
 </template>
@@ -20,7 +15,7 @@
 <script>
 import { ref, onMounted, reactive } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
-import AppCard from "./components/ui/AppCard.vue";
+import AppProjects from "./components/project/AppProjects.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
@@ -28,7 +23,7 @@ import data from "../clients-data.json";
 export default {
   components: {
     AppIntro,
-    AppCard,
+    AppProjects,
     FadeTransition,
   },
   setup() {
@@ -108,23 +103,5 @@ a:hover {
 
 a:visited {
   color: inherit;
-}
-
-.projects-container {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-
-.projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: 100%;
-  min-height: 40rem;
-  gap: 5rem;
 }
 </style>
