@@ -5,16 +5,9 @@
     <FadeTransition>
       <div v-if="!showIntro" class="projects-container">
         <AppCard
-          :cards="clients"
+          :cards="state.projects"
+          :loading="state.loading"
           class="projects"
-          card-size="medium"
-          title="Client Websites"
-        >
-        </AppCard>
-        <AppCard
-          :cards="projects.value"
-          :loading="isLoading.value"
-          class="projects dark-mode"
           card-size="medium"
           title="Personal Projects"
         >
@@ -25,7 +18,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
 import AppCard from "./components/ui/AppCard.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
@@ -39,15 +32,17 @@ export default {
     FadeTransition,
   },
   setup() {
-    const projects = ref([]);
-    const isLoading = ref(true);
-    const clients = ref(data.clients);
     const showIntro = ref("show");
+    const state = reactive({
+      projects: null,
+      loading: true,
+    });
 
     onMounted(async () => {
       const { loading, repositories } = await useGithubRepositories();
-      projects.value = repositories;
-      isLoading.value = loading;
+
+      state.projects = [...repositories, ...data.clients];
+      state.loading = loading.value;
     });
 
     const toggleShowIntro = () => {
@@ -57,9 +52,7 @@ export default {
     };
 
     return {
-      projects,
-      isLoading,
-      clients,
+      state,
       showIntro,
       toggleShowIntro, // functions returned behave the same as methods
     };
