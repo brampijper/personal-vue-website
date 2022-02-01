@@ -2,9 +2,9 @@
     "clients": [
       {
         "name": "Sofia Kakkava",
-        "description": "This website was created for an online coaching business. Integration with Strapi CSM, Gatsby (React) (2021)",
+        "description": "I created a fictional online coaching business where I created the design and build the website. Integration with Strapi CSM, Gatsby (React) (2021)",
         "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
-        "homepage": "https://sofiakakkava.com/"
+        "homepage": "https://sofia-kakkava.netlify.app/"
       },
       {
         "name": "Amsterdam Nanny",
