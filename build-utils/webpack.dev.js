@@ -10,7 +10,9 @@ const config = {
   },
   devtool: "eval-source-map",
   devServer: {
-    contentBase: commonPaths.outputPath,
+    static: {
+      directory: commonPaths.outputPath,
+    }
   },
   module: {
     rules: [
