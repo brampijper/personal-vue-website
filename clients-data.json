@@ -10,7 +10,7 @@
         "name": "Amsterdam Nanny",
         "description": "This landing page was created for a nanny business in Amsterdam. Integration with Contentful CMS, Gatsby (React) (2021)",
         "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
-        "homepage": "https://www.thenannyamsterdam.com/"
+        "homepage": "https://amsterdam-nanny.netlify.app"
       },
       {
         "name": "Laudes Foundation",
