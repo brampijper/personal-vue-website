@@ -26,17 +26,19 @@ export default {
 .big {
   width: 190px;
   height: 80px;
+  font-size: 24px;
 }
 
-.small {
+.tiny {
   width: 130px;
   height: 43px;
+  font-size: 1rem;
+  z-index: 3;
 }
 
 .Button {
   border-radius: 5px;
   // margin-top:24px;
-  font-size: 24px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   border: 0px;
