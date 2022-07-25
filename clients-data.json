@@ -2,9 +2,14 @@
     "clients": [
       {
         "name": "Saba Feronah Coaching",
-        "description": "I created a fictional online coaching business where I created the design and build the website. Integration with Strapi CSM, Gatsby (React) (2021)",
+        "date": 2021,
+        "description": "Designed and developed an online coaching business. This project was focused on learning Gatsby and React.",
         "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
-        "homepage": "https://saba-feronah.netlify.app/"
+        "homepage": "https://saba-feronah.netlify.app/",
+        "image": {
+          "url": "",
+          "alt": ""
+        }
       },
       {
         "name": "Amsterdam Nanny",
