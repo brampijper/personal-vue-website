@@ -7,18 +7,18 @@
         <AppCard
           :cards="clients"
           class="projects"
-          card-size="medium"
+          card-size="big"
           title="Client Websites"
         >
         </AppCard>
-        <AppCard
+        <!-- <AppCard
           :cards="projects.value"
           :loading="isLoading.value"
           class="projects dark-mode"
           card-size="medium"
           title="Personal Projects"
         >
-        </AppCard>
+        </AppCard> -->
       </div>
     </FadeTransition>
   </main>
@@ -97,6 +97,8 @@ main {
 }
 
 p,
+ul,
+li,
 h2,
 span {
   font-family: $font-family;
