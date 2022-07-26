@@ -6,10 +6,8 @@
       <div v-for="card in cards" :key="card.id" class="card">
         <a class="card-link" :href="card.homepage" target="_blank">
         <span class="card-topbar"> </span>
-          <!-- <span class="link-spanner"> </span> -->
           <div :class="cardSize + ' card-content'">
-            <img alt="card.alt" src="../../images/coaching_header.jpg" />
-            <!-- <img :alt="card.alt" :src="card.image" /> -->
+            <img :alt="card.image.alt" :src="require(`../../images/${card.image.name}`)" />
             <div class="card-wrap">
               <p class="card-title">
                 {{ card.name }} {{ card.date }}
@@ -17,16 +15,16 @@
               <p>
                 {{ card.description }}
               </p>
+            </div>
               <ul>
                 <li v-for="technology in card.technologies" :key="technology">
                   {{`${technology}`}}
                 </li>
                 <br/>
-              <PrimaryButton class="content__button" button-size="tiny">
+              <PrimaryButton class="content__button" button-size="tiny" >
                 Visit Website
               </PrimaryButton>
               </ul>
-            </div>
           </div>
         </a>
       </div>
@@ -86,13 +84,14 @@ export default {
   justify-content: center;
   z-index: 1;
   gap: 4rem;
+  margin-bottom: 10rem;
 }
 
 .big {
   width: 400px;
   min-width: 300px;
   max-height: 600px;
-  min-height: 450px;
+  min-height: 500px;
 }
 
 .medium {
@@ -102,36 +101,54 @@ export default {
   min-height: 250px;
 }
 
-// .small {
-//   height: 15vh;
-//   width: 25vmin;
-//   display: inline-grid;
-//   place-items: center;
-//   justify-self: center;
-// }
-
 .card-content {
   display: grid;
-  grid-template-rows: 0.75fr 1fr;
-  align-items: start;
+  grid-template-rows: auto;
+  align-items: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: black;
   background-color: rgba($color: #ffffff, $alpha: 0.4);
   border-radius: 15px;
   letter-spacing: 1.5px;
-  row-gap: 0.7rem;
+  row-gap: 1.7rem;
+  max-width: 85vw;
+  border: 1px solid black;
 
   img {
     border-radius: 15px 15px 0px 0px;
     max-width: 100%;
-    // filter: blur(2px);
   }
+
+ ul {
+    background-color:black;
+    border-radius: 0px 0px 15px 15px;
+    padding:1rem;
+    align-self: flex-end;
+    padding: 30px 40px 30px 40px;
+    text-align:left;
+  }
+
+  ul li {
+    display: inline-block;
+    margin: 0 .8rem .8rem 0;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size:.75rem;
+    color:white;
+  }
+
+  .content__button {
+    background-color: white;
+    color: black;
+    margin-top:.4rem;
+  }
+
 }
 
 .card-wrap {
-  margin: 0px 10px 25px 10px;
-  padding: 0 30px 10px 30px;
+  padding: 0 40px 10px 40px;
   text-align:left;
   display: flex;
   flex-direction:column;
@@ -144,31 +161,6 @@ export default {
   > p {
     z-index: 3;
   }
-
-  ul {
-    background-color:black;
-    border-radius: 5px;
-    padding:1rem;
-    margin-top:.5rem;
-  }
-
-  ul > li {
-    display: inline-block;
-    margin-right: .8rem;
-    margin-bottom:.4rem;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 0.5rem;
-    font-size:.75rem;
-    color:white;
-  }
-
-  .content__button {
-    background-color: white;
-    color: black;
-    margin-top:.8rem;
-  }
-
 }
 
 .card > span {
@@ -184,21 +176,11 @@ export default {
   position: relative;
 }
 
-// .link-spanner {
-//   position: absolute;
-//   width: 94%;
-//   margin: 0 auto;
-//   height: 92%;
-//   top: 0;
-//   left: 10px;
-//   z-index: 1;
-// }
-
 .card-topbar {
   width: 400px;
   display: block;
-  background-color: aquamarine;
-  height: 1px;
+  background-color: #FF6B46;
+  height: 0px;
   transition: all 1.1s;
   position: absolute;
   border-radius: 15px;
@@ -214,12 +196,7 @@ export default {
 
 .card-link:hover > .card-topbar {
   height: 100%;
-  opacity: 0.2;
-}
-
-.card-link:hover > .card-content img {
-  // filter: blur(0px);
-  // transition: .4s;
+  opacity: 0.05;
 }
 
 </style>
