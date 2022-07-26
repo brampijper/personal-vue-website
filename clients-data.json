@@ -7,21 +7,31 @@
         "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
         "homepage": "https://saba-feronah.netlify.app/",
         "image": {
-          "url": "",
-          "alt": ""
+          "name": "coaching_header.jpg",
+          "alt": "Coaching Sabah Feronah header from website"
         }
       },
       {
         "name": "Amsterdam Nanny",
-        "description": "This landing page was created for a nanny business in Amsterdam. Integration with Contentful CMS, Gatsby (React) (2021)",
+        "date": 2021,
+        "description": "This landing page was created for a nanny business in Amsterdam who wanted to implement her own drawings on her website.",
         "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
-        "homepage": "https://amsterdam-nanny.netlify.app"
+        "homepage": "https://amsterdam-nanny.netlify.app",
+        "image": {
+          "name": "nanny_header.jpg",
+          "alt": "Online nanny website header Amsterdam"
+        }
       },
       {
         "name": "Laudes Foundation",
-        "description": "I translated the design into a functional front-end website when I was working as a front-end developer at Schuttelaar & Partners (2020)",
+        "date": 2020,
+        "description": "I worked together with a designer and a back-end developer to build the front-end for the Laudes Foundation.",
         "technologies": ["Pimcore CMS", "PHP", "CSS", "Laravel"],
-        "homepage": "https://www.laudesfoundation.org"
+        "homepage": "https://www.laudesfoundation.org",
+        "image": {
+          "name": "laudes_header.jpg",
+          "alt": "Laudes website header"
+        }
       }
     ]
   }
