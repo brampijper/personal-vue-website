@@ -1,33 +1,31 @@
 <template>
-  <div>
-    <!-- <h2>{{ title }}</h2> -->
-    <div class="card-container">
-      <AppIconLoading :loading="loading" />
-      <div v-for="card in cards" :key="card.id" class="card">
-        <a class="card-link" :href="card.homepage" target="_blank">
-        <span class="card-topbar"> </span>
-          <div :class="cardSize + ' card-content'">
-            <img :alt="card.image.alt" :src="require(`../../images/${card.image.name}`)" />
-            <div class="card-wrap">
-              <p class="card-title">
-                {{ card.name }} {{ card.date }}
-              </p>
-              <p>
-                {{ card.description }}
-              </p>
-            </div>
-              <ul>
-                <li v-for="technology in card.technologies" :key="technology">
-                  {{`${technology}`}}
-                </li>
-                <br/>
-              <PrimaryButton class="content__button" button-size="tiny" >
-                Visit Website
-              </PrimaryButton>
-              </ul>
+  <div class="cards-container">
+    <AppIconLoading :loading="loading" />
+    <div v-for="card in cards" :key="card.id" class="card">
+      <a class="card-link" :href="card.homepage" target="_blank">
+      <span class="card-topbar"> </span>
+        <div :class="cardSize + ' card-content'">
+          <img :alt="card.image.alt" :src="require(`../../images/${card.image.name}`)" />
+          <div class="card-wrap">
+            <p class="card-title">
+              {{ card.name }} {{ card.date }}
+            </p>
+            <p>
+              {{ card.description }}
+            </p>
           </div>
-        </a>
-      </div>
+          <div class="technologies">
+            <ul>
+              <li v-for="technology in card.technologies" :key="technology">
+                {{`${technology}`}}
+              </li>
+            </ul>
+            <PrimaryButton class="content__button" button-size="tiny" >
+              Visit Website
+            </PrimaryButton>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </template>
@@ -63,20 +61,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~rfs/scss";
-.projects {
-  text-align: center;
-  align-self: center;
-  gap: 5rem;
-  h2 {
-    @include font-size(3rem);
-    font-weight: bold;
-    letter-spacing: 5px;
-    margin-top: 5rem;
-  }
-}
 
-.card-container {
+.cards-container {
   text-align: center;
   width: 100vw;
   display: flex;
@@ -84,59 +70,56 @@ export default {
   justify-content: center;
   z-index: 1;
   gap: 4rem;
-  margin-bottom: 10rem;
+  margin: 4rem 0 10rem 0; 
 }
 
-.big {
-  width: 400px;
-  min-width: 300px;
-  max-height: 600px;
-  min-height: 500px;
-}
-
-.medium {
-  width: 250px;
-  min-width: 200px;
-  max-height: 300px;
-  min-height: 250px;
-}
-
-.card-content {
-  display: grid;
-  grid-template-rows: auto;
-  align-items: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), -4px 10px 7px rgba(0, 0, 0, 0.18);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: black;
   background-color: rgba($color: #ffffff, $alpha: 0.4);
+  border: 1px solid black;
   border-radius: 15px;
   letter-spacing: 1.5px;
-  row-gap: 1.7rem;
   max-width: 85vw;
-  border: 1px solid black;
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction:row;
+}
+
+.big {
+  min-width: 300px;
+  max-width: 450px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.7rem;
+  height: 100%;
+  justify-content: space-between;
 
   img {
     border-radius: 15px 15px 0px 0px;
     max-width: 100%;
   }
 
- ul {
+ .technologies {
     background-color:black;
     border-radius: 0px 0px 15px 15px;
     padding:1rem;
-    align-self: flex-end;
     padding: 30px 40px 30px 40px;
     text-align:left;
-  }
 
-  ul li {
-    display: inline-block;
-    margin: 0 .8rem .8rem 0;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 0.5rem;
-    font-size:.75rem;
-    color:white;
+    li {
+        display: inline-block;
+        margin: 0 .8rem .8rem 0;
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 0.5rem;
+        font-size:.75rem;
+        color:white;
+      }
   }
 
   .content__button {
@@ -144,7 +127,6 @@ export default {
     color: black;
     margin-top:.4rem;
   }
-
 }
 
 .card-wrap {
@@ -177,7 +159,7 @@ export default {
 }
 
 .card-topbar {
-  width: 400px;
+  width: 100%;
   display: block;
   background-color: #FF6B46;
   height: 0px;
