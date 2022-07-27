@@ -3,7 +3,7 @@
     <AppIntro :show-intro="showIntro" @toggle-show-intro="toggleShowIntro" />
 
     <FadeTransition>
-      <div v-if="!showIntro" class="projects-container">
+      <div v-if="!showIntro">
         <AppCard
           :cards="clients"
           class="projects"
@@ -92,10 +92,6 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  max-height: 100vh;
-}
-
 p,
 ul,
 li,
@@ -119,21 +115,4 @@ a:visited {
   color: inherit;
 }
 
-.projects-container {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-
-.projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: 100%;
-  min-height: 40rem;
-  gap: 5rem;
-}
 </style>
