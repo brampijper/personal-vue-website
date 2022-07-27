@@ -6,6 +6,7 @@
         "description": "Designed and developed an online coaching business. This project was focused on learning Gatsby and React.",
         "technologies": ["React.js", "Strapi CMS", "Gatsby", "Tailwind"],
         "homepage": "https://saba-feronah.netlify.app/",
+        "color": "#5EC4B6",
         "image": {
           "name": "coaching_header.jpg",
           "alt": "Coaching Sabah Feronah header from website"
@@ -17,6 +18,7 @@
         "description": "This landing page was created for a nanny business in Amsterdam who wanted to implement her own drawings on her website.",
         "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
         "homepage": "https://amsterdam-nanny.netlify.app",
+        "color": "#FFEDA1",
         "image": {
           "name": "nanny_header.jpg",
           "alt": "Online nanny website header Amsterdam"
@@ -28,6 +30,7 @@
         "description": "I worked together with a designer and a back-end developer to build the front-end for the Laudes Foundation.",
         "technologies": ["Pimcore CMS", "PHP", "CSS", "Laravel"],
         "homepage": "https://www.laudesfoundation.org",
+        "color": "#FF6B46",
         "image": {
           "name": "laudes_header.jpg",
           "alt": "Laudes website header"
