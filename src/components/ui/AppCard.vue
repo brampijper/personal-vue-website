@@ -3,7 +3,7 @@
     <AppIconLoading :loading="loading" />
     <div v-for="card in cards" :key="card.id" class="card">
       <a class="card-link" :href="card.homepage" target="_blank">
-      <span class="card-topbar"> </span>
+      <span class="card-topbar" :style="{backgroundColor: card.color}"> </span>
         <div :class="cardSize + ' card-content'">
           <img :alt="card.image.alt" :src="require(`../../images/${card.image.name}`)" />
           <div class="card-wrap">
@@ -16,11 +16,11 @@
           </div>
           <div class="technologies">
             <ul>
-              <li v-for="technology in card.technologies" :key="technology">
+              <li v-for="technology in card.technologies" :key="technology" :style="{borderColor: card.color}">
                 {{`${technology}`}}
               </li>
             </ul>
-            <PrimaryButton class="content__button" button-size="tiny" >
+            <PrimaryButton class="content__button" button-size="tiny" :style="{backgroundColor: card.color}" >
               Visit Website
             </PrimaryButton>
           </div>
@@ -114,7 +114,7 @@ export default {
     li {
         display: inline-block;
         margin: 0 .8rem .8rem 0;
-        border: 1px solid white;
+        border: 1px solid;
         border-radius: 5px;
         padding: 0.5rem;
         font-size:.75rem;
@@ -161,7 +161,6 @@ export default {
 .card-topbar {
   width: 100%;
   display: block;
-  background-color: #FF6B46;
   height: 0px;
   transition: all 1.1s;
   position: absolute;
