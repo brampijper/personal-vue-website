@@ -74,11 +74,10 @@ export default {
 }
 
 .card {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), -4px 10px 7px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), -4px 10px 7px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: black;
   background-color: rgba($color: #ffffff, $alpha: 0.4);
-  border: 1px solid black;
   border-radius: 15px;
   letter-spacing: 1.5px;
   max-width: 85vw;
