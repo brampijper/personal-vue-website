@@ -104,11 +104,11 @@ li {
 a {
   transition: all 0.5s;
   text-decoration: none;
-  color: black;
+  color: #cbfffa;
 }
 
 a:hover {
-  color: black;
+  color: white;
 }
 
 a:visited {
