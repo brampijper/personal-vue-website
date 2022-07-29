@@ -2,7 +2,6 @@
   <article class="content__intro">
     <p class="intro__first">
       Currently building my idea's online, while keeping up with my interests:
-      <br />
       <i> being outdoors, cooking, reading and mindfulness. </i>
     </p>
     <p class="intro__second">
