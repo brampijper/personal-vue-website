@@ -100,8 +100,8 @@ export default {
 
   .content__button {
     background-color: transparent;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #cbfffa;
+    color: #cbfffa;
     margin-top:.4rem;
   }
 
