@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss" scoped>
 .icon-container {
-  justify-self: center;
+  justify-self: flex-start;
   display: flex;
   align-items: flex-start;
   gap: 8rem;
@@ -34,11 +34,11 @@ export default {
   a {
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: #cbfffa;
 
     svg {
       transition: transform 0.2s ease-out;
-      color: black;
+      color: #cbfffa;
       max-width: 55px;
     }
 
@@ -54,6 +54,7 @@ export default {
 
   a:hover > svg {
     transform: translate(0, -15px);
+    color: white;
   }
 
   a:hover > span {

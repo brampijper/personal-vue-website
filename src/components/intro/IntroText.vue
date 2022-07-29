@@ -20,11 +20,14 @@
 <style lang="scss" scoped>
 @import "~rfs/scss";
 .content__intro {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 25px;
+  // grid-column-start: 1;
+  // grid-column-end: 3;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // grid-column-gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   p {
     @include font-size(1.4rem);
@@ -33,6 +36,7 @@
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
     max-width: 45ch;
+    color: #cbfffa;
   }
 
   a {
