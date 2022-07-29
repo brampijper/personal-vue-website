@@ -92,11 +92,11 @@ body {
   overflow-x: hidden;
 }
 
+span,
 p,
-ul,
-li,
 h2,
-span {
+ul,
+li {
   font-family: $font-family;
   font-weight: 300;
 }
