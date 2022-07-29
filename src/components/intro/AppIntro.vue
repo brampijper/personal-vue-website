@@ -71,7 +71,6 @@ export default {
 .intro-container.show {
   transition: max-height 1s ease-in-out;
   max-height: 100vh;
-  background-color: aquamarine;
   cursor: unset;
 }
 
@@ -79,7 +78,8 @@ export default {
   transition: max-height 1s ease-in-out;
   will-change: height;
   max-height: calc(15px + 4vh);
-  background-color: aquamarine;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 6%, rgba(1,22,36,1) 54%, rgba(3,37,55,1) 82%, rgba(5,54,79,1) 100%);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -95,6 +95,19 @@ export default {
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     @include font-size(1.3rem);
     font-weight: 900;
+    color: white;
+  }
+
+  .content__button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-top:.4rem;
+  }
+
+  .content__button:hover {
+    color: black;
+    background-color:white;
   }
 }
 
@@ -112,14 +125,14 @@ export default {
     width: max-content;
     height: max-content;
     align-self: center;
-    row-gap: 6rem;
+    row-gap: 3.5rem;
 
     .wrap__intro {
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       align-self: start;
-      gap: 5rem;
+      gap: 2rem;
     }
   }
 }
