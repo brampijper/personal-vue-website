@@ -11,7 +11,7 @@
         >Schuttelaar &amp; Partners.</a
       >
       Before that I was part of the
-      <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>
+      <a href="https://thispage.amsterdam" target="_blank">Das Banner</a>
       team. A creative advertising agency.
     </p>
   </article>
@@ -36,11 +36,16 @@
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
     max-width: 45ch;
-    color: #cbfffa;
+    color: #eff2ed;
+    
   }
 
   a {
     text-decoration: underline;
+  }
+
+  a:hover {
+    color: black;
   }
 }
 
