@@ -1,4 +1,19 @@
-$base-color: #3498db;
-$secondary-color: #f62a00;
-$font-color: #cbfffa;
-$font-family: "Roboto", sans-serif;
+$body-color: #F5F5F5; 
+$base-color: #24e4fc;
+$secondary-color: #00d8f2;
+$font-color: #02021c;
+
+//button colors
+$btn-color: $body-color;
+$btn-bg: $font-color;
+$btn-border: $font-color;
+
+$btn-hover-color: $font-color;
+$btn-hover-bg: $body-color;
+$btn-hover-border: $body-color;
+
+// fonts
+$main-font: "Roboto", sans-serif;
+$alt-font: "Roboto Mono", monospace;
+$h1-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
