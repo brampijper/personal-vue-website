@@ -1,7 +1,7 @@
 <template>
   <div class="content__heading">
     <article class="heading__title">
-      <h1 class="neonText">Hello, I'm Bram</h1>
+      <h1 class="blurText">Hello, I'm Bram</h1>
       <h2>Creative being &amp; web developer.</h2>
     </article>
   </div>
@@ -40,7 +40,7 @@
   }
 }
 
-.neonText {
+.blurText {
   text-shadow:
     1px 1px 68px #ffffff,
     1px 1px 70px #00101b,
