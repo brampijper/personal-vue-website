@@ -78,8 +78,7 @@ export default {
   transition: max-height 1s ease-in-out;
   will-change: height;
   max-height: calc(15px + 4vh);
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 6%, rgba(1,22,36,1) 54%, rgba(3,37,55,1) 82%, rgba(5,54,79,1) 100%);
+  background: #2E8B57;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -100,14 +99,14 @@ export default {
 
   .content__button {
     background-color: transparent;
-    border: 1px solid #cbfffa;
-    color: #cbfffa;
+    border: 1px solid #eff2ed;
+    color: #eff2ed;
     margin-top:.4rem;
   }
 
   .content__button:hover {
     color: black;
-    background-color:white;
+    background-color:#eff2ed;
   }
 }
 
@@ -125,7 +124,11 @@ export default {
     width: max-content;
     height: max-content;
     align-self: center;
-    row-gap: 3.5rem;
+    row-gap: 2.5rem;
+    // border: 5px solid black;
+    // border-radius: 15px;
+    // padding: 5rem;
+    // background-color: whitesmoke;
 
     .wrap__intro {
       display: flex;
@@ -147,10 +150,8 @@ export default {
   .header__content {
     .content__wrap {
       margin: 1rem;
-
       .wrap__intro {
         flex-direction: column;
-        gap: 1rem;
         align-items: flex-start;
       }
     }
@@ -162,10 +163,10 @@ export default {
   .header__content {
     .content__wrap {
       height: 100vh;
-      gap: 0rem;
+      row-gap: 0rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-evenly;
     }
   }
 }
