@@ -1,7 +1,7 @@
 <template>
   <div class="content__heading">
-    <article class="heading__title">
-      <h1 class="blurText">Hello, I'm Bram</h1>
+    <article class="heading__title blurText">
+      <h1>Hello, I'm Bram</h1>
       <h2>Creative being &amp; web developer.</h2>
     </article>
   </div>
@@ -42,7 +42,7 @@
 
 .blurText {
   text-shadow:
-    1px 1px 68px #ffffff,
-    1px 1px 70px #00101b,
+    1px 1px 40px white,
+    1px 1px 91px white;
 }
 </style>
