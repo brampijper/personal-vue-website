@@ -82,7 +82,7 @@ html {
 }
 
 body {
-  background-color: rgb(245, 245, 245);
+  background-color: $body-color;
   height: 100%;
   overflow-x: hidden;
 }
@@ -92,13 +92,13 @@ p,
 h2,
 ul,
 li {
-  font-family: $font-family;
+  font-family: $main-font;
   font-weight: 300;
 }
 
 a {
   transition: all 0.5s;
   text-decoration: none;
-  color: #eff2ed;
+  color: $font-color;
   }
 </style>

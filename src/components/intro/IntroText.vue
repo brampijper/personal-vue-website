@@ -30,12 +30,12 @@
 
   p {
     @include font-size(1.4rem);
-    font-family: "Roboto Mono", monospace;
+    font-family: $alt-font;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
     max-width: 45ch;
-    color: #eff2ed;
+    color: $font-color;
     
   }
 

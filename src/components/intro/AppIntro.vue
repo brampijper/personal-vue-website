@@ -72,13 +72,14 @@ export default {
   transition: max-height 1s ease-in-out;
   max-height: 100vh;
   cursor: unset;
+  background-color: $body-color;
 }
 
 .intro-container {
   transition: max-height 1s ease-in-out;
   will-change: height;
   max-height: calc(15px + 4vh);
-  background: #2E8B57;
+  background-color: black;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -90,23 +91,24 @@ export default {
     top: 50%;
     transform: translate(0%, -50%);
     text-transform: uppercase;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: $h1-font;
     @include font-size(1.3rem);
     font-weight: 900;
     color: white;
   }
 
   .content__button {
-    background-color: transparent;
-    border: 1px solid #eff2ed;
-    color: #eff2ed;
+    background-color: $btn-bg;
+    border: 1px solid $btn-border;
+    color: $btn-color;
     margin-top:.4rem;
   }
 
   .content__button:hover {
-    color: black;
-    background-color:#eff2ed;
+    color: $btn-hover-color;
+    background-color:$btn-hover-bg;
+    border: 1px solid $btn-hover-border;
+
   }
 }
 
@@ -125,10 +127,12 @@ export default {
     height: max-content;
     align-self: center;
     row-gap: 2.5rem;
-    // border: 5px solid black;
-    // border-radius: 15px;
-    // padding: 5rem;
-    // background-color: whitesmoke;
+    //
+    border: 10px solid $secondary-color;
+    border-radius: 15px;
+    padding: 4rem;
+    background: $base-color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), -4px 10px 7px rgba(0, 0, 0, 0.2);
 
     .wrap__intro {
       display: flex;
@@ -147,9 +151,17 @@ export default {
 }
 
 @media (max-width: 668px) {
+
+  .intro-container {
+      background-color: $base-color;
+  }
   .header__content {
     .content__wrap {
-      margin: 1rem;
+      // margin: 0;
+      border: 0;
+      border-radius: 0;
+      padding: 1rem;
+      box-shadow: none;
       .wrap__intro {
         flex-direction: column;
         align-items: flex-start;
