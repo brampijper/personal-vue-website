@@ -151,6 +151,7 @@ export default {
 .card > a {
   z-index: 15;
   text-decoration: none;
+  color:black;
 }
 
 .card, .card-link {
