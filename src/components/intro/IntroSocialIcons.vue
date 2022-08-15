@@ -30,15 +30,16 @@ export default {
   display: flex;
   align-items: flex-start;
   gap: 8rem;
+  margin-top: 2.5rem;
 
   a {
     text-align: center;
     text-decoration: none;
-    color: #cbfffa;
+    color: #eff2ed;
 
     svg {
       transition: transform 0.2s ease-out;
-      color: #cbfffa;
+      color: #eff2ed;
       max-width: 55px;
     }
 
@@ -70,6 +71,7 @@ export default {
     justify-self: unset;
     align-items: unset;
     justify-content: space-between;
+    margin-top:0;
 
     a {
       font-size: 1.7vw;
