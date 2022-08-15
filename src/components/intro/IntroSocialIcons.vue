@@ -35,11 +35,11 @@ export default {
   a {
     text-align: center;
     text-decoration: none;
-    color: #eff2ed;
+    color: $font-color;
 
     svg {
       transition: transform 0.2s ease-out;
-      color: #eff2ed;
+      color: $font-color;
       max-width: 55px;
     }
 
@@ -55,11 +55,11 @@ export default {
 
   a:hover > svg {
     transform: translate(0, -15px);
-    color: white;
+    color: $body-color;
   }
 
   a:hover > span {
-    color: white;
+    color: $body-color;
     transition: color 0.3s;
   }
 }
