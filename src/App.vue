@@ -104,15 +104,6 @@ li {
 a {
   transition: all 0.5s;
   text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: black;
-}
-
-a:visited {
-  color: inherit;
-}
-
+  color: #eff2ed;
+  }
 </style>
