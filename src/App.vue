@@ -71,11 +71,6 @@ export default {
 //base font
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
 
-$base-color: #3498db;
-$secondary-color: #f62a00;
-$font-color: #f1f3ce;
-$font-family: "Roboto", sans-serif;
-
 * {
   margin: 0px;
   padding: 0px;
