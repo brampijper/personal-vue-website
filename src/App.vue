@@ -83,8 +83,9 @@ html {
 
 body {
   background-color: $body-color;
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
+  height: -webkit-fill-available;
 }
 
 span,
