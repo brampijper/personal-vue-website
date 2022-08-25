@@ -151,18 +151,26 @@ export default {
 }
 
 @media (max-width: 668px) {
-
-  .intro-container {
-      background-color: $base-color;
-  }
   .header__content {
     .content__wrap {
-      // margin: 0;
-      border: 0;
-      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      margin: .7rem;
       padding: 1rem;
-      box-shadow: none;
+      border-radius: .5rem;
+    }
+  }
+}
+
+//specific edge cases for small and short screens
+@media (max-width: 668px) and (max-height: 750px) {
+  .header__content {
+    .content__wrap {
+      height: 88vh;
+      row-gap: 0rem;
+      justify-content: space-evenly;
       .wrap__intro {
+        gap: .5rem;
         flex-direction: column;
         align-items: flex-start;
       }
@@ -171,14 +179,13 @@ export default {
 }
 
 //specific edge cases for small and tall screens
-@media (max-width: 668px) and (max-height: 750px) {
+@media (max-width: 668px) and (min-height: 750px) {
   .header__content {
     .content__wrap {
-      height: 100vh;
-      row-gap: 0rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
+      height: 73vh;
+      .wrap__intro {
+        gap: 1rem;
+      }
     }
   }
 }
