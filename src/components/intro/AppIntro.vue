@@ -152,6 +152,9 @@ export default {
 
 @media (max-width: 668px) {
   .header__content {
+    min-height: 100vh; 
+    height: -webkit-fill-available;
+
     .content__wrap {
       display: flex;
       flex-direction: column;
@@ -166,7 +169,6 @@ export default {
 @media (max-width: 668px) and (max-height: 750px) {
   .header__content {
     .content__wrap {
-      height: 88vh;
       row-gap: 0rem;
       justify-content: space-evenly;
       .wrap__intro {
@@ -182,7 +184,6 @@ export default {
 @media (max-width: 668px) and (min-height: 750px) {
   .header__content {
     .content__wrap {
-      height: 73vh;
       .wrap__intro {
         gap: 1rem;
       }
