@@ -1,8 +1,12 @@
 <template>
-  <div :class="`intro-container ${showIntro}`" v-on="addClickHandler">
+  <div 
+    class="intro-container" 
+    :class="{ 'show': displayIntro }" 
+    v-on="addClickHandler"
+  >
     <div class="header__content">
       <FadeTransition>
-        <div v-if="showIntro" class="content__wrap">
+        <div v-if="displayIntro" class="content__wrap">
           <div class="wrap__intro">
             <IntroTitle />
             <PrimaryButton
@@ -18,7 +22,7 @@
         </div>
       </FadeTransition>
       <FadeTransition>
-        <h2 v-if="!showIntro">About Bram</h2>
+        <h2 v-if="!displayIntro">About Bram</h2>
       </FadeTransition>
     </div>
   </div>
@@ -41,10 +45,9 @@ export default {
     PrimaryButton,
   },
   props: {
-    showIntro: {
-      type: String,
+    displayIntro: {
+      type: Boolean,
       required: true,
-      default: "show",
     },
   },
   emits: ["toggleShowIntro"],
@@ -54,9 +57,7 @@ export default {
     };
 
     // only returns a click handler when needed
-    const addClickHandler = computed(() => {
-      return !props.showIntro ? { click: startTransition } : {};
-    });
+    const addClickHandler = computed(() => props.displayIntro ? {} : { click: startTransition });
 
     return {
       startTransition, // makes to method available to the template

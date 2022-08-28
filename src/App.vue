@@ -1,9 +1,9 @@
 <template>
   <main>
-    <AppIntro :show-intro="showIntro" @toggle-show-intro="toggleShowIntro" />
+    <AppIntro :display-intro="displayIntro" @toggle-show-intro="toggleShowIntro" />
 
     <FadeTransition>
-      <div v-if="!showIntro">
+      <div v-if="!displayIntro">
         <AppCard
           :cards="clients"
           class="projects"
@@ -42,7 +42,7 @@ export default {
     const projects = ref([]);
     const isLoading = ref(true);
     const clients = ref(data.clients);
-    const showIntro = ref("show");
+    const displayIntro = ref(true);
 
     onMounted(async () => {
       const { loading, repositories } = await useGithubRepositories();
@@ -50,17 +50,13 @@ export default {
       isLoading.value = loading;
     });
 
-    const toggleShowIntro = () => {
-      showIntro.value == "show"
-        ? (showIntro.value = "")
-        : (showIntro.value = "show");
-    };
+    const toggleShowIntro = () => displayIntro.value = !displayIntro.value;
 
     return {
       projects,
       isLoading,
       clients,
-      showIntro,
+      displayIntro,
       toggleShowIntro, // functions returned behave the same as methods
     };
   },
