@@ -8,7 +8,7 @@ const octokit = new Octokit({
 });
 
 export default async function useGithubRepositories() {
-  async function fetchRepo() {
+  const fetchRepo = async () => {
     let repositories = [];
     loading.value = true;
     try {
@@ -26,6 +26,7 @@ export default async function useGithubRepositories() {
       loading.value = false;
       return repositories;
     } catch (err) {
+      console.log(err);
       throw new Error(err);
     }
   }
