@@ -39,8 +39,6 @@ export default {
 
 .intro-container {
   max-height: auto;
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 6%, rgba(1,22,36,1) 54%, rgba(3,37,55,1) 82%, rgba(5,54,79,1) 100%);
   cursor: pointer;
   position: relative;
 
