@@ -4,7 +4,6 @@
       <div id="projects">
         <AppCard
           :cards="clients"
-          class="projects"
           card-size="big"
           title="Client Websites"
         >
