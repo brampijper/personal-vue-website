@@ -1,14 +1,12 @@
 <template>
-  <div :class="`intro-container ${showIntro}`" v-on="addClickHandler">
+  <div class="intro-container">
     <div class="header__content">
-      <FadeTransition>
-        <div v-if="showIntro" class="content__wrap">
+        <div class="content__wrap">
           <div class="wrap__intro">
             <IntroTitle />
             <PrimaryButton
               class="content__button"
               button-size="big"
-              :on-click="startTransition"
             >
               View Projects
             </PrimaryButton>
@@ -16,73 +14,35 @@
           <IntroText />
           <IntroSocialIcons />
         </div>
-      </FadeTransition>
-      <FadeTransition>
-        <h2 v-if="!showIntro">About Bram</h2>
-      </FadeTransition>
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from "vue";
 import IntroSocialIcons from "./IntroSocialIcons.vue";
 import IntroText from "./IntroText.vue";
 import IntroTitle from "./IntroTitle.vue";
 import PrimaryButton from "../ui/AppButton.vue";
-import FadeTransition from "../transitions/FadeTransition.vue";
 
 export default {
   components: {
-    FadeTransition,
     IntroSocialIcons,
     IntroTitle,
     IntroText,
     PrimaryButton,
-  },
-  props: {
-    showIntro: {
-      type: String,
-      required: true,
-      default: "show",
-    },
-  },
-  emits: ["toggleShowIntro"],
-  setup(props, { emit }) {
-    const startTransition = () => {
-      emit("toggleShowIntro");
-    };
-
-    // only returns a click handler when needed
-    const addClickHandler = computed(() => {
-      return !props.showIntro ? { click: startTransition } : {};
-    });
-
-    return {
-      startTransition, // makes to method available to the template
-      addClickHandler,
-    };
   },
 };
 </script>
 <style lang="scss" scoped>
 @import "~rfs/scss";
 
-.intro-container.show {
-  transition: max-height 1s ease-in-out;
-  max-height: 100vh;
-  cursor: unset;
-}
 
 .intro-container {
-  transition: max-height 1s ease-in-out;
-  will-change: height;
-  max-height: calc(15px + 4vh);
+  max-height: auto;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 6%, rgba(1,22,36,1) 54%, rgba(3,37,55,1) 82%, rgba(5,54,79,1) 100%);
   cursor: pointer;
   position: relative;
-  overflow: hidden;
 
   h2 {
     position: absolute;

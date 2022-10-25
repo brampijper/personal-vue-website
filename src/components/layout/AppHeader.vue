@@ -1,5 +1,5 @@
 <template>
-  <div class="small-container" @click="onClick">
+  <div class="small-container">
     <h4>
       <a href="#">ABOUT BRAM</a>
     </h4>
@@ -8,12 +8,6 @@
 
 <script>
 export default {
-  props: {
-    onClick: {
-      required: true,
-      type: Function,
-    },
-  },
   data() {
     return {};
   },
