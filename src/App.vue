@@ -70,9 +70,16 @@ html {
 }
 
 body {
-  background-color: rgb(245, 245, 245);
-  height: 100%;
-  overflow-x: hidden;
+background-color:snow;
+background-image: linear-gradient(
+  180deg,
+  hsl(0deg 0% 0%) 0%,
+  hsl(230deg 100% 4%) 45%,
+  hsl(223deg 100% 5%) 59%,
+  hsl(218deg 92% 5%) 100%
+);
+height: 100%;
+overflow-x: hidden;
 }
 
 span,
