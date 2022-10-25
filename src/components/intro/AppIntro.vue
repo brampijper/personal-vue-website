@@ -7,6 +7,7 @@
             <PrimaryButton
               class="content__button"
               button-size="big"
+              :on-click="scrollTo"
             >
               View Projects
             </PrimaryButton>
@@ -31,6 +32,17 @@ export default {
     IntroText,
     PrimaryButton,
   },
+  setup(props) {
+    const scrollTo = () => {
+      document.getElementById("projects").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    return {
+      scrollTo //make method available to template
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
