@@ -1,31 +1,34 @@
 <template>
-  <div class="cards-container">
-    <AppIconLoading :loading="loading" />
-    <div v-for="card in cards" :key="card.id" class="card">
-      <a class="card-link" :href="card.homepage" target="_blank">
-      <span class="card-topbar" :style="{backgroundColor: card.color}"> </span>
-        <div :class="cardSize + ' card-content'">
-          <img :alt="card.image.alt" :src="require(`../../images/${card.image.name}`)" />
-          <div class="card-wrap">
-            <p class="card-title">
-              {{ card.name }} {{ card.date }}
-            </p>
-            <p>
-              {{ card.description }}
-            </p>
+  <div class="cards__wrapper">
+    <h2 class="cards__wrapper--title">Projects</h2>
+    <div class="cards-container">
+      <AppIconLoading :loading="loading" />
+      <div v-for="card in cards" :key="card.id" class="card">
+        <a class="card-link" :href="card.homepage" target="_blank">
+        <span class="card-topbar" :style="{backgroundColor: card.color}"> </span>
+          <div :class="cardSize + ' card-content'">
+            <img :alt="card.image.alt" :src="require(`../../images/${card.image.name}`)" />
+            <div class="card-wrap">
+              <p class="card-title">
+                {{ card.name }} {{ card.date }}
+              </p>
+              <p>
+                {{ card.description }}
+              </p>
+            </div>
+            <div class="technologies">
+              <ul>
+                <li v-for="technology in card.technologies" :key="technology" :style="{borderColor: card.color}">
+                  {{`${technology}`}}
+                </li>
+              </ul>
+              <PrimaryButton class="content__button" button-size="tiny" :style="{backgroundColor: card.color}" >
+                Visit Website
+              </PrimaryButton>
+            </div>
           </div>
-          <div class="technologies">
-            <ul>
-              <li v-for="technology in card.technologies" :key="technology" :style="{borderColor: card.color}">
-                {{`${technology}`}}
-              </li>
-            </ul>
-            <PrimaryButton class="content__button" button-size="tiny" :style="{backgroundColor: card.color}" >
-              Visit Website
-            </PrimaryButton>
-          </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -61,13 +64,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "~rfs/scss";
+
+.cards__wrapper {
+  width: 75vw;
+  height: auto;
+  margin: 4rem;
+  margin: 0 auto;
+}
+
+.cards__wrapper--title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  @include font-size(4rem);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0 10px 0;
+  color: #eff2ed;
+}
 
 .cards-container {
   text-align: center;
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   z-index: 1;
   gap: 4rem;
   margin: 4rem 0 10rem 0; 
@@ -178,6 +198,17 @@ export default {
 .card-link:hover > .card-topbar {
   height: 100%;
   opacity: 0.05;
+}
+
+@media (max-width: 668px) {
+  .cards__wrapper {
+    width: 95vw;
+    margin: 5rem 1rem 5rem 1rem;
+  }
+
+  .card {
+    max-width: 91vw;
+  }
 }
 
 </style>
