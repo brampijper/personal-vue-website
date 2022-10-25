@@ -69,7 +69,23 @@ html {
 }
 
 body {
-background-color:snow;
+background-image: -webkit-gradient(
+  linear,
+  left top, left bottom,
+  from(hsl(0deg 0% 0%)),
+  color-stop(45%, hsl(230deg 100% 4%)),
+  color-stop(59%, hsl(223deg 100% 5%)),
+  to(hsl(218deg 92% 5%))
+);
+
+background-image: -o-linear-gradient(
+  top,
+  hsl(0deg 0% 0%) 0%,
+  hsl(230deg 100% 4%) 45%,
+  hsl(223deg 100% 5%) 59%,
+  hsl(218deg 92% 5%) 100%
+);
+
 background-image: linear-gradient(
   180deg,
   hsl(0deg 0% 0%) 0%,
