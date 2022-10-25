@@ -51,7 +51,6 @@ export default {
 
 .intro-container {
   max-height: auto;
-  cursor: pointer;
   position: relative;
 
   h2 {
