@@ -1,7 +1,7 @@
 <template>
   <main>
     <AppIntro />
-      <div>
+      <div id="projects">
         <AppCard
           :cards="clients"
           class="projects"
