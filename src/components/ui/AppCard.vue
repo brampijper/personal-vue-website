@@ -3,7 +3,7 @@
     <h2 class="cards__wrapper--title">Projects</h2>
     <div class="cards-container">
       <AppIconLoading :loading="loading" />
-      <div v-for="card in cards" :key="card.id" class="card">
+      <div v-for="card in cards" :key="card.id" class="card" :style="{borderColor: card.color}">
         <a class="card-link" :href="card.homepage" target="_blank">
         <span class="card-topbar" :style="{backgroundColor: card.color}"> </span>
           <div :class="cardSize + ' card-content'">
@@ -94,7 +94,7 @@ export default {
 }
 
 .card {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), -4px 10px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(231, 231, 231, 0.1), -4px 10px 7px rgba(199, 199, 199, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: snow;
   background-color: black;
@@ -104,6 +104,7 @@ export default {
   display: flex;
   flex-wrap:wrap;
   flex-direction:row;
+  border: 3px solid; 
 }
 
 .big {
@@ -119,8 +120,10 @@ export default {
   justify-content: space-between;
 
   img {
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
     max-width: 100%;
+    filter: blur(8px);
+    transition: .25s;
   }
 
  .technologies {
@@ -187,6 +190,7 @@ export default {
   border-radius: 15px;
   z-index: 2;
   opacity: .75;
+  top: 3px;
 }
 
 .card:hover > .card-content {
@@ -197,7 +201,15 @@ export default {
 
 .card-link:hover > .card-topbar {
   height: 100%;
+  width: 100%; 
   opacity: 0.05;
+}
+
+.card-link:hover > .card-content {
+  img {
+    transition: .25s;
+    filter: blur(0px);
+  }
 }
 
 @media (max-width: 668px) {
@@ -208,6 +220,10 @@ export default {
 
   .card {
     max-width: 91vw;
+  }
+
+  .card-content img {
+    filter: none;
   }
 }
 
