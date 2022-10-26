@@ -1,29 +1,14 @@
 <template>
   <main>
     <AppIntro />
-      <div id="projects">
-        <AppCard
-          :cards="clients"
-          card-size="big"
-          title="Client Websites"
-        >
-        </AppCard>
-        <!-- <AppCard
-          :cards="projects.value"
-          :loading="isLoading.value"
-          class="projects dark-mode"
-          card-size="medium"
-          title="Personal Projects"
-        >
-        </AppCard> -->
-      </div>
+    <AppProjects :projects="clientProjects" />
   </main>
 </template>
 
 <script>
 import { ref, onMounted } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
-import AppCard from "./components/ui/AppCard.vue";
+import AppProjects from "./components/projects/AppProjects.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
@@ -31,13 +16,13 @@ import data from "../clients-data.json";
 export default {
   components: {
     AppIntro,
-    AppCard,
+    AppProjects,
     FadeTransition,
   },
   setup() {
     const projects = ref([]);
     const isLoading = ref(true);
-    const clients = ref(data.clients);
+    const clientProjects = ref(data.clients);
 
     onMounted(async () => {
       const { loading, repositories } = await useGithubRepositories();
@@ -48,7 +33,7 @@ export default {
     return {
       projects,
       isLoading,
-      clients,
+      clientProjects,
     };
   },
 };
@@ -69,32 +54,8 @@ html {
 }
 
 body {
-background-image: -webkit-gradient(
-  linear,
-  left top, left bottom,
-  from(hsl(0deg 0% 0%)),
-  color-stop(45%, hsl(230deg 100% 4%)),
-  color-stop(59%, hsl(223deg 100% 5%)),
-  to(hsl(218deg 92% 5%))
-);
-
-background-image: -o-linear-gradient(
-  top,
-  hsl(0deg 0% 0%) 0%,
-  hsl(230deg 100% 4%) 45%,
-  hsl(223deg 100% 5%) 59%,
-  hsl(218deg 92% 5%) 100%
-);
-
-background-image: linear-gradient(
-  180deg,
-  hsl(0deg 0% 0%) 0%,
-  hsl(230deg 100% 4%) 45%,
-  hsl(223deg 100% 5%) 59%,
-  hsl(218deg 92% 5%) 100%
-);
-height: 100%;
-overflow-x: hidden;
+  background-image: $bg-gradient;
+  height: 100%;
 }
 
 span,
@@ -109,11 +70,11 @@ li {
 a {
   transition: all 0.5s;
   text-decoration: none;
-  color: #cbfffa;
+  color: $a-color;
 }
 
 a:hover {
-  color: white;
+  color: $a-hover-color;
 }
 
 a:visited {
