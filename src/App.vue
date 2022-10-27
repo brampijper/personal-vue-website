@@ -1,14 +1,14 @@
 <template>
   <main>
     <AppIntro />
-    <AppProjects :projects="clientProjects" />
+    <ProjectCollection :projects="clientProjects" />
   </main>
 </template>
 
 <script>
 import { ref, onMounted } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
-import AppProjects from "./components/projects/AppProjects.vue";
+import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
@@ -16,7 +16,7 @@ import data from "../clients-data.json";
 export default {
   components: {
     AppIntro,
-    AppProjects,
+    ProjectCollection,
     FadeTransition,
   },
   setup() {
