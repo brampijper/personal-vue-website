@@ -2,7 +2,7 @@
   <div class="content__heading">
     <article class="heading__title">
       <h1 class="neonText">Hello, I'm Bram</h1>
-      <h2>Creative being &amp; web developer.</h2>
+      <span>Creative being &amp; web developer.</span>
     </article>
   </div>
 </template>
@@ -25,7 +25,7 @@
     color: #eff2ed;
   }
 
-  .heading__title h2 {
+  .heading__title span {
     @include font-size(2rem);
     grid-column-start: 1;
     grid-row-start: 2;
