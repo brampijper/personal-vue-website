@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
     <div class="project__cards">
       <AppIconLoading :loading="loading" />
