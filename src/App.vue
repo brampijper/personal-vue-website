@@ -60,11 +60,15 @@ body {
 
 span,
 p,
-h2,
 ul,
 li {
   font-family: $font-family;
   font-weight: 300;
+}
+
+h2, h3 {
+  font-family: $header-font-family;
+  font-weight: 900;
 }
 
 a {
