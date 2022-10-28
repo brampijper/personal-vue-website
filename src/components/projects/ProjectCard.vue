@@ -5,17 +5,12 @@
       target="_blank" 
       :style="cardStyle"
     >
-    <span class="card-topbar" :style="bgColorStyle"> </span>
-      <div class="card-content">
-        <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" />
-        <div class="card-wrap">
+    <span class="card__overlay" :style="bgColorStyle"> </span>
+      <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" />
+        <div class="card__content">
           <article>
-            <p class="card-title">
-              {{ `${project.name} ${project.date}` }}
-            </p>
-            <p>
-              {{ project.description }}
-            </p>
+            <h3>{{ `${project.name} ${project.date}` }}</h3>
+            <p> {{ project.description }}</p>
           </article>
           <ProjectCardList 
             :technologies="project.technologies"
@@ -29,7 +24,6 @@
               Visit Website
           </PrimaryButton>
         </div>
-      </div>
     </a>
 </template>
 
@@ -70,69 +64,47 @@ export default {
 
 .card {
   position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: snow;
   background-color: black;
   border-radius: 15px;
   letter-spacing: 1.5px;
-  max-width: 85vw;
-  display: flex;
-  flex-wrap:wrap;
-  flex-direction:row;
-  border: 3px solid; 
-}
-
-.card-content {
+  border: 3px solid;
   display: flex;
   flex-direction: column;
-  row-gap: 1.7rem;
-  height: 100%;
   justify-content: space-between;
+  row-gap: 1.7rem;
   min-width: 300px;
   max-width: 450px;
 
   img {
     border-radius: 8px 8px 0px 0px;
     max-width: 100%;
+    width: auto;
+    max-height: 250px;
     filter: blur(8px);
     transition: .25s;
   }
+}
 
-
-.card-wrap {
-  padding: 0 40px 10px 40px;
+.card__content {
+  padding: 0 2rem .5rem 2rem;
   text-align:left;
   display: flex;
   flex-direction:column;
   row-gap: 1.8rem;
-  color:white;
-  
-  .card-title {
-    font-weight: 600;
-  }
 
-  > p {
-    z-index: 3;
+  h3 {
+    margin-bottom: .3rem;
   }
 }
 
-  .content__button {
-    background-color: white;
-    color: black;
-    margin-bottom:1.5rem;
-  }
+.content__button {
+  background-color: white;
+  color: black;
+  margin-bottom:1.5rem;
 }
 
-.card > span {
-  z-index: 1;
-}
-
-.card > a {
-  z-index: 15;
-  text-decoration: none;
-}
-
-.card-topbar {
+.card__overlay {
   width: 100%;
   display: block;
   height: 0px;
@@ -144,30 +116,30 @@ export default {
   top: 3px;
 }
 
-.card:hover > .card-content {
-  box-shadow: 0 14px 28px rgba(148, 106, 106, 0.15),
-    0 10px 10px rgba(0, 0, 0, 0.12);
+.card:hover {
   cursor: pointer;
 }
 
-.card:hover > .card-topbar {
-  height: 100%;
-  width: 100%; 
-  opacity: 0.05;
-}
+.card:hover {
+  > img {
+    transition: .25s;
+    filter: blur(0px);
+  }
 
-.card:hover > .card-content img {
-  transition: .25s;
-  filter: blur(0px);
+  > .card__overlay {
+    height: 100%;
+    width: 100%; 
+    opacity: 0.05;
+  }
 }
 
 @media (max-width: 668px) {
   .card {
     max-width: 91vw;
-  }
 
-  .card-content img {
-    filter: none;
+    img {
+      filter: none;
+    }
   }
 }
 
