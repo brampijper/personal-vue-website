@@ -1,8 +1,10 @@
 <template>
-  <main>
+  <div>
     <AppIntro />
-    <ProjectCollection :projects="clientProjects" />
+    <main>
+      <ProjectCollection :projects="clientProjects" />
   </main>
+  </div>
 </template>
 
 <script>
