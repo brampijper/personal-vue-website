@@ -26,8 +26,10 @@ export default {
 
 <style lang="scss" scoped>
 .icon__container {
-  justify-self: flex-start;
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  justify-self: flex-start;
   align-items: flex-start;
   gap: 8rem;
 
@@ -66,7 +68,6 @@ export default {
 @media (max-width: 668px) {
   .icon__container {
     gap: 4rem;
-
     a {
       font-size: 1.7vw;
     }
