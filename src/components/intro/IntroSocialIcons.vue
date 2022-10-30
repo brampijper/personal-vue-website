@@ -1,21 +1,21 @@
 <template>
-  <div class="icon-container">
-    <a href="mailto:brampijper@gmail.com" target="_blank">
-      <font-awesome-icon size="4x" icon="at" />
-      <span> Email </span>
-    </a>
-    <a
-      href="https://www.linkedin.com/in/bram-pijper-6a9306129/"
-      target="_blank"
-    >
-      <font-awesome-icon size="4x" :icon="['fab', 'linkedin']" />
-      <span> LinkedIn </span>
-    </a>
+  <section class="icon__container">
     <a href="https://github.com/brampijper" target="_blank">
       <font-awesome-icon size="4x" :icon="['fab', 'github']" />
       <span> Github </span>
     </a>
-  </div>
+    <a
+      href="https://focused-galileo-c3ee18.netlify.app/"
+      target="_blank"
+    >
+      <font-awesome-icon size="4x" :icon="['fa-solid', 'fa-book']" />
+      <span> Blog </span>
+    </a>
+    <a href="mailto:brampijper@protonmail.com" target="_blank">
+      <font-awesome-icon size="4x" icon="at" />
+      <span> Email </span>
+    </a>
+  </section>
 </template>
 
 <script>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon-container {
+.icon__container {
   justify-self: flex-start;
   display: flex;
   align-items: flex-start;
@@ -63,13 +63,9 @@ export default {
   }
 }
 
-@media (max-width: 1150px) {
-  .icon-container {
-    gap: 0rem;
-    width: 100%;
-    justify-self: unset;
-    align-items: unset;
-    justify-content: space-between;
+@media (max-width: 668px) {
+  .icon__container {
+    gap: 4rem;
 
     a {
       font-size: 1.7vw;
