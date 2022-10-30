@@ -42,7 +42,7 @@
 .neonText {
   color: #fff;
   text-shadow:
-    0 0 68px #fff,
-    0 0 70px #00101b,
+    0 0 4.25rem #fff,
+    0 0 4.3rem #00101b,
 }
 </style>
