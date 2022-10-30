@@ -1,7 +1,7 @@
 <template>
   <section id="projects">
-    <h2>Projects</h2>
     <div class="project__cards">
+    <h2>Projects</h2>
       <AppIconLoading :loading="loading" />
       <ProjectCard 
         v-for="project in projects" 
@@ -38,13 +38,14 @@ export default {
 @import "~rfs/scss";
 
 section {
-  width: 75vw;
-  margin: 0 auto;
+  width: auto;
+  margin: 5rem 1rem 5rem 1rem;
 
   h2 {
     @include font-size(4rem);
     line-height: 1;
     color: $title-color;
+    flex-basis:100%;
   }
 }
 
@@ -52,16 +53,23 @@ section {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   z-index: 1;
   gap: 4rem;
   margin: 4rem 0 10rem 0; 
 }
 
-@media (max-width: 668px) {
+@media (min-width: 1168px) {
   section {
-    width: 95vw;
-    margin: 5rem 1rem 5rem 1rem;
+    margin: 10rem;
+  }
+
+  .project__cards {
+    justify-content: flex-start;
+
+    h2 {
+      text-align:left;
+    }
   }
 }
 
