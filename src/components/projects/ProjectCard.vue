@@ -117,10 +117,7 @@ export default {
 }
 
 .card:hover {
-  cursor: pointer;
-}
-
-.card:hover {
+    cursor: pointer;
   > img {
     transition: .25s;
     filter: blur(0px);
