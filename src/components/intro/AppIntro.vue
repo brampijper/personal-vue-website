@@ -1,6 +1,5 @@
 <template>
-  <div class="intro-container">
-    <div class="header__content">
+    <header class="header__content">
         <div class="content__wrap">
           <div class="wrap__intro">
             <IntroTitle />
@@ -15,8 +14,7 @@
           <IntroText />
           <IntroSocialIcons />
         </div>
-    </div>
-  </div>
+    </header>
 </template>
 
 <script>
@@ -48,38 +46,6 @@ export default {
 <style lang="scss" scoped>
 @import "~rfs/scss";
 
-
-.intro-container {
-  max-height: auto;
-  position: relative;
-
-  h2 {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    transform: translate(0%, -50%);
-    text-transform: uppercase;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    @include font-size(1.3rem);
-    font-weight: 900;
-    color: white;
-  }
-
-  .content__button {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    margin-top:.4rem;
-  }
-
-  .content__button:hover {
-    color: black;
-    background-color:white;
-  }
-}
-
 .header__content {
   height: 100vh;
   display: flex;
@@ -104,6 +70,19 @@ export default {
       gap: 2rem;
     }
   }
+
+  .content__button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-top:.4rem;
+  }
+
+  .content__button:hover {
+    color: black;
+    background-color:white;
+  }
+
 }
 
 @media (max-width: 1150px) {
