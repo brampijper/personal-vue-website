@@ -44,7 +44,7 @@ section {
   h2 {
     @include font-size(4rem);
     line-height: 1;
-    color: $h2-color;
+    color: $title-color;
   }
 }
 

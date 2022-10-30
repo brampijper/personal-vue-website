@@ -67,8 +67,8 @@ li {
 }
 
 h2, h3 {
-  font-family: $header-font-family;
-  font-weight: 900;
+  font-family: $title-font-family;
+  font-weight: $title-weight;
 }
 
 a {
