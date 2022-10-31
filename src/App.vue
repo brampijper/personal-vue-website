@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="page" :class="store.darkMode ? 'dark' : '' ">
+    <AppToggler />
     <AppIntro />
     <main>
       <ProjectCollection :projects="clientProjects" />
-  </main>
+    </main>
   </div>
 </template>
 
@@ -11,15 +12,18 @@
 import { ref, onMounted } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
 import ProjectCollection from "./components/projects/ProjectCollection.vue";
+import AppToggler from "./components/ui/AppToggler.vue";
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
+import { store } from './store.js';
 
 export default {
   components: {
     AppIntro,
     ProjectCollection,
     FadeTransition,
+    AppToggler
   },
   setup() {
     const projects = ref([]);
@@ -36,6 +40,7 @@ export default {
       projects,
       isLoading,
       clientProjects,
+      store
     };
   },
 };
@@ -56,8 +61,27 @@ html {
 }
 
 body {
-  background-image: $bg-gradient;
   height: 100%;
+}
+
+.page {
+  background-color:white;
+
+    h1,h2,h3,h4,p,li,span,a, svg {
+      color:#111111;
+    }
+}
+
+.page.dark {
+    background-image: $bg-gradient;
+
+    h1,h2,h3,h4,p,li,span,a, svg {
+      color:white;
+    }
+}
+
+main {
+  padding-bottom:12rem;
 }
 
 span,
