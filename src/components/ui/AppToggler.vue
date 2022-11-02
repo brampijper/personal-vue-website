@@ -1,9 +1,9 @@
 <template>
-    <nav :class="store.darkMode ? 'dark' : '' ">
+    <nav :class="store.isDarkMode ? 'dark' : '' ">
         <div class="toggler">
             <p class="toggler__light">Light</p>
             <div class="toggler__slider">
-                <div class="toggler__slider--circle" @click="store.toggleDarkMode()"></div>
+                <div class="toggler__slider--circle" @click="store.toggleDarkMode"></div>
             </div>
             <p class="toggler__dark">Dark</p>
         </div>
@@ -15,10 +15,9 @@ import { store } from '../../store.js';
 
 export default {
     setup() {
-
-        return {
-            store
-        }   
+        return { 
+            store,
+        } 
     }
 }
 </script>
@@ -26,10 +25,9 @@ export default {
 <style scoped lang="scss">
 nav {
     width: 100%;
-    height: 50px;
+    height: 35px;
     display: flex;
-    justify-content: flex-end;
-    position:absolute;
+    justify-content: center;
 }
 
 .toggler {
