@@ -40,7 +40,7 @@ export default {
 
     svg {
       transition: transform 0.2s ease-out;
-      color: #cbfffa;
+      // color: #cbfffa;
       max-width: 55px;
     }
 
@@ -56,12 +56,11 @@ export default {
 
   a:hover > svg {
     transform: translate(0, -15px);
-    color: white;
   }
 
   a:hover > span {
-    color: white;
-    transition: color 0.3s;
+    text-decoration: underline;
+    transition: transform 0.3s;
   }
 }
 
