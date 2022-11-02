@@ -1,6 +1,7 @@
 <template>
     <a 
       class="card" 
+      :class="store.isDarkMode ? 'dark' : '' "
       :href="project.homepage" 
       target="_blank" 
       :style="cardStyle"
@@ -30,6 +31,7 @@
 <script>
 import PrimaryButton from "../ui/AppButton.vue";
 import ProjectCardList from "./ProjectCardList.vue";
+import { store } from '../../store.js';
 
 export default {
   components: {
@@ -45,7 +47,7 @@ export default {
   setup({project}) {
     const { color } = project;
     const borderStyle = { borderColor: color}
-    const bgColorStyle = { backgroundColor: color }
+    const bgColorStyle = { backgroundColor: color, borderColor: color }
     const cardStyle = { 
       boxShadow: `0 1px 3px ${color}, -1px 2px 5px ${color}`,
       borderColor: color
@@ -53,7 +55,8 @@ export default {
     return {
       borderStyle,
       bgColorStyle,
-      cardStyle
+      cardStyle,
+      store
     }
   }
 };
@@ -64,8 +67,8 @@ export default {
 
 .card {
   position: relative;
-  color: snow;
-  background-color: black;
+  color: $card-text;
+  background-color: $card-bg;
   border-radius: 15px;
   letter-spacing: 1.5px;
   border: 3px solid;
@@ -86,6 +89,11 @@ export default {
   }
 }
 
+.card.dark {
+  background-color: $card-bg-dark;
+  color: $card-text-dark;
+}
+
 .card__content {
   padding: 0 2rem .5rem 2rem;
   text-align:left;
@@ -99,9 +107,8 @@ export default {
 }
 
 .content__button {
-  background-color: white;
-  color: black;
   margin-bottom:1.5rem;
+  color: black !important;
 }
 
 .card__overlay {
