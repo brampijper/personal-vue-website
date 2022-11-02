@@ -1,8 +1,8 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-    darkMode: false,
+    isDarkMode: true,
     toggleDarkMode() {
-        this.darkMode = !this.darkMode;
-    }
+        this.isDarkMode = !this.isDarkMode;
+    },
 })
