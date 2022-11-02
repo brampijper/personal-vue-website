@@ -34,7 +34,7 @@ export default {
 @import "~rfs/scss";
 
  .technologies {
-    background-color:black;
+    // background-color:black;
     border-radius: 0px 0px 15px 15px;
     text-align:left;
 
@@ -45,7 +45,7 @@ export default {
         border-radius: 5px;
         padding: 0.5rem;
         font-size:.75rem;
-        color:white;
+        // color:white;
       }
   }
 
