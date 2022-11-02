@@ -39,12 +39,11 @@ export default {
 
 section {
   width: auto;
-  margin: 5rem 1rem 5rem 1rem;
+  margin: 5rem 1rem 0 1rem;
 
   h2 {
     @include font-size(4rem);
     line-height: 1;
-    color: $title-color;
     flex-basis:100%;
   }
 }
@@ -56,7 +55,7 @@ section {
   justify-content: center;
   z-index: 1;
   gap: 4rem;
-  margin: 4rem 0 10rem 0; 
+  margin: 4rem 0 0 0; 
 }
 
 @media (min-width: 1168px) {
