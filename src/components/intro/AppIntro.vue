@@ -72,15 +72,7 @@ export default {
   }
 
   .content__button {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
     margin-top:.4rem;
-  }
-
-  .content__button:hover {
-    color: black;
-    background-color:white;
   }
 
 }
