@@ -21,14 +21,14 @@
     font-weight: $title-weight;
     line-height: 1;
     margin: 0 0 10px 0;
-    color: $title-color;
+    // color: $title-color;
   }
 
   .heading__title span {
     @include font-size(2rem);
     grid-column-start: 1;
     grid-row-start: 2;
-    color: $title-color;
+    // color: $title-color;
   }
 }
 
@@ -40,7 +40,7 @@
 }
 
 .neonText {
-  color: #fff;
+  // color: #fff;
   text-shadow:
     0 0 4.25rem #fff,
     0 0 4.3rem #00101b,
