@@ -1,5 +1,5 @@
 <template>
-  <div class="page" :class="store.darkMode ? 'dark' : '' ">
+  <div class="page" :class="store.isDarkMode ? 'dark' : '' ">
     <AppToggler />
     <AppIntro />
     <main>
@@ -101,10 +101,6 @@ a {
   transition: all 0.5s;
   text-decoration: none;
   color: $a-color;
-}
-
-a:hover {
-  color: $a-hover-color;
 }
 
 a:visited {
