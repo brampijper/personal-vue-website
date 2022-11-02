@@ -1,10 +1,15 @@
 <template>
-  <button :class="'Button ' + buttonSize" @click="onClick">
+  <button 
+    class="Button" 
+    :class="`${buttonSize} ${store.isDarkMode ? 'dark' : '' }`"
+    @click="onClick">
     <slot>Button</slot>
   </button>
 </template>
 
 <script>
+import { store } from '../../store.js';
+
 export default {
   props: {
     buttonSize: {
@@ -16,8 +21,10 @@ export default {
       required: false,
     },
   },
-  data() {
-    return {};
+  setup(props) {
+    return {
+      store
+    }
   },
 };
 </script>
@@ -38,22 +45,30 @@ export default {
 
 .Button {
   border-radius: 5px;
-  // margin-top:24px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  border: 0px;
+  border: 1px solid black;
   padding: 0px;
-  color: white;
-  background: black;
+  color: black;
   transition: all 0.5s ease-out;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .Button:hover {
+  color: white;
+  background: black;
+}
+
+.Button.dark {
+  color:white;
+  background:transparent;
+  border: 1px solid white;
+}
+
+.Button.dark:hover {
   color: black;
   background: white;
-  // transform: scale(1.08);
-  cursor: pointer;
-  will-change: auto;
 }
 
 //specific edge cases for small and tall screens
