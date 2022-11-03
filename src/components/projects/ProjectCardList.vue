@@ -45,6 +45,7 @@ export default {
         border-radius: 5px;
         padding: 0.5rem;
         font-size:.75rem;
+        font-weight: bold;
         // color:white;
       }
   }
