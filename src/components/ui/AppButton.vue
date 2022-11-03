@@ -47,9 +47,9 @@ export default {
   border-radius: 5px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  border: 1px solid black;
+  border: $button-border;
   padding: 0px;
-  color: black;
+  color: $button-color;
   transition: all 0.5s ease-out;
   background-color: transparent;
   cursor: pointer;
@@ -61,9 +61,9 @@ export default {
 }
 
 .Button.dark {
-  color:white;
-  background:transparent;
-  border: 1px solid white;
+  color:$button-color-dark;
+  background:$button-bg-dark;
+  border: $button-border-dark;
 }
 
 .Button.dark:hover {
