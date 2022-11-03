@@ -18,7 +18,7 @@
         "description": "This landing page was created for a nanny business in Amsterdam who wanted to implement her own drawings on her website.",
         "technologies": ["React.js", "Contentful", "Gatsby", "CSS Modules"],
         "homepage": "https://amsterdam-nanny.netlify.app",
-        "color": "#FFEDA1",
+        "color": "#fae174",
         "image": {
           "name": "nanny_header.jpg",
           "alt": "Online nanny website header Amsterdam"
