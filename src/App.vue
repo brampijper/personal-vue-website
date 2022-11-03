@@ -62,21 +62,22 @@ html {
 
 body {
   height: 100%;
+  color: #fae174;
 }
 
 .page {
-  background-color:white;
+  background-image: $bg-gradient;
 
     h1,h2,h3,h4,p,li,span,a, svg {
-      color:#111111;
+      color: $font-colors;
     }
 }
 
 .page.dark {
-    background-image: $bg-gradient;
+    background-image: $bg-gradient-dark;
 
     h1,h2,h3,h4,p,li,span,a, svg {
-      color:white;
+      color: $font-colors-dark;
     }
 }
 
