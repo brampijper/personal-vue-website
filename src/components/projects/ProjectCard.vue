@@ -92,6 +92,10 @@ export default {
 .card.dark {
   background-color: $card-bg-dark;
   color: $card-text-dark;
+
+  .content__button {
+    color:black;
+  }
 }
 
 .card__content {
@@ -102,13 +106,16 @@ export default {
   row-gap: 1.8rem;
 
   h3 {
-    margin-bottom: .3rem;
+    margin-bottom: .6rem;
+  }
+
+  article {
+    line-height: 1.4rem;
   }
 }
 
 .content__button {
   margin-bottom:1.5rem;
-  color: black !important;
 }
 
 .card__overlay {
