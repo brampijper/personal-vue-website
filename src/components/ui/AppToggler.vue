@@ -1,5 +1,5 @@
 <template>
-    <nav :class="store.isDarkMode ? 'dark' : '' ">
+    <div :class="store.isDarkMode ? 'dark' : '' ">
         <div class="toggler">
             <p class="toggler__light">Light</p>
             <div class="toggler__slider">
@@ -7,7 +7,7 @@
             </div>
             <p class="toggler__dark">Dark</p>
         </div>
-    </nav>
+    </div>
 </template>
 
 <script>
@@ -23,12 +23,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-nav {
-    width: 100%;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-}
 
 .toggler {
     display: flex;
@@ -54,7 +48,7 @@ nav {
     box-sizing: content-box;
 }
 
-nav.dark .toggler__slider {
+div.dark .toggler__slider {
     border-color: white;
     background-color: #F5F5F5;
 }
@@ -66,7 +60,7 @@ nav.dark .toggler__slider {
     border-radius: 50%;
 }
 
-nav.dark .toggler__slider--circle {
+div.dark .toggler__slider--circle {
     background-color: black;
 }
 
@@ -74,7 +68,7 @@ nav.dark .toggler__slider--circle {
     color: #2B283A;
 }
 
-nav.dark .toggler__light {
+div.dark .toggler__light {
     color: #918E9B;
 }
 
@@ -82,11 +76,11 @@ nav.dark .toggler__light {
     color: #918E9B;
 }
 
-nav.dark .toggler__dark {
+div.dark .toggler__dark {
     color: #FFFFFF;
 }
 
-nav.dark .toggler__slider {
+div.dark .toggler__slider {
     justify-content: flex-end;
 }
 
