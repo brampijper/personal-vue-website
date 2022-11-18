@@ -7,20 +7,20 @@ $a-color:#cbfffa;
 
 
 // light themed
-$card-bg: #f1f0f0;
+$card-bg: rgb(244, 244, 246);
 $card-text: #111111;;
-$bg-gradient: linear-gradient( 109.6deg,  rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1% );
-$font-colors: #111111;
+$bg-color:rgb(236, 237, 239);
+$font-colors:rgb(29, 35, 48);
 
 // dark themed
-$card-bg-dark: #030f24;
+$card-bg-dark: rgb(28, 29, 33);;
 $card-text-dark: snow;
-$bg-gradient-dark: linear-gradient(180deg,#000000 0%,#000314 45%, #00071a 59%,#010a18 100%);
-$font-colors-dark: white;
+$bg-color-dark: rgb(17, 19, 24);
+$font-colors-dark: rgb(245, 245, 245);
 
 //button
-$button-color: black;
-$button-border: 1px solid black;
+$button-color: rgb(29, 35, 48);
+$button-border: 1px solid rgb(29, 35, 48);
 
 $button-color-dark: white;
 $button-bg-dark: transparent;
