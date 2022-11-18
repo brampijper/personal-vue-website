@@ -1,6 +1,6 @@
 <template>
     <header class="header__content">
-        <div class="content__wrap">
+        <div class="content__wrap card">
           <div class="wrap__intro">
             <IntroTitle />
             <PrimaryButton
@@ -61,6 +61,8 @@ export default {
     height: max-content;
     align-self: center;
     row-gap: 3.5rem;
+    border-radius: 16px;
+    padding: 2rem;
 
     .wrap__intro {
       display: flex;

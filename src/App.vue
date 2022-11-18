@@ -66,18 +66,26 @@ body {
 }
 
 .page {
-  background-image: $bg-gradient;
+  background-color: $bg-color;
 
     h1,h2,h3,h4,p,li,span,a, svg {
       color: $font-colors;
     }
+
+    .card {
+      background-color: $card-bg;
+    }
 }
 
 .page.dark {
-    background-image: $bg-gradient-dark;
+    background-color: $bg-color-dark;
 
     h1,h2,h3,h4,p,li,span,a, svg {
       color: $font-colors-dark;
+    }
+
+    .card {
+      background-color: $card-bg-dark;
     }
 }
 
