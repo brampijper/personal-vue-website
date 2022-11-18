@@ -1,7 +1,7 @@
 <template>
   <div class="content__heading">
     <article class="heading__title">
-      <h1 class="neonText">Hello, I'm Bram</h1>
+      <h1>Hello, I'm Bram</h1>
       <span>Creative being &amp; web developer.</span>
     </article>
   </div>
@@ -39,10 +39,4 @@
   }
 }
 
-.neonText {
-  // color: #fff;
-  text-shadow:
-    0 0 4.25rem #fff,
-    0 0 4.3rem #00101b,
-}
 </style>
