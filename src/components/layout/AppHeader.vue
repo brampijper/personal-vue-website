@@ -1,13 +1,20 @@
 <template>
-  <div class="small-container">
-    <h4>
-      <a href="#">ABOUT BRAM</a>
-    </h4>
-  </div>
+  <header>
+    <div className="header-wrap">
+      <h2>
+        <a href="#">B</a>
+      </h2>
+      <AppToggler />
+    </div>
+  </header>
 </template>
 
 <script>
+import AppToggler from "../ui/AppToggler.vue";
 export default {
+  components: {
+    AppToggler
+  },
   data() {
     return {};
   },
@@ -16,31 +23,27 @@ export default {
 
 <style lang="scss">
 @import "~rfs/scss";
-.small-container {
-  top: 0;
-  position: absolute;
-  background-color: aquamarine;
+header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items:center;
+  min-height: 60px;
+  top: 0;
+  position: fixed;
   width: 100%;
-  height: calc(15px + 4vh);
-  /* transition: 1s; */
-  cursor: pointer;
+  height: calc(15px + 3vh);
   z-index: 4;
+  box-shadow: rgb(0 0 0 / 38%) 0px 0px 24px 0px;
   h4 {
-    transition: 1s;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     @include font-size(1.5rem);
-    font-weight: 900;
-    line-height: 1;
-    color: black;
+  }
+
+  .header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding:1rem;
   }
 }
-.small-container:hover {
-  height: calc(40px + 4vh);
-  /* transition: 0.7s; */
-  transition-timing-function: ease-out;
-}
+
 </style>
