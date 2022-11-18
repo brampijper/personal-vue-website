@@ -1,5 +1,5 @@
 <template>
-    <header class="header__content">
+    <div class="header__content">
         <div class="content__wrap card">
           <div class="wrap__intro">
             <IntroTitle />
@@ -14,7 +14,7 @@
           <IntroText />
           <IntroSocialIcons />
         </div>
-    </header>
+    </div>
 </template>
 
 <script>
