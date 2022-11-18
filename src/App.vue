@@ -1,6 +1,6 @@
 <template>
   <div class="page" :class="store.isDarkMode ? 'dark' : '' ">
-    <AppToggler />
+    <AppHeader />
     <AppIntro />
     <main>
       <ProjectCollection :projects="clientProjects" />
@@ -12,7 +12,7 @@
 import { ref, onMounted } from "vue";
 import AppIntro from "./components/intro/AppIntro.vue";
 import ProjectCollection from "./components/projects/ProjectCollection.vue";
-import AppToggler from "./components/ui/AppToggler.vue";
+import AppHeader from "./components/layout/AppHeader.vue"
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
@@ -23,7 +23,7 @@ export default {
     AppIntro,
     ProjectCollection,
     FadeTransition,
-    AppToggler
+    AppHeader
   },
   setup() {
     const projects = ref([]);
@@ -72,7 +72,7 @@ body {
       color: $font-colors;
     }
 
-    .card {
+    .card, header {
       background-color: $card-bg;
     }
 }
@@ -84,7 +84,7 @@ body {
       color: $font-colors-dark;
     }
 
-    .card {
+    .card, header {
       background-color: $card-bg-dark;
     }
 }
