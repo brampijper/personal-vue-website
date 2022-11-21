@@ -59,10 +59,6 @@ section {
 }
 
 @media (min-width: 1168px) {
-  section {
-    margin: 10rem;
-  }
-
   .project__cards {
     justify-content: flex-start;
 
