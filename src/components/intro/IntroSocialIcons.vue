@@ -36,11 +36,9 @@ export default {
   a {
     text-align: center;
     text-decoration: none;
-    color: #cbfffa;
 
     svg {
       transition: transform 0.2s ease-out;
-      // color: #cbfffa;
       max-width: 55px;
     }
 
