@@ -12,7 +12,6 @@
 .content__heading {
   display: flex;
   flex-direction: row;
-  align-self: end;
   gap: 5rem;
 
   .heading__title h1 {
