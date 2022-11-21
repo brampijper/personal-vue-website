@@ -1,29 +1,27 @@
-<template>
-  <div class="page" :class="store.isDarkMode ? 'dark' : '' ">
-    <AppHeader />
-    <AppIntro />
-    <main>
-      <ProjectCollection :projects="clientProjects" />
+<template :class="darkModeClass">
+  <AppHeader :class="darkModeClass" />
+    <main :class="darkModeClass">
+      <div class="page-wrap">
+        <MainContent />
+        <ProjectCollection :projects="clientProjects" />
+      </div>
     </main>
-  </div>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
-import AppIntro from "./components/intro/AppIntro.vue";
+import { ref, onMounted, computed } from "vue";
 import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import AppHeader from "./components/layout/AppHeader.vue"
+import MainContent from "./components/layout/MainContent.vue"
 import useGithubRepositories from "./hooks/useGithubRepositories";
-import FadeTransition from "./components/transitions/FadeTransition.vue";
 import data from "../clients-data.json";
 import { store } from './store.js';
 
 export default {
   components: {
-    AppIntro,
     ProjectCollection,
-    FadeTransition,
-    AppHeader
+    AppHeader,
+    MainContent
   },
   setup() {
     const projects = ref([]);
@@ -36,11 +34,15 @@ export default {
       isLoading.value = loading;
     });
 
+    const darkModeClass = computed(() => {
+      return store.isDarkMode ? 'dark' : '';
+    })
+
     return {
       projects,
       isLoading,
       clientProjects,
-      store
+      darkModeClass
     };
   },
 };
@@ -54,43 +56,55 @@ export default {
   margin: 0px;
   padding: 0px;
   border: 0px;
+  box-sizing: inherit;
 }
 
 html {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  text-size-adjust: 100%;
   list-style-type: none;
 }
 
 body {
   height: 100%;
-  color: #fae174;
-}
-
-.page {
-  background-color: $bg-color;
-
-    h1,h2,h3,h4,p,li,span,a, svg {
-      color: $font-colors;
-    }
-
-    .card, header {
-      background-color: $card-bg;
-    }
-}
-
-.page.dark {
-    background-color: $bg-color-dark;
-
-    h1,h2,h3,h4,p,li,span,a, svg {
-      color: $font-colors-dark;
-    }
-
-    .card, header {
-      background-color: $card-bg-dark;
-    }
 }
 
 main {
-  padding-bottom:12rem;
+  background-color: $bg-color;
+  color: $font-colors;
+
+  svg, a {
+     color: $font-colors; 
+  }
+
+  .card {
+    background-color: $card-bg;
+  }
+}
+
+main.dark {
+  background-color: $bg-color-dark;
+  color: $font-colors-dark;
+
+  svg, a {
+    color: $font-colors-dark; 
+  }
+
+  .card {
+    background-color: $card-bg-dark;
+  }
+}
+
+.page-wrap {
+  margin: auto;
+  max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
 }
 
 span,
@@ -109,11 +123,32 @@ h2, h3 {
 a {
   transition: all 0.5s;
   text-decoration: none;
-  color: $a-color;
 }
 
 a:visited {
   color: inherit;
 }
+
+@media (min-width: 360px) {
+  main {
+    min-width: calc(100vw - 64px);
+    padding: 32px 16px;
+  }
+}
+
+@media (min-width: 660px) {
+  main {
+    min-height: calc(100vh - calc(15px + 3vh)); //height of header
+    padding: 32px 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  main {
+    min-width: calc(100vw - 64px);
+    padding: 32px;
+  }
+}
+
 
 </style>
