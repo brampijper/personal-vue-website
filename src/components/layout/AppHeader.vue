@@ -11,24 +11,28 @@
 
 <script>
 import AppToggler from "../ui/AppToggler.vue";
+
 export default {
   components: {
     AppToggler
   },
   data() {
-    return {};
+    return {}
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~rfs/scss";
 header {
+  background-color: $card-bg;
+  color: $font-colors;
   display: flex;
   align-items:center;
+  box-sizing:border-box;
   min-height: 60px;
   top: 0;
-  position: fixed;
+  position: sticky;
   width: 100%;
   height: calc(15px + 3vh);
   z-index: 4;
@@ -44,6 +48,12 @@ header {
     width: 100%;
     padding:1rem;
   }
+}
+
+.dark {
+  background-color: $card-bg-dark;
+  color: $font-colors-dark;
+  
 }
 
 </style>
