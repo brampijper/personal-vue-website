@@ -68,10 +68,10 @@ export default {
 .card {
   position: relative;
   color: $card-text;
-  background-color: $card-bg;
+  background-color: rgb(227, 228, 232);
   border-radius: 15px;
   letter-spacing: 1.5px;
-  border: 3px solid;
+  border: 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,13 +84,13 @@ export default {
     max-width: 100%;
     width: auto;
     max-height: 250px;
-    filter: blur(8px);
+    filter: blur(1px);
     transition: .25s;
   }
 }
 
 .card.dark {
-  background-color: $card-bg-dark;
+  background-color: rgb(37, 39, 44);
   color: $card-text-dark;
 
   .content__button {
@@ -122,7 +122,7 @@ export default {
   width: 100%;
   display: block;
   height: 0px;
-  transition: all 1.1s;
+  transition: all .8s;
   position: absolute;
   border-radius: 15px;
   z-index: 2;
@@ -133,7 +133,7 @@ export default {
 .card:hover {
     cursor: pointer;
   > img {
-    transition: .25s;
+    transition: .2s;
     filter: blur(0px);
   }
 
