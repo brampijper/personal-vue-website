@@ -8,14 +8,12 @@
 </template>
 
 <script>
-import IntroSocialIcons from "../intro/IntroSocialIcons.vue";
 import IntroText from "../intro/IntroText.vue";
 import IntroTitle from "../intro/IntroTitle.vue";
 import PrimaryButton from "./AppButton.vue";
 
 export default {
   components: {
-    IntroSocialIcons,
     IntroTitle,
     IntroText,
     PrimaryButton,
@@ -36,7 +34,6 @@ export default {
 <style lang="scss" scoped>
 @import "~rfs/scss";
 .container {
-  border-radius: 16px;
   padding: 2rem;
   box-sizing: border-box;
   margin: 0px;
@@ -50,9 +47,9 @@ export default {
 }
 
 @media (min-width: 0px) {
-    .container {
-        width: 100%;
-    }
+  .container {
+    width: 100%;
+  }
 }
 
 @media (min-width: 990px) {
