@@ -1,4 +1,4 @@
-<template :class="darkModeClass">
+<template>
   <AppHeader :class="darkModeClass" />
     <main :class="darkModeClass">
       <div class="page-wrap">
@@ -148,6 +148,12 @@ a:visited {
     min-width: calc(100vw - 64px);
     padding: 32px;
   }
+}
+
+// global card styles
+.card {
+  border-radius: 16px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 24px 0px;
 }
 
 
