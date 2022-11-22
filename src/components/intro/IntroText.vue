@@ -1,10 +1,10 @@
 <template>
   <article class="content__intro">
-    <p class="intro__first">
+    <p>
       Currently building my idea's online, while keeping up with my interests:
       <i> being outdoors, cooking, reading and mindfulness. </i>
     </p>
-    <p class="intro__second">
+    <p>
       I worked as a junior developer at
       <a href="https://www.schuttelaar-partners.com/" target="_blank"
         >Schuttelaar &amp; Partners.</a
@@ -29,7 +29,7 @@
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
-    max-width: 45ch;
+    max-width: 49ch;
   }
 
   a {
@@ -45,10 +45,4 @@
   }
 }
 
-@media (max-width: 1150px) {
-  .content__intro {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
 </style>
