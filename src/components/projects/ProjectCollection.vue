@@ -1,6 +1,6 @@
 <template>
-  <section id="projects">
-    <div class="project__cards">
+  <section id="projects" class="container">
+    <div class="project__cards card">
     <h2>Projects</h2>
       <AppIconLoading :loading="loading" />
       <ProjectCard 
@@ -39,7 +39,6 @@ export default {
 
 section {
   width: auto;
-  margin: 5rem 1rem 0 1rem;
 
   h2 {
     @include font-size(4rem);
@@ -55,7 +54,8 @@ section {
   justify-content: center;
   z-index: 1;
   gap: 4rem;
-  margin: 4rem 0 0 0; 
+  margin: 2rem 0 0 0;
+  padding: 2rem;
 }
 
 @media (min-width: 1168px) {
