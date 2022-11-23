@@ -6,12 +6,14 @@
         <ProjectCollection :projects="clientProjects" />
       </div>
     </main>
+    <AppFooter :class="darkModeClass" />
 </template>
 
 <script>
 import { ref, onMounted, computed } from "vue";
 import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import AppHeader from "./components/layout/AppHeader.vue"
+import AppFooter from "./components/layout/AppFooter.vue"
 import MainContent from "./components/layout/MainContent.vue"
 import useGithubRepositories from "./hooks/useGithubRepositories";
 import data from "../clients-data.json";
@@ -21,7 +23,8 @@ export default {
   components: {
     ProjectCollection,
     AppHeader,
-    MainContent
+    MainContent,
+    AppFooter
   },
   setup() {
     const projects = ref([]);
@@ -32,6 +35,7 @@ export default {
       const { loading, repositories } = await useGithubRepositories();
       projects.value = repositories;
       isLoading.value = loading;
+      console.log(repositories)
     });
 
     const darkModeClass = computed(() => {
