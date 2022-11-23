@@ -68,7 +68,7 @@ export default {
 .card {
   position: relative;
   color: $card-text;
-  background-color: rgb(227, 228, 232);
+  background-color: rgb(240 241 245);
   border-radius: 15px;
   letter-spacing: 1.5px;
   border: 1px solid;
@@ -77,7 +77,7 @@ export default {
   justify-content: space-between;
   row-gap: 1.7rem;
   min-width: 300px;
-  max-width: 450px;
+  max-width: 360px;
 
   img {
     border-radius: 8px 8px 0px 0px;
