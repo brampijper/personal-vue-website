@@ -41,7 +41,7 @@ section {
   width: auto;
 
   h2 {
-    @include font-size(4rem);
+    @include font-size(3rem);
     line-height: 1;
     flex-basis:100%;
   }
@@ -55,12 +55,13 @@ section {
   z-index: 1;
   gap: 4rem;
   margin: 2rem 0 0 0;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 @media (min-width: 1168px) {
   .project__cards {
     justify-content: flex-start;
+    padding: 2rem;
 
     h2 {
       text-align:left;
