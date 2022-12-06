@@ -1,4 +1,3 @@
-import { ref } from "vue";
 import { Octokit } from "@octokit/rest";
 
 const octokit = new Octokit({
@@ -8,9 +7,12 @@ const octokit = new Octokit({
 });
 
 export default async function useGithubRepositories() {
+  let github = {
+    repositories: [],
+    isLoading: true
+  }
   async function fetchRepo() {
-    let repositories = [];
-    loading.value = true;
+    github.isLoading = true;
     try {
       const res = await octokit.repos.listForOrg({
         org: "brampijper-gh-pages",
@@ -20,19 +22,15 @@ export default async function useGithubRepositories() {
       }
       res.data.filter((repo) => {
         if (repo.homepage) {
-          repositories.push(repo);
+          github.repositories.push(repo);
         }
       });
-      loading.value = false;
-      return repositories;
+      github.isLoading = false;
+      return github;
     } catch (err) {
       throw new Error(err);
     }
   }
-  let loading = ref(null);
-  let repositories = ref(await fetchRepo());
-  return {
-    loading,
-    repositories,
-  };
+  github = await fetchRepo();
+  return github;
 }
