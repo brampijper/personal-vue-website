@@ -3,7 +3,7 @@
     <main :class="darkModeClass">
       <div class="page-wrap">
         <MainContent />
-        <ProjectCollection :projects="clientProjects" />
+        <ProjectCollection :projects="state.repositories" :loading="state.isLoading" />
       </div>
     </main>
     <AppFooter :class="darkModeClass" />
@@ -27,15 +27,15 @@ export default {
     AppFooter
   },
   setup() {
-    const projects = ref([]);
-    const isLoading = ref(true);
     const clientProjects = ref(data.clients);
+    const state = ref({})
 
     onMounted(async () => {
-      const { loading, repositories } = await useGithubRepositories();
-      projects.value = repositories;
-      isLoading.value = loading;
-      console.log(repositories)
+      const {repositories, isLoading} = await useGithubRepositories();
+      state.value = {
+        repositories,
+        isLoading
+      } 
     });
 
     const darkModeClass = computed(() => {
@@ -43,10 +43,9 @@ export default {
     })
 
     return {
-      projects,
-      isLoading,
       clientProjects,
-      darkModeClass
+      darkModeClass,
+      state
     };
   },
 };
