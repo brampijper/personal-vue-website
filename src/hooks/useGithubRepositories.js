@@ -14,23 +14,21 @@ export default async function useGithubRepositories() {
   async function fetchRepo() {
     github.isLoading = true;
     try {
-      const res = await octokit.repos.listForOrg({
-        org: "brampijper-gh-pages",
+      const res = await octokit.rest.repos.listForUser({
+        username: "brampijper",
       });
-      if (!res) {
+
+      if (res) {
+        res.data.filter( repo => 
+          repo.homepage && github.repositories.push(repo));
+        github.isLoading = false;
+      } else { 
         console.log("no response received", res);
       }
-      res.data.filter((repo) => {
-        if (repo.homepage) {
-          github.repositories.push(repo);
-        }
-      });
-      github.isLoading = false;
       return github;
     } catch (err) {
       throw new Error(err);
     }
   }
-  github = await fetchRepo();
-  return github;
+  return await fetchRepo()
 }
