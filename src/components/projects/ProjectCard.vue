@@ -7,14 +7,14 @@
       :style="cardStyle"
     >
     <span class="card__overlay" :style="bgColorStyle"> </span>
-      <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" />
+      <!-- <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" /> -->
         <div class="card__content">
           <article>
-            <h3>{{ `${project.name} ${project.date}` }}</h3>
+            <h3>{{ `${project.name} ${project.created_at}` }}</h3>
             <p> {{ project.description }}</p>
           </article>
           <ProjectCardList 
-            :technologies="project.technologies"
+            :technologies="project.topics"
             :borderStyle="borderStyle" 
           />
           <PrimaryButton 
