@@ -10,7 +10,7 @@
       <!-- <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" /> -->
         <div class="card__content">
           <article>
-            <h3>{{ `${project.name} ${project.created_at}` }}</h3>
+            <h3>{{ `${project.name} ${year}` }}</h3>
             <p> {{ project.description }}</p>
           </article>
           <ProjectCardList 
@@ -52,11 +52,15 @@ export default {
       boxShadow: `0 1px 3px ${color}, -1px 2px 5px ${color}`,
       borderColor: color
     }
+
+    const year = project.created_at.slice(0,4)
+
     return {
       borderStyle,
       bgColorStyle,
       cardStyle,
-      store
+      store,
+      year
     }
   }
 };
@@ -92,18 +96,14 @@ export default {
 .card.dark {
   background-color: rgb(37, 39, 44);
   color: $card-text-dark;
-
-  .content__button {
-    color:black;
-  }
 }
 
 .card__content {
-  padding: 0 2rem .5rem 2rem;
+  padding: 2rem;
   text-align:left;
   display: flex;
   flex-direction:column;
-  row-gap: 1.8rem;
+  row-gap: 1.2rem;
 
   h3 {
     margin-bottom: .6rem;
@@ -112,10 +112,6 @@ export default {
   article {
     line-height: 1.4rem;
   }
-}
-
-.content__button {
-  margin-bottom:1.5rem;
 }
 
 .card__overlay {
