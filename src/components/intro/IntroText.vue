@@ -13,6 +13,10 @@
       <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>
       team. A creative advertising agency.
     </p>
+    <p>
+      Forever learning and challenging myself.
+      <i> Now learning Norsk to settle down somewhere closer the mountains. </i>
+    </p>
   </article>
 </template>
 
