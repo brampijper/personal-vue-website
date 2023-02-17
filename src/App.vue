@@ -83,6 +83,7 @@ main {
 
   .card {
     background-color: $card-bg;
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 2px 2px;
   }
 }
 
@@ -96,6 +97,7 @@ main.dark {
 
   .card {
     background-color: $card-bg-dark;
+    box-shadow: rgb(100 100 100 / 30%) 0px 0px 2px 2px;
   }
 }
 
@@ -156,7 +158,6 @@ a:visited {
 // global card styles
 .card {
   border-radius: 16px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 0px 24px 0px;
 }
 
 
