@@ -1,6 +1,6 @@
 <template>
   <section id="projects" class="container">
-    <div class="project__cards card">
+    <div class="project__cards">
     <h2>Projects</h2>
       <AppIconLoading :loading="loading" />
       <ProjectCard 
