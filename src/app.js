@@ -8,10 +8,21 @@ import {
   faSpinner,
   faEye,
   faBook,
+  faExpandAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faTimes, faLinkedin, faGithub, faAt, faSpinner, faEye, faBook);
+library.add(
+  faTimes, 
+  faLinkedin, 
+  faGithub, 
+  faAt, 
+  faSpinner, 
+  faEye, 
+  faBook, 
+  faExpandAlt
+);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
+<i class="fa-solid "></i>
