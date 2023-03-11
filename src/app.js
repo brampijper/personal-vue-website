@@ -25,4 +25,3 @@ library.add(
 );
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
-<i class="fa-solid "></i>
