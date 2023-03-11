@@ -6,11 +6,17 @@
       target="_blank" 
       :style="cardStyle"
     >
-    <span class="card__overlay" :style="bgColorStyle"> </span>
       <!-- <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" /> -->
         <div class="card__content">
+          <div class="card__toolbar">
+            <div>
+              <h3>{{ `${project.name} ${year}` }}</h3>
+            </div>
+            <a target="_blank" href="#">
+              <font-awesome-icon size="1x" :icon="['fa-solid', 'fa-expand-alt']" />
+            </a>
+          </div>
           <article>
-            <h3>{{ `${project.name} ${year}` }}</h3>
             <p> {{ project.description }}</p>
           </article>
           <ProjectCardList 
@@ -49,7 +55,7 @@ export default {
     const borderStyle = { borderColor: color}
     const bgColorStyle = { backgroundColor: color, borderColor: color }
     const cardStyle = { 
-      boxShadow: `0 1px 3px ${color}, -1px 2px 5px ${color}`,
+      boxShadow: `0 4px 12px ${color}, -4px 8px 20px ${color}`,
       borderColor: color
     }
 
@@ -75,13 +81,14 @@ export default {
   background-color: rgb(240 241 245);
   border-radius: 15px;
   letter-spacing: 1.5px;
-  border: 1px solid;
+  // border: 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   row-gap: 1.7rem;
   min-width: 300px;
   max-width: 360px;
+  overflow:hidden;
 
   img {
     border-radius: 8px 8px 0px 0px;
@@ -91,19 +98,30 @@ export default {
     filter: blur(1px);
     transition: .25s;
   }
+
+  .card__toolbar {
+    background-color: rgb(0 0 0 / 9%);
+ }
 }
 
 .card.dark {
-  background-color: rgb(37, 39, 44);
+  background-color: $card-bg-dark;
   color: $card-text-dark;
+
+  .card__toolbar {
+    background-color: rgb(100 100 100 / 30%);
+  }
 }
 
 .card__content {
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   text-align:left;
   display: flex;
   flex-direction:column;
   row-gap: 1.2rem;
+  height: 100%;
+  justify-content: space-between;
+  margin-top: 2.3rem;
 
   h3 {
     margin-bottom: .6rem;
@@ -114,18 +132,6 @@ export default {
   }
 }
 
-.card__overlay {
-  width: 100%;
-  display: block;
-  height: 0px;
-  transition: all .8s;
-  position: absolute;
-  border-radius: 15px;
-  z-index: 2;
-  opacity: .75;
-  top: 3px;
-}
-
 .card:hover {
     cursor: pointer;
   > img {
@@ -133,10 +139,10 @@ export default {
     filter: blur(0px);
   }
 
-  > .card__overlay {
-    height: 100%;
-    width: 100%; 
-    opacity: 0.05;
+  .card__toolbar {
+    > a {
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -147,6 +153,28 @@ export default {
     img {
       filter: none;
     }
+
+    .card__toolbar h3 {
+      font-size: .9rem;
+    }
+  }
+}
+
+.card__toolbar {
+  position:absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 1rem;
+
+  h3 {
+    margin: 0;
   }
 }
 
