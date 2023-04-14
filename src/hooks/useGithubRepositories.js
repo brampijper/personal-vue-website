@@ -19,8 +19,7 @@ export default async function useGithubRepositories() {
       });
 
       if (res) {
-        res.data.filter( repo => 
-          repo.homepage && github.repositories.push(repo));
+        res.data.filter( repo => repo.homepage && github.repositories.push(repo));
         github.isLoading = false;
       } else { 
         console.log("no response received", res);
