@@ -100,7 +100,7 @@ export default {
   }
 
   .card__toolbar {
-    background-color: rgb(0 0 0 / 9%);
+    background-color: rgb(0 0 0 / 3%);
  }
 }
 
