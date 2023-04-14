@@ -9,13 +9,20 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
+import useBlogPosts from '../../hooks/useBlogPosts';
 
 export default {
   components: {
   },
-  setup(props) {
+  setup() {
+    const state = ref({ blogpost: [] })
 
+    onMounted(async () => {
+      console.log( await useBlogPosts())
+    })
     return {
+      state
     }
   }
 };
