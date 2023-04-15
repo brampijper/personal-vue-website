@@ -12,9 +12,6 @@ const config = {
   devServer: {
     static: {
       directory: commonPaths.outputPath,
-    },
-    proxy: {
-      '/api': 'https://focused-galileo-c3ee18.netlify.app' 
     }
   },
   module: {
