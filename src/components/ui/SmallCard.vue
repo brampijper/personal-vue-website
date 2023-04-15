@@ -3,7 +3,10 @@
     <ul class="container__wrap">
       <li>-- stats Ghub commits --</li>
       <li>-- project highlight --</li>
-      <li>-- latest blog post --</li>
+      <li>
+          {{ `Latest blogpost: ${state.title}` }}
+
+      </li>
     </ul>
   </div>
 </template>
@@ -16,10 +19,16 @@ export default {
   components: {
   },
   setup() {
-    const state = ref({ blogpost: [] })
+    const state = ref({})
 
-    onMounted(async () => {
-      console.log( await useBlogPosts())
+    onMounted( async () => {
+      const {title, pubDate, content, link} =  await useBlogPosts();
+      state.value = {
+        title,
+        pubDate,
+        content,
+        link
+      }
     })
     return {
       state

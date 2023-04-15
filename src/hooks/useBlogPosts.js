@@ -1,18 +1,18 @@
+import Parser from 'rss-parser';
+
 export default async function useBlogPosts() {
-    
-    async function fetchLatestPost() {
-        try {
-            const res = await fetch("https://focused-galileo-c3ee18.netlify.app/react");
-            
-            if (res) {
-                const jsonData = await res.json()
-            } else {
-                console.log("no response received", res);
-            }
-            return data;
-        } catch (err) {
+
+    const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+    let parser = new Parser();
+
+    async function getBlogPost() {
+        const feed = await parser.parseURL(CORS_PROXY + 'https://focused-galileo-c3ee18.netlify.app/rss.xml');
+
+        if(feed) {
+            return feed.items[0]
+        } else {
             throw new Error(err)
         }
     }
-    return await fetchLatestPost()
+    return await getBlogPost();
 }
