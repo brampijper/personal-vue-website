@@ -1,12 +1,29 @@
 <template>
-  <div class="container card">
+  <div class="container">
     <ul class="container__wrap">
-      <li>-- stats Ghub commits --</li>
-      <li>-- project highlight --</li>
-      <li>
-          {{ `Latest blogpost: ${state.title}` }}
-
-      </li>
+      <a 
+        class="card"
+        :href="state.link"
+        target="_blank"
+      >
+          <h4>Check out my latest blogpost</h4>
+          <p><i>{{ `"${state.title}"` }}</i></p>
+          <small><i>Written on {{ state.formattedDate }}</i></small>
+      </a>
+      <a 
+        class="card"
+        :href="state.link"
+        target="_blank" 
+      >
+        -- stats Ghub commits --
+      </a>
+      <a 
+        class="card"
+        :href="state.link"
+        target="_blank" 
+      >
+        -- contact me :) --
+      </a>
     </ul>
   </div>
 </template>
@@ -23,13 +40,21 @@ export default {
 
     onMounted( async () => {
       const {title, pubDate, content, link} =  await useBlogPosts();
+      const formattedDate = formatDate(pubDate)
       state.value = {
         title,
-        pubDate,
+        formattedDate,
         content,
         link
       }
     })
+
+    function formatDate(date) {
+      const dateArr = date.split(" ");
+      const removeLastTwoWords = dateArr.slice(0, -2); // removes the GMT + Time.
+      const formattedDate = removeLastTwoWords.join(" ");
+      return formattedDate;
+    }
     return {
       state
     }
@@ -43,7 +68,6 @@ export default {
     box-sizing: border-box;
     margin: 0px;
     flex-direction: row;
-    overflow:hidden;
 }
 
 .container__wrap {
@@ -53,20 +77,22 @@ export default {
   justify-content: space-between;
   flex-direction: column;
 
-  li {
-    flex-basis: 33%;
+  a {
+    flex-basis: 29%;
     display:flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px dashed goldenrod;
+    flex-direction: column;
+    gap: 0.8rem;
     cursor: pointer;
     font-weight: 700;
     font-family: $title-font-family;
     min-height: 100px;
   }
 
-  li:last-child {
-    border: none;
+  a:hover {
+    background-color:white;
+    color:black;
   }
 }
 
@@ -76,11 +102,20 @@ export default {
       justify-content: space-between;
       width: 100%;
   }
+
+  .container__wrap {
+    gap: 2.3rem;
+  }
+
 }
 
 @media (min-width: 990px) {
   .container {
     width: 416px;
+  }
+
+  .container__wrap {
+    gap: unset;
   }
 }
 
