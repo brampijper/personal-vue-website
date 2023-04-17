@@ -28,7 +28,7 @@ export default {
   },
   setup() {
     const clientProjects = ref(data.clients);
-    const state = ref({ repositories: [] })
+    const state = ref({ repositories: [], isLoading: true })
 
     onMounted(async () => {
       const {repositories, isLoading} = await useGithubRepositories();
