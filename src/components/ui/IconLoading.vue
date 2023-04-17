@@ -1,8 +1,8 @@
 <template>
-  <div v-if="loading" class="icon-container">
+  <div v-if="loading" :class=" `icon-container size-${size}` ">
     <font-awesome-icon
       :class="loading ? '' : 'paused'"
-      size="6x"
+      :size="size === 'big' ? '6x' : '2x'"
       icon="spinner"
     />
   </div>
@@ -16,18 +16,27 @@ export default {
       required: true,
       default: false,
     },
+    size: {
+      type: String,
+      required: false,
+      default: 'small'
+    }
   },
 };
 </script>
 
 <style scoped lang="scss">
 .icon-container {
-  /* position: absolute;
-  height: 40vh; */
-  width: 100vw;
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.icon-container.size-big {
+  margin-top: 8rem;
 }
 
 svg {
