@@ -1,15 +1,20 @@
 <template>
   <div class="container">
     <ul class="container__wrap">
+      <!-- Make a re-usable component -->
       <a 
         class="card"
         :href="state.link"
         target="_blank"
       >
+      <AppIconLoading v-if="state.isLoading" :loading="state.isLoading" />
+      <article class="card-content" v-else>
           <h4>Check out my latest blogpost</h4>
           <p><i>{{ `"${state.title}"` }}</i></p>
-          <small><i>Written on {{ state.formattedDate }}</i></small>
+          <small><i>Written on {{ state.pubDate }}</i></small>
+      </article>
       </a>
+      <!-- End -->
       <a 
         class="card"
         :href="state.link"
@@ -31,20 +36,22 @@
 <script>
 import { ref, onMounted } from 'vue';
 import useBlogPosts from '../../hooks/useBlogPosts';
+import AppIconLoading from "../ui/IconLoading.vue";
 
 export default {
   components: {
+    AppIconLoading,
   },
   setup() {
-    const state = ref({})
+    const state = ref({ isLoading: true })
 
     onMounted( async () => {
-      const {title, pubDate, content, link} =  await useBlogPosts();
-      const formattedDate = formatDate(pubDate)
+      const { firstPost, isLoading } =  await useBlogPosts();
+      const { pubDate, title, link, } = firstPost; 
       state.value = {
+        isLoading,
+        pubDate: formatDate(pubDate),
         title,
-        formattedDate,
-        content,
         link
       }
     })
@@ -74,7 +81,6 @@ export default {
   list-style: none;
   height: 100%;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
 
   a {
@@ -94,6 +100,13 @@ export default {
     background-color:white;
     color:black;
   }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    text-align: left;
+  }
 }
 
 @media (min-width: 0px) {
@@ -105,8 +118,20 @@ export default {
 
   .container__wrap {
     gap: 2.3rem;
+
+    .card {
+      padding: 2rem;
+      align-items:start;
+    }
   }
 
+}
+
+@media (min-width: 660px) {
+  .container__wrap {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 }
 
 @media (min-width: 990px) {
@@ -116,6 +141,7 @@ export default {
 
   .container__wrap {
     gap: unset;
+    justify-content: space-between;
   }
 }
 
