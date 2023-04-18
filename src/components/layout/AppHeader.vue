@@ -16,7 +16,7 @@ export default {
   components: {
     AppToggler
   },
-  data() {
+  setup() {
     return {}
   },
 };
@@ -40,6 +40,9 @@ header {
   h4 {
     @include font-size(1.5rem);
   }
+  h2 {
+    color: $font-colors;
+  }
 
   .header-wrap {
     display: flex;
@@ -50,10 +53,13 @@ header {
   }
 }
 
-.dark {
+header.dark {
   background-color: $card-bg-dark;
   color: $font-colors-dark;
   
+  h2 {
+    color: $font-colors-dark;
+  }
 }
 
 </style>
