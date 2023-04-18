@@ -78,10 +78,9 @@ export default {
 .card {
   position: relative;
   color: $card-text;
-  background-color: rgb(240 241 245);
+  background-color: $card-bg;
   border-radius: 15px;
   letter-spacing: 1.5px;
-  // border: 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
