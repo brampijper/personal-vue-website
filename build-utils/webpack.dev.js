@@ -1,7 +1,6 @@
 const commonPaths = require("./common-paths");
 const webpack = require("webpack");
-let devConfig = {};
-devConfig.prod = require("../dev.env");
+const dotenv = require('dotenv');
 
 const config = {
   mode: "development",
@@ -36,6 +35,9 @@ const config = {
     new webpack.ProvidePlugin({
       process: "process/browser",
     }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.config().parsed)
+    })
   ],
 };
 

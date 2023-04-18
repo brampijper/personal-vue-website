@@ -2,7 +2,7 @@
   <section id="projects" class="container">
     <div class="project__cards">
     <h2>Projects</h2>
-      <AppIconLoading :loading="loading" />
+      <AppIconLoading :loading="loading" size="big" />
       <ProjectCard 
         v-for="project in projects" 
         :key="project.id"
@@ -44,6 +44,7 @@ section {
     @include font-size(3rem);
     line-height: 1;
     flex-basis:100%;
+    position:relative;
   }
 }
 
