@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 
 const octokit = new Octokit({
-  auth: process.env.OCTOKIT_API_KEY,
+  auth: process.env.GITHUB_API_KEY,
   userAgent: "brampijper",
   Accept: "application/vnd.github.16.28.4.raw",
 });
