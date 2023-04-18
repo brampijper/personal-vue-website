@@ -24,10 +24,16 @@
       </a>
       <a 
         class="card"
-        :href="state.link"
+        href="mailto:brampijper@proton.me"
         target="_blank" 
       >
-        -- contact me :) --
+        <article class="card-content">
+          <h4>Opportunities | Feedback | Random ? </h4>
+          <p> Happy to connect & chat, drop a line at </p>
+        </article>
+        <span class="card__content-email">
+          brampijper@proton.me
+        </span>
       </a>
     </ul>
   </div>
@@ -107,6 +113,12 @@ export default {
     gap: .8rem;
     text-align: left;
   }
+  
+  .card__content-email {
+    display: flex;
+    align-items:center;
+    font-weight: 700;
+  }
 }
 
 @media (min-width: 0px) {
@@ -121,7 +133,7 @@ export default {
 
     .card {
       padding: 2rem;
-      align-items:start;
+      align-items:center;
     }
   }
 
