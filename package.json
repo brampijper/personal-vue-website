@@ -34,6 +34,7 @@
     "@octokit/rest": "^18.12.0",
     "@vue/compiler-sfc": "^3.2.37",
     "buffer": "^6.0.3",
+    "dotenv": "^16.0.3",
     "https-browserify": "^1.0.0",
     "prettier": "^2.7.1",
     "process": "^0.11.10",
