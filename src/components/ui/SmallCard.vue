@@ -20,7 +20,9 @@
         :href="state.link"
         target="_blank" 
       >
-        -- stats Ghub commits --
+        <h4>
+          Github Contributions: {{ state.totalContributions }}
+        </h4>
       </a>
       <a 
         class="card"
@@ -42,6 +44,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import useBlogPosts from '../../hooks/useBlogPosts';
+import useGetContributions from '../../hooks/useGetContributions';
 import AppIconLoading from "../ui/IconLoading.vue";
 
 export default {
@@ -53,12 +56,14 @@ export default {
 
     onMounted( async () => {
       const { firstPost, isLoading } =  await useBlogPosts();
-      const { pubDate, title, link, } = firstPost; 
+      const { pubDate, title, link, } = firstPost;
+      const totalContributions = await useGetContributions('brampijper', `${process.env.GITHUB_API_KEY}`)
       state.value = {
         isLoading,
         pubDate: formatDate(pubDate),
         title,
-        link
+        link,
+        totalContributions
       }
     })
 
