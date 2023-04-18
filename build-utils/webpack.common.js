@@ -42,10 +42,7 @@ const config = {
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: false,
-      __VUE_PROD_DEVTOOLS__: true,
-      "process.env.OCTOKIT_API_KEY": JSON.stringify(
-        process.env.VUE_APP_OCTOKIT_VAR
-      ),
+      __VUE_PROD_DEVTOOLS__: true
     }),
     new webpack.ProvidePlugin({
       Buffer: ['buffer', 'Buffer'],
