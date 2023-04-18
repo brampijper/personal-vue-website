@@ -14,8 +14,7 @@
       team. A creative advertising agency.
     </p>
     <p>
-      Forever learning and challenging myself.
-      <i> Now learning Norsk to settle down somewhere closer the mountains. </i>
+      Now settling down in Norway: <i>å lære norsk og å gå på fjelltur ofte så jeg kan spiser en Kvikk lunsj</i>
     </p>
   </article>
 </template>

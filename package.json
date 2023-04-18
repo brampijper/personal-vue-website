@@ -33,10 +33,18 @@
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@octokit/rest": "^18.12.0",
     "@vue/compiler-sfc": "^3.2.37",
+    "buffer": "^6.0.3",
+    "dotenv": "^16.0.3",
+    "https-browserify": "^1.0.0",
     "prettier": "^2.7.1",
     "process": "^0.11.10",
     "rfs": "^9.0.6",
-    "sass-loader": "^12.6.0"
+    "rss-parser": "^3.13.0",
+    "sass-loader": "^12.6.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "timers-browserify": "^2.0.12",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
