@@ -55,15 +55,15 @@ export default {
     const state = ref({ isLoading: true })
 
     onMounted( async () => {
+      const totalContributions = await useGetContributions()
       const { firstPost, isLoading } =  await useBlogPosts();
       const { pubDate, title, link, } = firstPost;
-      const totalContributions = await useGetContributions('brampijper', `${process.env.GITHUB_API_KEY}`)
       state.value = {
         isLoading,
+        totalContributions,
         pubDate: formatDate(pubDate),
         title,
         link,
-        totalContributions
       }
     })
 
