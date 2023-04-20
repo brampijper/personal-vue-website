@@ -1,33 +1,27 @@
-import { Octokit } from "@octokit/rest";
-
-const octokit = new Octokit({
-  auth: process.env.GITHUB_API_KEY,
-  userAgent: "brampijper",
-  Accept: "application/vnd.github.16.28.4.raw",
-});
-
 export default async function useGithubRepositories() {
   let github = {
     repositories: [],
     isLoading: true
   }
-  async function fetchRepo() {
-    github.isLoading = true;
-    try {
-      const res = await octokit.rest.repos.listForUser({
-        username: "brampijper",
-      });
 
-      if (res) {
-        res.data.filter( repo => repo.homepage && github.repositories.push(repo));
-        github.isLoading = false;
-      } else { 
-        console.log("no response received", res);
-      }
-      return github;
-    } catch (err) {
-      throw new Error(err);
+  try {
+    const response = await fetch('https://seashell-app-u77ys.ondigitalocean.app/api/repos') // how do i switch between production and dev build? They need different links? or not?
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    const repos = await response.json();
+    
+    repos.filter( repo => repo.homepage && github.repositories.push(repo));
+    github.isLoading = false;
+    
+    return github;
+  
   }
-  return await fetchRepo()
+    catch(error) {
+      console.error('Problem while fetching: ', error)
+   }
+
+  return await useGithubRepositories();
 }
