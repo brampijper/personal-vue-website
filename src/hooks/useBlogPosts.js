@@ -7,8 +7,6 @@ export default async function useBlogPosts() {
     let parser = new Parser();
 
     async function fetchRSSFeed() {
-        state.isLoading = true;
-
         try {
             const feed = await parser.parseURL('https://focused-galileo-c3ee18.netlify.app/rss.xml');
             
