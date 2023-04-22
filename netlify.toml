@@ -1,0 +1,14 @@
+## This rule redirects to an external API, signing requests with a secret
+[[redirects]]
+  from = "/api/repos"
+  to = "https://seashell-app-u77ys.ondigitalocean.app/api/repos"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+
+[[redirects]]
+  from = "/api/stats"
+  to = "https://seashell-app-u77ys.ondigitalocean.app/api/stats"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
