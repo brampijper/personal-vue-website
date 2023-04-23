@@ -26,13 +26,13 @@ export default {
     const state = ref({ isLoading: true })
 
     onMounted( async () => {
-      const { firstPost, isLoading } =  await useBlogPosts();
-      const { pubDate, title, link, } = firstPost;
+      const { data } =  await useBlogPosts();
+      const { pubDate, title, link } = data;
       state.value = {
-        isLoading,
         pubDate: formatDate(pubDate),
         title,
         link,
+        isLoading: false,
       }
     })
 
