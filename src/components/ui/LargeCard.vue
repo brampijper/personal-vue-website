@@ -38,6 +38,7 @@ export default {
   box-sizing: border-box;
   margin: 0px;
   flex-direction: row;
+  max-width: 730px;
 }
 
 .container__wrap {
@@ -54,14 +55,9 @@ export default {
 
 @media (min-width: 990px) {
   .container {
-    width: calc(100% - 448px);
+    width: calc(100% - 300px);
     margin-right: 32px;
   }
 }
 
-@media (min-width: 1440px) {
-  .container {
-    max-width: 880px;
-  }
-}
 </style>

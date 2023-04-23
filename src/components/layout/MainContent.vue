@@ -1,50 +1,38 @@
 <template>
   <div class="cards__container">
     <LargeCard />
-    <SmallCard />
+    <SmallCards />
   </div>
 </template>
 
 <script>
-
 import LargeCard from "../ui/LargeCard.vue"
-import SmallCard from "../ui/SmallCard.vue"
+import SmallCards from "../ui/SmallCards.vue"
 
 export default {
   components: {
     LargeCard,
-    SmallCard
-  },
-  setup(props) {
-    return {
-    }
+    SmallCards
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~rfs/scss";
 
 .cards__container {
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  row-gap: 2rem;
 }
 
-@media (min-width: 0px) {
-    .cards__container {
-        -webkit-box-pack: justify;
-        justify-content: space-between;
-        height: 100%;
-        row-gap: 2rem;
-    }
-}
-
-@media (min-width: 1440px) {
-    .cards__container {
-        justify-content: space-evenly;
-        height: 516px;
-    }
+@media (min-width: 990px) {
+  .cards__container {
+    flex-direction: row;
+    column-gap: 2rem;
+    justify-content:center;
+  }
 }
 
 </style>
