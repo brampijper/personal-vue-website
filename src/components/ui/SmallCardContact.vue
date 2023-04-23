@@ -22,4 +22,18 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    text-align: left;
+  }
+  
+  .card__content-email {
+    display: flex;
+    align-items:center;
+    font-weight: 700;
+  }
+  
 </style>
