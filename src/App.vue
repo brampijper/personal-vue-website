@@ -128,6 +128,7 @@ h2, h3 {
 a {
   transition: all 0.5s;
   text-decoration: none;
+  color:inherit;
 }
 
 a:visited {
