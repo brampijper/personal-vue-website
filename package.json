@@ -38,7 +38,6 @@
     "prettier": "^2.7.1",
     "process": "^0.11.10",
     "rfs": "^9.0.6",
-    "rss-parser": "^3.13.0",
     "sass-loader": "^12.6.0",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
