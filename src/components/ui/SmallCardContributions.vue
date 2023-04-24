@@ -1,5 +1,5 @@
 <template>
-  <a class="card" :href="state.link" target="_blank">
+  <a class="card" href="https://github.com/brampijper" target="_blank">
     <AppIconLoading v-if="state.isLoading" :loading="state.isLoading" /> 
     <h4 v-if="!state.isLoading">
         Github Contributions: {{ state.totalContributions }}
