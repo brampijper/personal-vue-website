@@ -35,7 +35,7 @@ export default {
       const repositories = await useFetchData('/api/repos', '?username=brampijper'); // server expects a route path and a githubname to fetch data. 
 
       state.value = {
-        repositories,
+        repositories: repositories.reverse(), //latest project first
         isLoading: false
       } 
     });
