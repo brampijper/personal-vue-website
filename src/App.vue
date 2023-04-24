@@ -15,7 +15,8 @@ import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import AppHeader from "./components/layout/AppHeader.vue"
 import AppFooter from "./components/layout/AppFooter.vue"
 import MainContent from "./components/layout/MainContent.vue"
-import useGithubRepositories from "./hooks/useGithubRepositories";
+import useFetchData from "./hooks/useFetchData";
+
 import data from "../clients-data.json";
 import { store } from './store.js';
 
@@ -31,10 +32,11 @@ export default {
     const state = ref({ repositories: [], isLoading: true })
 
     onMounted(async () => {
-      const {repositories, isLoading} = await useGithubRepositories();
+      const repositories = await useFetchData('/api/repos', '?username=brampijper'); // server expects a route path and a githubname to fetch data. 
+
       state.value = {
         repositories,
-        isLoading
+        isLoading: false
       } 
     });
 
