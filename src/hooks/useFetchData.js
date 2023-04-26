@@ -1,39 +1,71 @@
-import { reactive } from 'vue';
+import { reactive, toRefs } from 'vue';
 
-export function useFetchData() {
-    const state = reactive({
-        data: null,
-        version: null,
-    });
+const state = reactive({
+    cachedData: null,
+    cachedETag: null,
+    lastFetched: null,
+    cacheExpirationTime: 604800000, // 1 week
+});
 
-    async function fetchData (path, param = "") {
-        const baseURL = 'http://localhost:3000'; //change baseurl between http://localhost:3000 (dev) / https://seashell-app-u77ys.ondigitalocean.app (prod)
-        const fullURL = `${baseURL}${path}${param}`; 
+async function fetchData (path, param) {
+    const baseURL = 'http://localhost:3000'; //change baseurl between http://localhost:3000 (dev) / https://seashell-app-u77ys.ondigitalocean.app (prod)
+    const fullURL = `${baseURL}${path}${param}`;
 
-        if (state.data && state.version) {
-            return state.data;
-        }
-
-        try {
-            const response = await fetch(fullURL);
-            const etag = response.headers.get('ETag');
-            console.log(etag)
-
-            if (etag === state.version) {
-                console.log('match')
-                return state.data;
-            }
-
-            state.version = etag;
-            const data = await response.json(); 
-            state.data = data;
-            return data;
-        } catch (error) {
-            throw new Error('Failed to fetch data ', error)
-        }
+    if (state.cachedData && state.cachedETag && state.lastFetched && Date.now() - state.lastFetched < state.cacheExpirationTime) {
+        // Data is still fresh, return cached data
+        console.log('yeah')
+        return state.cachedData;
     }
 
-    return { fetchData };
+    // setting headers for req to server
+    const headers = {};
+    if (state.cachedETag) {
+        console.log('yeah yeah')
+        headers['If-None-Match'] = state.cachedETag;
+    }
+
+    try {
+        const response = await fetch(fullURL, { headers });
+        const data = await response.json();
+
+        if (response.status === 304) {
+            // Data is still up to date, update last fetched time and return cached data
+            state.lastFetched = Date.now();
+            return state.cachedData;
+        }
+
+        // Data has changed, update cached data, ETag, and last fetched time
+        state.cachedData = data;
+        state.cachedETag = response.headers.get('ETag');
+        state.lastFetched = Date.now();
+        return data;
+
+    } catch (error) {
+        throw new Error('Failed to fetch data ', error)
+    }
+}
+
+export default async function loadData(path, param="") {
+    const data = reactive({
+        value: null,
+        // isLoading: false,
+        // hasError: false,
+    });
+    
+    // data.isLoading = true;
+    
+    try {
+        const result = await fetchData(path, param);
+        data.value = result;
+      } catch (error) {
+        console.error(error);
+        // data.hasError = true;
+      }
+    //   data.isLoading = false;
+      
+      return {
+          ...toRefs(data),
+    };        
 }
 
 // export default async function useFetchData(path, param = "") {
