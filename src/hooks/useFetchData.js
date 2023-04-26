@@ -1,5 +1,5 @@
 export default async function useFetchData(path, param = "") {
-    const baseURL = 'https://seashell-app-u77ys.ondigitalocean.app'; //change baseurl between http://localhost:3000 (dev) / https://seashell-app-u77ys.ondigitalocean.app (prod)
+    const baseURL = 'http://localhost:3000'; //change baseurl between http://localhost:3000 (dev) / https://seashell-app-u77ys.ondigitalocean.app (prod)
     const fullURL = `${baseURL}${path}${param}`; 
 
     try {
