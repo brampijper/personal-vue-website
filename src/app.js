@@ -8,7 +8,8 @@ import {
   faSpinner,
   faEye,
   faBook,
-  faExpandAlt
+  faExpandAlt,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -21,7 +22,8 @@ library.add(
   faSpinner, 
   faEye, 
   faBook, 
-  faExpandAlt
+  faExpandAlt,
+  faEnvelope
 );
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
