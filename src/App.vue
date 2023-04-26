@@ -15,7 +15,7 @@ import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import AppHeader from "./components/layout/AppHeader.vue"
 import AppFooter from "./components/layout/AppFooter.vue"
 import MainContent from "./components/layout/MainContent.vue"
-import useFetchData from "./hooks/useFetchData";
+import loadData from "./hooks/useFetchData";
 
 import data from "../clients-data.json";
 import { store } from './store.js';
@@ -32,12 +32,15 @@ export default {
     const state = ref({ repositories: [], isLoading: true })
 
     onMounted(async () => {
-      const repositories = await useFetchData('/api/repos', '?username=brampijper'); // server expects a route path and a githubname to fetch data. 
-
-      state.value = {
-        repositories: repositories.reverse(), //latest project first
-        isLoading: false
-      } 
+      try {
+        const { value: { value } } = await loadData('/api/repos', '?username=brampijper') // server expects a route path and a githubname to fetch data. 
+        state.value = {
+          repositories: value, //latest project first
+          isLoading: false
+        } 
+      } catch (error) {
+        console.error(error);
+      }
     });
 
     const darkModeClass = computed(() => {
@@ -47,7 +50,7 @@ export default {
     return {
       clientProjects,
       darkModeClass,
-      state
+      state,
     };
   },
 };
