@@ -12,12 +12,11 @@
 <script>
 import { ref, onMounted, computed } from "vue";
 import ProjectCollection from "./components/projects/ProjectCollection.vue";
-import AppHeader from "./components/layout/AppHeader.vue"
-import AppFooter from "./components/layout/AppFooter.vue"
-import MainContent from "./components/layout/MainContent.vue"
-import loadData from "./hooks/useFetchData";
+import AppHeader from "./components/layout/AppHeader.vue";
+import AppFooter from "./components/layout/AppFooter.vue";
+import MainContent from "./components/layout/MainContent.vue";
 
-import data from "../clients-data.json";
+import fetchAndCacheData from './hooks/useFetchAndCacheData';
 import { store } from './store.js';
 
 export default {
@@ -28,16 +27,20 @@ export default {
     AppFooter
   },
   setup() {
-    const clientProjects = ref(data.clients);
-    const state = ref({ repositories: [], isLoading: true })
+    const state = ref({ repositories: [], isLoading: true });
 
     onMounted(async () => {
       try {
-        const { value: { value } } = await loadData('/api/repos', '?username=brampijper') // server expects a route path and a githubname to fetch data. 
-        state.value = {
-          repositories: value, //latest project first
-          isLoading: false
-        } 
+        const data = await fetchAndCacheData('/api/repos', '?username=brampijper')
+
+        if (data) {
+          state.value = {
+            repositories: data,
+            isLoading: false
+          }
+        } else if (hasError) {
+          console.error("Failed to fetch data from server");
+        }
       } catch (error) {
         console.error(error);
       }
@@ -45,12 +48,11 @@ export default {
 
     const darkModeClass = computed(() => {
       return store.isDarkMode ? 'dark' : '';
-    })
+    });
 
     return {
-      clientProjects,
       darkModeClass,
-      state,
+      state
     };
   },
 };

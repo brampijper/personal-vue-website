@@ -10,7 +10,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import AppIconLoading from "./IconLoading.vue";
-import loadData from "../../hooks/useFetchData";
+import fetchAndCacheData from "../../hooks/useFetchAndCacheData";
 
 export default {
   components: {
@@ -21,9 +21,9 @@ export default {
 
     onMounted( async () => {
       try {
-        const { value: { value } } = await loadData("/api/stats", "?username=brampijper")
+        const data = await fetchAndCacheData("/api/stats", "?username=brampijper")
         state.value = {
-          totalContributions: value,
+          totalContributions: data,
           isLoading: false
         }
 

@@ -16,7 +16,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import AppIconLoading from "./IconLoading.vue";
-import loadData from "../../hooks/useFetchData";
+import fetchAndCacheData from "../../hooks/useFetchAndCacheData";
 
 export default {
   components: {
@@ -27,15 +27,16 @@ export default {
 
     onMounted( async () => {
       try {
-        const { value: { value } } = await loadData('/blog/posts');
-        const { pubDate, title, link } = value;
+        const data = await fetchAndCacheData('/blog/posts')
+        const { pubDate, title, link } = data;
         state.value = {
           pubDate: formatDate(pubDate),
           title,
-          link,
-          isLoading: false,
+          link
         }
-      } catch (error) {
+      }
+
+      catch (error) {
         console.error(error);
       }
     })
