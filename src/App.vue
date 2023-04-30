@@ -38,11 +38,9 @@ export default {
             repositories: data,
             isLoading: false
           }
-        } else if (hasError) {
-          console.error("Failed to fetch data from server");
-        }
+        } 
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     });
 
