@@ -10,6 +10,7 @@ export async function fetchAndCacheData (path, param = '') {
             'Access-Control-Allow-Methods': 'GET',
             'Access-Control-Allow-Headers': 'Content-Type',
         };
+
         const { cachedEtag } = await returnCachedData(path); // Here we check to see if an ETag is already stored in the browser cache.
 
         if (cachedEtag) { // When the ETag exists, we set the headers with that ETag.
@@ -37,7 +38,7 @@ export async function fetchAndCacheData (path, param = '') {
         return data;
 
     } catch (error) {
-        throw new Error('Failed to fetch data ', error)
+        console.log('error while fetching, ', error)
     }
 }
 
@@ -51,8 +52,10 @@ async function returnCachedData (path) {
             return { cachedData: data, cachedEtag: etag }
         }
 
+        return { cachedData: null } // if there is no cachedData return null
+
     } catch (error) {
-        throw new Error ('failed while checking browser cache ', error)
+        console.log('failed while checking browser cache: ', error)
     }
 
 }
