@@ -3,7 +3,13 @@ export async function fetchAndCacheData (path, param = '') {
     const fullURL = `${baseURL}${path}${param}`;
 
     try {
-        const headers = {};
+        const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': 'http:localhost:8080',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        };
         const { cachedEtag } = await returnCachedData(path); // Here we check to see if an ETag is already stored in the browser cache.
 
         if (cachedEtag) { // When the ETag exists, we set the headers with that ETag.
