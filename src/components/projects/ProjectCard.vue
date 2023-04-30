@@ -6,7 +6,7 @@
       target="_blank" 
       :style="cardStyle"
     >
-      <!-- <img :alt="project.image.alt" :src="require(`../../images/${project.image.name}`)" /> -->
+      <img :src="imageURL" />
         <div class="card__content">
           <div class="card__toolbar">
             <div>
@@ -60,13 +60,15 @@ export default {
     }
 
     const year = project.created_at.slice(0,4)
+    const imageURL = `${process.env.SERVER_BASE_URL}/${project.image_url}`
 
     return {
       borderStyle,
       bgColorStyle,
       cardStyle,
       store,
-      year
+      year,
+      imageURL
     }
   }
 };
