@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -43,6 +44,9 @@ const config = {
   plugins: [
     new MiniCssExtractPlugin(),
     new BundleAnalyzerPlugin({ analyzerMode: "disabled" }),
+    new webpack.DefinePlugin({
+      'process.env.SERVER_BASE_URL': JSON.stringify('https://seashell-app-u77ys.ondigitalocean.app'),
+    }),
   ],
 };
 

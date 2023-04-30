@@ -1,15 +1,9 @@
 export async function fetchAndCacheData (path, param = '') {
-    const baseURL = 'https://seashell-app-u77ys.ondigitalocean.app'; //change baseurl between http://localhost:3000 (dev) / https://seashell-app-u77ys.ondigitalocean.app (prod)
-    const fullURL = `${baseURL}${path}${param}`;
+    const serverBaseUrl = process.env.SERVER_BASE_URL; // depending on prod - dev env it switches to http://localhost:3000 and https://seashell-app-u77ys.ondigitalocean.app
+    const fullURL = `${serverBaseUrl}${path}${param}`;
 
     try {
-        const headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin': 'http:localhost:8080',
-            'Access-Control-Allow-Methods': 'GET',
-            'Access-Control-Allow-Headers': 'Content-Type',
-        };
+        const headers = {};
 
         const { cachedEtag } = await returnCachedData(path); // Here we check to see if an ETag is already stored in the browser cache.
 

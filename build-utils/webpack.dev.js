@@ -33,7 +33,10 @@ const config = {
   plugins: [
     new webpack.ProvidePlugin({
       process: "process/browser",
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env.SERVER_BASE_URL': JSON.stringify('http://localhost:3000'),
+    }),
   ],
 };
 
