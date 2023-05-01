@@ -126,7 +126,7 @@ li {
   font-weight: 300;
 }
 
-h2, h3 {
+h2 {
   font-family: $title-font-family;
   font-weight: $title-weight;
 }
