@@ -1,23 +1,25 @@
 <template>
     <a 
       class="card" 
-      :class="store.isDarkMode ? 'dark' : '' "
+      :class="{'card--dark': store.isDarkMode}"
       :href="project.homepage" 
       target="_blank" 
       :style="cardStyle"
     >
-      <img :src="imageURL" />
+      <div class="card__image-container">
+        <img class="card__image" :src="imageURL" alt="" />
+      </div>
+      <div class="card__header">
+        <div>
+          <h3 class="card__title">{{ `${project.name} ${year}` }}</h3>
+        </div>
+        <a target="_blank" href="#">
+          <font-awesome-icon size="1x" :icon="['fa-solid', 'fa-expand-alt']" />
+        </a>
+      </div>
         <div class="card__content">
-          <div class="card__toolbar">
-            <div>
-              <h3>{{ `${project.name} ${year}` }}</h3>
-            </div>
-            <a target="_blank" href="#">
-              <font-awesome-icon size="1x" :icon="['fa-solid', 'fa-expand-alt']" />
-            </a>
-          </div>
           <article>
-            <p> {{ project.description }}</p>
+            <p class="card__content-description"> {{ project.description }}</p>
           </article>
           <ProjectCardList 
             :technologies="project.topics"
@@ -91,58 +93,103 @@ export default {
   max-width: 360px;
   overflow:hidden;
 
-  img {
-    border-radius: 8px 8px 0px 0px;
+  &__image-container {
+    position: relative;
+    overflow: hidden;
     max-width: 100%;
     width: auto;
-    max-height: 250px;
-    filter: blur(1px);
-    transition: .25s;
+    max-height:200px;
+    padding-top: 50%; /* set the aspect ratio of the image container */
+    margin-top: 45px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 109%);
+      z-index: 1;
+    }
   }
 
-  .card__toolbar {
-    background-color: rgb(0 0 0 / 3%);
- }
-}
-
-.card.dark {
-  background-color: $card-bg-dark;
-  color: $card-text-dark;
-
-  .card__toolbar {
-    background-color: rgb(100 100 100 / 30%);
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* preserve the aspect ratio of the image */
+    object-position: top;
+    z-index: 0;
   }
-}
 
-.card__content {
-  padding: 2rem 2rem 2rem 2rem;
-  text-align:left;
-  display: flex;
-  flex-direction:column;
-  row-gap: 1.2rem;
-  height: 100%;
-  justify-content: space-between;
-  margin-top: 2.3rem;
+  &__header {
+    position:absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }  
 
-  h3 {
+  &__title {
+    font-family: $title-font-family;
     margin-bottom: .6rem;
+    font-weight:700;
+    font-size: .9rem;
+    margin: 0;
   }
 
-  article {
+  &__content {
+    padding: 0rem 2rem 2rem 2rem;
+    text-align:left;
+    display: flex;
+    flex-direction:column;
+    row-gap: 1.2rem;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  &__content-description {
     line-height: 1.4rem;
   }
-}
 
-.card:hover {
+  &:hover {
     cursor: pointer;
-  > img {
-    transition: .2s;
-    filter: blur(0px);
+    background-color: rgb(255, 255, 255);
+
+    &__header {
+      > a {
+        transform: scale(1.2);
+      }
+    }
+
+    .card__image-container::before {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255, 0) 0%);
+    }
   }
 
-  .card__toolbar {
-    > a {
-      transform: scale(1.2);
+  &.card--dark {
+    background-color: $card-bg-dark;
+    color: $card-text-dark;
+
+    .card__image-container::before {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(30, 30, 30, 100) 109%);
+    }
+
+    &:hover {
+      background-color: rgb(11, 15, 15);
+
+      .card__image-container::before {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(30, 30, 30, 0) 0%);
+      }
     }
   }
 }
@@ -151,31 +198,11 @@ export default {
   .card {
     max-width: 91vw;
 
-    img {
-      filter: none;
+    &__header {
+      &__title {
+        font-size: .9rem;
+      }
     }
-
-    .card__toolbar h3 {
-      font-size: .9rem;
-    }
-  }
-}
-
-.card__toolbar {
-  position:absolute;
-  left:0;
-  top:0;
-  width: 100%;
-  height: 45px;
-  display: flex;
-  flex-direction: row;
-  align-items:center;
-  justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 1rem;
-
-  h3 {
-    margin: 0;
   }
 }
 
