@@ -31,11 +31,12 @@ export default {
 
     onMounted(async () => {
       try {
-        const data = await fetchAndCacheData('/api/repos', '?username=brampijper')
+        const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // array of objects
+        const reversedArr = data.reverse() // reverse the array -> latest projects first.
 
         if (data) {
           state.value = {
-            repositories: data,
+            repositories: reversedArr,
             isLoading: false
           }
         } 
