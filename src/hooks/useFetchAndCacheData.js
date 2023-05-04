@@ -1,5 +1,5 @@
 export async function fetchAndCacheData (path, param = '') {
-    const serverBaseUrl = process.env.SERVER_BASE_URL; // depending on prod - dev env it switches to http://localhost:3000 and https://seashell-app-u77ys.ondigitalocean.app
+    const serverBaseUrl = process.env.SERVER_BASE_URL; // depending on prod - dev env it switches to http://localhost:3000 and https://backend-api-requests-production.up.railway.app
     const fullURL = `${serverBaseUrl}${path}${param}`;
 
     try {
@@ -12,12 +12,13 @@ export async function fetchAndCacheData (path, param = '') {
         }
 
         const response = await fetch(fullURL, { headers }); // We send back the ETag to the server, so that it can check if the (cached) data is still valid.
+        // console.log(response.text())
 
         if ( response.status === 304) { // The server sends back a 304 if the data is still valid. 
             const { cachedData } = await returnCachedData(path) // Here we retrieve the cached data from the browser.
 
-            if (!cachedData) { // CachedData is removed on the front-end so we need to fetch it again.
-                const freshResponse = await fetch(fullURL);
+            if (!cachedData) { // CachedData is removed on the front-end so we need to fetch it again. //previous etag should still be valid for the backend
+                const freshResponse = await fetch(fullURL, { headers });
                 const freshData = await freshResponse.json(); // not liking this repeated code block
                 const freshEtag = freshResponse.headers.get('etag');
                 storeInCache(path, freshData, freshEtag);
@@ -27,6 +28,7 @@ export async function fetchAndCacheData (path, param = '') {
         }
 
         const data = await response.json();
+        // console.log('data ', data)
         const etag = response.headers.get('etag');
         storeInCache(path, data, etag); // Store data and etag in the browser cache, with path being it's unique key.
         return data;
