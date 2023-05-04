@@ -45,7 +45,7 @@ const config = {
     new MiniCssExtractPlugin(),
     new BundleAnalyzerPlugin({ analyzerMode: "disabled" }),
     new webpack.DefinePlugin({
-      'process.env.SERVER_BASE_URL': JSON.stringify('https://seashell-app-u77ys.ondigitalocean.app'),
+      'process.env.SERVER_BASE_URL': JSON.stringify('https://backend-api-requests-production.up.railway.app'),
     }),
   ],
 };
