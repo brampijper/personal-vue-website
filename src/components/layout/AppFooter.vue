@@ -1,16 +1,16 @@
 <template>
   <footer>
-    <div className="footer-wrap">
-        <IntroSocialIcons />
-    </div>
+    <!-- <div className="footer-wrap"> -->
+        <!-- <IntroSocialIcons /> -->
+    <!-- </div> -->
   </footer>
 </template>
 
 <script>
-import IntroSocialIcons from '../intro/IntroSocialIcons.vue'
+// import IntroSocialIcons from '../intro/IntroSocialIcons.vue'
 export default {
   components: {
-    IntroSocialIcons
+    // IntroSocialIcons
   },
   data() {
     return {}
@@ -27,8 +27,8 @@ footer {
     position:relative;
     width: 100%;
     box-shadow: rgb(0 0 0 / 14%) 0px 0px 24px 0px;
-    // border-top: 1px solid rgba(22, 22, 22, 0.2);    
-    min-height: 112px;
+    border-top: 1px solid rgba(22, 22, 22, 0.2);    
+    min-height: 2rem;
     display: flex;
     align-items:center;
     justify-content: center;
