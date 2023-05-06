@@ -1,45 +1,31 @@
 <template>
   <div class="projects">
-    <AppIconLoading :isLoading="state.isLoading" size="big" />
-    <ProjectCard 
-      v-for="project in state.projects" 
-      :key="project.id"
-      :project="project"
-    />
+    <!-- <AppIconLoading :isLoading="state.isLoading" size="big" /> -->  
+      <ProjectCard 
+        v-for="project in projects" 
+        :key="project.id"
+        :project="project"
+        :isLoading="false"
+      />
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
-import AppIconLoading from "../ui/IconLoading.vue";
+// import AppIconLoading from "../ui/IconLoading.vue";
 import ProjectCard from "./ProjectCard.vue";
 import fetchAndCacheData from '../../hooks/useFetchAndCacheData';
 
 export default {
   components: {
-    AppIconLoading,
+    // AppIconLoading,
     ProjectCard,
   },
-  setup() {
-    const state = ref({ projects: [], isLoading: true });
-
-    onMounted(async () => {
-      try {
-        const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // returns an array of objects
-        const reversedArr = data.reverse() // reverse the array -> latest projects first.
-
-        state.value = {
-          projects: reversedArr,
-          isLoading: false
-        }
-
-      } catch (error) {
-        console.log('Fetched data does not exist: ', error);
-      }
-    });
+  async setup() {    
+    const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // returns an array of objects
+    const projects = await data.reverse() // reverse the array -> latest projects first.
 
     return {
-      state
+      projects
     }
   }
 };

@@ -3,7 +3,19 @@
     <main :class="darkModeClass">
       <div class="page-wrap">
         <MainContent />
-        <ProjectCollection />
+
+        <Suspense>
+          
+          <!-- main content -->
+          <ProjectCollection />
+
+          <!-- loading state skeleton-->
+          <template #fallback>
+            <SkeletonLoader />
+          </template>
+
+        </Suspense>
+        
       </div>
     </main>
     <AppFooter :class="darkModeClass" />
@@ -15,6 +27,7 @@ import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import AppHeader from "./components/layout/AppHeader.vue";
 import AppFooter from "./components/layout/AppFooter.vue";
 import MainContent from "./components/layout/MainContent.vue";
+import SkeletonLoader from './components/ui/SkeletonLoader.vue';
 
 import { store } from './store.js';
 
@@ -23,7 +36,8 @@ export default {
     ProjectCollection,
     AppHeader,
     MainContent,
-    AppFooter
+    AppFooter,
+    SkeletonLoader
   },
   setup() {
     const darkModeClass = computed(() => {
