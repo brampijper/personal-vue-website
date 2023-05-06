@@ -1,7 +1,7 @@
 <template>
-  <div v-if="loading" :class=" `icon-container size-${size}` ">
+  <div v-if="isLoading" :class=" `icon-container size-${size}` ">
     <font-awesome-icon
-      :class="loading ? '' : 'paused'"
+      :class="isLoading ? '' : 'paused'"
       :size="size === 'big' ? '6x' : '2x'"
       icon="spinner"
     />
@@ -11,7 +11,7 @@
 <script>
 export default {
   props: {
-    loading: {
+    isLoading: {
       type: Boolean,
       required: true,
       default: false,

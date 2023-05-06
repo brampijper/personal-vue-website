@@ -1,6 +1,6 @@
 <template>
   <div class="projects">
-    <AppIconLoading :loading="loading" size="big" />
+    <AppIconLoading :isLoading="state.isLoading" size="big" />
     <ProjectCard 
       v-for="project in state.projects" 
       :key="project.id"
