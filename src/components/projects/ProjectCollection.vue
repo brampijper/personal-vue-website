@@ -1,54 +1,53 @@
 <template>
-  <section id="projects" class="container">
-    <div class="project__cards">
-    <!-- <h2>Projects</h2> -->
-      <AppIconLoading :loading="loading" size="big" />
-      <ProjectCard 
-        v-for="project in projects" 
-        :key="project.id"
-        :project="project"
-      />
-    </div>
-  </section>
+  <div class="projects">
+    <AppIconLoading :loading="loading" size="big" />
+    <ProjectCard 
+      v-for="project in state.projects" 
+      :key="project.id"
+      :project="project"
+    />
+  </div>
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import AppIconLoading from "../ui/IconLoading.vue";
 import ProjectCard from "./ProjectCard.vue";
+import fetchAndCacheData from '../../hooks/useFetchAndCacheData';
 
 export default {
   components: {
     AppIconLoading,
     ProjectCard,
   },
-  props: {
-    projects: {
-      required: true,
-      type: Object,
-    },
-    loading: {
-      required: false,
-      type: Boolean,
+  setup() {
+    const state = ref({ projects: [], isLoading: true });
+
+    onMounted(async () => {
+      try {
+        const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // returns an array of objects
+        const reversedArr = data.reverse() // reverse the array -> latest projects first.
+
+        state.value = {
+          projects: reversedArr,
+          isLoading: false
+        }
+
+      } catch (error) {
+        console.log('Fetched data does not exist: ', error);
+      }
+    });
+
+    return {
+      state
     }
-  },
+  }
 };
 </script>
 
 <style scoped lang="scss">
-// @import "~rfs/scss";
 
-section {
-  width: auto;
-
-  // h2 {
-  //   @include font-size(3rem);
-  //   line-height: 1;
-  //   flex-basis:100%;
-  //   position:relative;
-  // }
-}
-
-.project__cards {
+.projects {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -57,16 +56,13 @@ section {
   gap: 4rem;
   margin: 2rem 0 0 0;
   padding: 1rem;
+  width: auto;
 }
 
 @media (min-width: 1350px) {
-  .project__cards {
+  .projects {
     justify-content: flex-start;
     padding: 2rem;
-
-    // h2 {
-    //   text-align:left;
-    // }
   }
 }
 

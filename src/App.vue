@@ -3,20 +3,19 @@
     <main :class="darkModeClass">
       <div class="page-wrap">
         <MainContent />
-        <ProjectCollection :projects="state.repositories" :loading="state.isLoading" />
+        <ProjectCollection />
       </div>
     </main>
     <AppFooter :class="darkModeClass" />
 </template>
 
 <script>
-import { ref, onMounted, computed } from "vue";
+import { computed } from "vue";
 import ProjectCollection from "./components/projects/ProjectCollection.vue";
 import AppHeader from "./components/layout/AppHeader.vue";
 import AppFooter from "./components/layout/AppFooter.vue";
 import MainContent from "./components/layout/MainContent.vue";
 
-import fetchAndCacheData from './hooks/useFetchAndCacheData';
 import { store } from './store.js';
 
 export default {
@@ -27,31 +26,12 @@ export default {
     AppFooter
   },
   setup() {
-    const state = ref({ repositories: [], isLoading: true });
-
-    onMounted(async () => {
-      try {
-        const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // array of objects
-        const reversedArr = data.reverse() // reverse the array -> latest projects first.
-
-        if (data) {
-          state.value = {
-            repositories: reversedArr,
-            isLoading: false
-          }
-        } 
-      } catch (error) {
-        console.log(error);
-      }
-    });
-
     const darkModeClass = computed(() => {
       return store.isDarkMode ? 'dark' : '';
     });
 
     return {
       darkModeClass,
-      state
     };
   },
 };
