@@ -3,9 +3,9 @@
       :href="state.link"
       target="_blank">
       
-    <AppIconLoading v-if="state.isLoading" :loading="state.isLoading" />
+    <AppIconLoading :isLoading="state.isLoading" />
     
-    <article class="card-content" v-else>
+    <article class="card-content" v-if="!state.isLoading">
         <h4>Check out my latest blogpost</h4>
         <p><i>{{ `"${state.title}"` }}</i></p>
         <small><i>Written on {{ state.pubDate }}</i></small>
@@ -32,7 +32,8 @@ export default {
         state.value = {
           pubDate: formatDate(pubDate),
           title,
-          link
+          link,
+          isLoading: false
         }
       }
       catch (error) {
