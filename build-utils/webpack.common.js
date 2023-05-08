@@ -12,19 +12,16 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: "vue-loader",
-        exclude: /node_modules/,
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
         },
+      },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
