@@ -4,16 +4,12 @@
       <div class="page-wrap">
         <MainContent />
 
-        <Suspense>
-          
-          <!-- main content -->
-          <ProjectCollection />
+        <Suspense> <!-- experimental feature, might change. -->
+          <ProjectCollection /> <!-- Loads fallback component, until async fetching is complete -->
 
-          <!-- loading state skeleton-->
-          <template #fallback>
+          <template #fallback> 
             <SkeletonLoader />
           </template>
-
         </Suspense>
         
       </div>
@@ -21,34 +17,19 @@
     <AppFooter :class="darkModeClass" />
 </template>
 
-<script>
-import { computed } from "vue";
-import ProjectCollection from "./components/projects/ProjectCollection.vue";
-import AppHeader from "./components/layout/AppHeader.vue";
-import AppFooter from "./components/layout/AppFooter.vue";
-import MainContent from "./components/layout/MainContent.vue";
-import SkeletonLoader from './components/ui/SkeletonLoader.vue';
+<script setup>
+  import { computed } from "vue";
+  import ProjectCollection from "./components/projects/ProjectCollection.vue";
+  import AppHeader from "./components/layout/AppHeader.vue";
+  import AppFooter from "./components/layout/AppFooter.vue";
+  import MainContent from "./components/layout/MainContent.vue";
+  import SkeletonLoader from './components/ui/SkeletonLoader.vue';
+  import { store } from './store.js';
 
-import { store } from './store.js';
+  const darkModeClass = computed(() => {
+    return store.isDarkMode ? 'dark' : '';
+  });
 
-export default {
-  components: {
-    ProjectCollection,
-    AppHeader,
-    MainContent,
-    AppFooter,
-    SkeletonLoader
-  },
-  setup() {
-    const darkModeClass = computed(() => {
-      return store.isDarkMode ? 'dark' : '';
-    });
-
-    return {
-      darkModeClass,
-    };
-  },
-};
 </script>
 
 <style lang="scss">
