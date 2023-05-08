@@ -1,55 +1,68 @@
-<template>
-  <div class="projects">
-    <!-- <AppIconLoading :isLoading="state.isLoading" size="big" /> -->  
-      <ProjectCard 
-        v-for="project in projects" 
-        :key="project.id"
-        :project="project"
-        :isLoading="false"
-      />
-  </div>
+<template>    
+    <ProjectCard :projects="projects">
+      <template #link="{ homepage }">
+        <a class="card__link" :href="homepage" target="_blank" />
+      </template>
+
+      <template #image="{ image_url }">
+        <img class="card__image" :src="image_url" alt="/" />
+      </template>
+
+      <template #name="{ name, created_at }">
+        <h3 class="card__title">
+          {{ `${name} ${created_at}` }} <!-- year -->
+        </h3>
+      </template>
+
+      <template #description="{ description }">
+        <p class="card__content-description"> 
+          {{ description }}
+        </p>
+      </template>
+
+      <template #topics="{ topics }">
+        <ProjectCardList :topics="topics" />
+      </template>
+
+      <template #button>
+        <PrimaryButton 
+          class="content__button" 
+          button-size="tiny" 
+        >
+          view Website
+        </PrimaryButton>
+      </template>
+
+    </ProjectCard>
+
 </template>
 
-<script>
-// import AppIconLoading from "../ui/IconLoading.vue";
-import ProjectCard from "./ProjectCard.vue";
-import fetchAndCacheData from '../../hooks/useFetchAndCacheData';
+<script setup>
+  import { ref, onMounted } from 'vue';
+  import { store } from '../../store.js';
+  import fetchAndCacheData from '../../hooks/useFetchAndCacheData';
+  
+  import ProjectCardList from "./ProjectCardList.vue";
+  import ProjectCard from "./ProjectCard.vue";
+  import PrimaryButton from "../ui/AppButton.vue";
 
-export default {
-  components: {
-    // AppIconLoading,
-    ProjectCard,
-  },
-  async setup() {    
-    const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // returns an array of objects
-    const projects = await data.reverse() // reverse the array -> latest projects first.
+  const projects = ref([]);
 
-    return {
-      projects
-    }
-  }
-};
+  const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // returns an array of objects
+  const modifiedProjects = data
+    .reverse() // Display most recent projects first.
+    .map( project => { 
+      const image_url = `${process.env.SERVER_BASE_URL}/${project.image_url}` // add correct path to the image, that's stored on the server.
+      const created_at = project.created_at.slice(0,4) // remove the time notation
+      return { ...project, image_url, created_at }
+    });
+    
+    projects.value = modifiedProjects
+
+
 </script>
 
 <style scoped lang="scss">
-
-.projects {
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  z-index: 1;
-  gap: 4rem;
-  margin: 2rem 0 0 0;
-  padding: 1rem;
-  width: auto;
-}
-
-@media (min-width: 1350px) {
-  .projects {
-    justify-content: flex-start;
-    padding: 2rem;
-  }
-}
+@import "~rfs/scss";
 
 </style>
