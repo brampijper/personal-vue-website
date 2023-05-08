@@ -1,13 +1,12 @@
 <template>
-    <ul class="technologies">
-        <li 
-            v-for="technology in technologies" 
-            :key="technology" 
-            :style="borderStyle"
-        >
-            {{technology}}
-        </li>
-    </ul>
+  <ul>
+    <li 
+      v-for="topic in topics" 
+      :key="topic" 
+    >
+      {{topic}}
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -18,13 +17,9 @@ export default {
     PrimaryButton
   },
   props: {
-    technologies: {
+    topics: {
       required: true,
       type: Object,
-    },
-    borderStyle: {
-        required: true,
-        type: Object,
     }
   }
 };
@@ -33,21 +28,21 @@ export default {
 <style scoped lang="scss">
 @import "~rfs/scss";
 
- .technologies {
-    // background-color:black;
-    border-radius: 0px 0px 15px 15px;
-    text-align:left;
+ ul {
+  // background-color:black;
+  border-radius: 0px 0px 15px 15px;
+  text-align:left;
 
-    li {
-        display: inline-block;
-        margin: 0 .8rem .8rem 0;
-        border: 1px solid;
-        border-radius: 5px;
-        padding: 0.5rem;
-        font-size:.75rem;
-        font-weight: bold;
-        // color:white;
-      }
+  li {
+    display: inline-block;
+    margin: 0 .8rem .8rem 0;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size:.75rem;
+    font-weight: bold;
+    // color:white;
+    }
   }
 
 </style>
