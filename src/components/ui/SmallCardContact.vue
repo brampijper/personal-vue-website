@@ -1,18 +1,17 @@
 <template>
-    <a 
-    class="card button" 
+  <a class="card button" 
     :class="{ active: isActive }" 
     href="mailto:brampijper@proton.me"
     target="_blank"
     @mouseenter="isActive = true"
     @mouseleave="isActive = false"
-    >
+  >
 
     <!-- <div class="text-box">
       <span class="left">send love</span>
     </div> -->
     <font-awesome-icon size="4x" :icon="['fass', 'fa-envelope']"/>
-    </a>
+  </a>
 </template>
 
 <script>
