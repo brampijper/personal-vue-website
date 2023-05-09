@@ -1,58 +1,46 @@
 <template>
-  <a  class="card"
-      :href="state.link"
-      target="_blank">
-      
-    <AppIconLoading :isLoading="state.isLoading" />
-    
-    <article class="card-content" v-if="!state.isLoading">
-        <h4>Check out my latest blogpost</h4>
-        <p><i>{{ `"${state.title}"` }}</i></p>
-        <small><i>Written on {{ state.pubDate }}</i></small>
+  <a
+    class="card"
+    :href="state.link"
+    target="_blank"
+  >    
+    <article class="card-content">
+      <h4>Check out my latest blogpost</h4>
+      <p>
+        <i>{{ `"${state.title}"` }}</i>
+      </p>
+      <small>
+        <i>Written on {{ state.pubDate }}</i>
+      </small>
     </article>
   </a>      
 </template>
 
-<script>
-import { ref, onMounted } from 'vue';
-import AppIconLoading from "./IconLoading.vue";
-import fetchAndCacheData from "../../hooks/useFetchAndCacheData";
+<script async setup>
+  import { ref, onMounted } from 'vue';
+  import fetchAndCacheData from "../../hooks/useFetchAndCacheData";
 
-export default {
-  components: {
-    AppIconLoading,
-  },
-  setup() {
-    const state = ref({ isLoading: true })
+  const state = ref({})
 
-    onMounted( async () => {
-      try {
-        const data = await fetchAndCacheData('/blog/posts')
-        const { pubDate, title, link } = data;
-        state.value = {
-          pubDate: formatDate(pubDate),
-          title,
-          link,
-          isLoading: false
-        }
-      }
-      catch (error) {
-        console.log(error)
-      }
-    })
-
-    function formatDate(date) {
-      const dateArr = date.split(" ");
-      const removeLastTwoWords = dateArr.slice(0, -2); // removes the GMT + Time.
-      const formattedDate = removeLastTwoWords.join(" ");
-      return formattedDate;
-    }
-
-    return {
-      state
+  try {
+    const { pubDate, title, link } = await fetchAndCacheData('/blog/posts')
+    state.value = {
+      pubDate: formatDate(pubDate),
+      title,
+      link
     }
   }
-};
+  catch (err) {
+    console.log('error while trying to fetch data: ', err)
+  }
+
+  function formatDate(date) { // convert to a re-usable hook ?
+    const dateArr = date.split(" ");
+    const removeLastTwoWords = dateArr.slice(0, -2); // removes the GMT + Time.
+    const formattedDate = removeLastTwoWords.join(" ");
+    return formattedDate;
+  }
+
 </script>
 <style lang="scss" scoped>
   .card-content {
