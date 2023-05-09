@@ -1,21 +1,19 @@
 <template>
   <article class="content__intro">
     <p>
-      Based in Oslo. Seeking new opportunities to expand my skillset, 
-      while connecting IT with people and nature. 
+      Now based in Oslo, where I'm seeking new opportunities to expand my skillset and 
+      connect people with IT and nature. 
     </p>
     <p>
-      Last year I developed my skills through freelancing, personal projects and travel.
-    </p>
-    <p>
-      Previously, I worked as a junior developer at 
+      Last year I have developed my skills through freelancing, personals projects and travel.
+      Before that I gained front-end experience at
       <a href="https://www.schuttelaar-partners.com/" target="_blank"
         >Schuttelaar &amp; Partners</a>
-        gaining experience in developing user-friendly web applications. 
+        building user-friendly web applications. 
     </p>
     <p>   
-      When I'm not coding, you can find me reading books, practicing mindfulness
-      or exploring the mountains - with a Kvikk Lunsj in hand <span>&#x1F609</span>
+      When I'm not coding, I enjoy reading books, practicing mindfulness
+      and exploring the mountains with a Kvikk Lunsj in hand <span>&#x1F609</span>
     </p>
   </article>
 </template>
@@ -28,11 +26,11 @@
   gap: 1rem;
 
   p {
-    @include font-size(1.2rem);
+    @include font-size(1.25rem);
     font-family: "Roboto Mono", monospace;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
-    line-height: 1.35;
+    line-height: 1.4;
     max-width: 53ch;
   }
 
@@ -41,10 +39,11 @@
   }
 }
 
-@media (max-width: 668px) {
+@media (max-width: 660px) {
   .content__intro {
     p {
       font-size: 1.1rem;
+      line-height:1.5;
     }
   }
 }
