@@ -1,20 +1,19 @@
 <template>
   <article class="content__intro">
     <p>
-      Currently building my idea's online, while keeping up with my interests:
-      <i> being outdoors, cooking, reading and mindfulness. </i>
+      Now based in Oslo, where I'm seeking new opportunities to expand my skillset and 
+      connect people with IT and nature. 
     </p>
     <p>
-      I worked as a junior developer at
+      Last year I have developed my skills through freelancing, personals projects and travel.
+      Before that I gained front-end experience at
       <a href="https://www.schuttelaar-partners.com/" target="_blank"
-        >Schuttelaar &amp; Partners.</a
-      >
-      Before that I was part of the
-      <a href="https://www.dasbanner.com" target="_blank">Das Banner</a>
-      team. A creative advertising agency.
+        >Schuttelaar &amp; Partners</a>
+        building user-friendly web applications. 
     </p>
-    <p>
-      Now settling down in Norway: <i>å lære norsk og å gå på fjelltur ofte så jeg kan spiser en Kvikk lunsj</i>
+    <p>   
+      When I'm not coding, I enjoy reading books, practicing mindfulness
+      and exploring the mountains with a Kvikk Lunsj in hand <span>&#x1F609</span>
     </p>
   </article>
 </template>
@@ -27,12 +26,12 @@
   gap: 1rem;
 
   p {
-    @include font-size(1.4rem);
+    @include font-size(1.25rem);
     font-family: "Roboto Mono", monospace;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     line-height: 1.4;
-    max-width: 49ch;
+    max-width: 53ch;
   }
 
   a {
@@ -40,10 +39,11 @@
   }
 }
 
-@media (max-width: 668px) {
+@media (max-width: 660px) {
   .content__intro {
     p {
       font-size: 1.1rem;
+      line-height:1.5;
     }
   }
 }
