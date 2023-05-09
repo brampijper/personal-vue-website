@@ -40,13 +40,11 @@ export default {
   width: 130px;
   height: 43px;
   font-size: 1rem;
-  z-index: 3;
 }
 
 .Button {
   border-radius: 5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: $title-font-family;
   border: $button-border;
   padding: 0px;
   color: $button-color;
