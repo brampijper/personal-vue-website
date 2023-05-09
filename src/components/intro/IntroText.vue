@@ -5,11 +5,10 @@
       connect people with IT and nature. 
     </p>
     <p>
-      Last year I have developed my skills through freelancing, personals projects and travel.
-      Before that I gained front-end experience at
+      Last year I have developed my skills through freelancing, personal projects and travel.
+      Before that I developed user-friendly web applications at
       <a href="https://www.schuttelaar-partners.com/" target="_blank"
-        >Schuttelaar &amp; Partners</a>
-        building user-friendly web applications. 
+        >Schuttelaar &amp; Partners.</a>
     </p>
     <p>   
       When I'm not coding, I enjoy reading books, practicing mindfulness
