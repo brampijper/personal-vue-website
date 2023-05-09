@@ -2,28 +2,11 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faTimes,
-  faAt,
-  faSpinner,
-  faEye,
-  faBook,
-  faExpandAlt,
-  faEnvelope
-} from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faExpandAlt } from "@fortawesome/free-solid-svg-icons/faExpandAlt";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
+
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(
-  faTimes, 
-  faLinkedin, 
-  faGithub, 
-  faAt, 
-  faSpinner, 
-  faEye, 
-  faBook, 
-  faExpandAlt,
-  faEnvelope
-);
+library.add(faExpandAlt,faEnvelope);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
