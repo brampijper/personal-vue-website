@@ -34,11 +34,10 @@ export default {
 <style lang="scss" scoped>
 @import "~rfs/scss";
 .container {
-  padding: 2rem;
   box-sizing: border-box;
   margin: 0px;
   flex-direction: row;
-  max-width: 730px;
+  max-width: 680px;
 }
 
 .container__wrap {
@@ -50,6 +49,13 @@ export default {
 @media (min-width: 0px) {
   .container {
     width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 660px) {
+  .container {
+    padding: 2rem;
   }
 }
 
