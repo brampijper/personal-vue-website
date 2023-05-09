@@ -1,27 +1,29 @@
 <template>
-    <ul class="small__cards">
-        <SmallCardBlog />
-        <SmallCardContributions />
-        <SmallCardContact />
-    </ul>
+  <ul class="small__cards">
+    <Suspense>
+      <SmallCardBlog />
+      <template #fallback> 
+        <div class="card">loading...</div>
+      </template>
+    </Suspense>
+
+    <Suspense>
+      <SmallCardContributions />
+      <template #fallback> 
+        <div class="card">loading...</div>
+      </template>
+    </Suspense>
+
+    <SmallCardContact />
+  </ul>
 </template>
 
-<script>
-import SmallCardBlog from "../ui/SmallCardBlog.vue"
-import SmallCardContributions from "../ui/SmallCardContributions.vue"
-import SmallCardContact from "../ui/SmallCardContact.vue"
-
-export default {
-  components: {
-    SmallCardBlog,
-    SmallCardContributions,
-    SmallCardContact
-  },
-  setup() {
-    return {}
-  }
-};
+<script setup>
+  import SmallCardBlog from "../ui/SmallCardBlog.vue"
+  import SmallCardContributions from "../ui/SmallCardContributions.vue"
+  import SmallCardContact from "../ui/SmallCardContact.vue"
 </script>
+
 <style lang="scss" scoped>
 
 .small__cards {
