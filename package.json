@@ -4,9 +4,9 @@
   "description": "A personal website build with vue.js",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --open --hot --config webpack.dev.js",
-    "prod": "npm run build --config webpack.prod.js"
+    "build": "webpack --config ./build-utils/webpack.prod.js",
+    "dev": "webpack serve --open --hot --config ./build-utils/webpack.dev.js",
+    "prod": "npm run build --config ./build-utils/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,7 @@
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
     "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.3.8",
     "vue": "^3.2.47",
     "vue-loader": "^17.1.0",
     "vue-template-compiler": "^2.7.14",
