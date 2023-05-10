@@ -5,16 +5,20 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const TerserPlugin = require("terser-webpack-plugin");
+
 
 module.exports = merge(common, {
   mode: "production",
   devtool: 'source-map',
   optimization: {
+    minimize: true,
     usedExports: true,
     splitChunks: {
       chunks: 'all',
     },
     minimizer: [
+      new TerserPlugin(),
       new CssMinimizerPlugin({
         minimizerOptions: {
           preset: [
