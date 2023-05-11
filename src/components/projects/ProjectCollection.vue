@@ -49,7 +49,7 @@
   const projects = ref([]);
 
   try {
-    const data = await fetchAndCacheData('/api/repos', '?username=brampijper') // returns an array of objects
+    const data = await fetchAndCacheData('/api/repos', 'username=brampijper') // returns an array of objects
     const modifiedProjects = data
       .reverse() // Display most recent projects first.
       .map( project => { 

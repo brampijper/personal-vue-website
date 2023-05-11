@@ -17,7 +17,7 @@
   const state = ref('')
   
   try {
-    const totalContributions = await fetchAndCacheData("/api/stats", "?username=brampijper") // returns a string
+    const totalContributions = await fetchAndCacheData("/api/stats", "username=brampijper") // returns a string
     state.value = totalContributions;
   } catch (err) {
     console.log('Error while fetching data: ', err)
