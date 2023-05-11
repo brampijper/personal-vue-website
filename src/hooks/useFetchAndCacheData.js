@@ -6,9 +6,9 @@
  * @returns {Promise<any>} - The fetched or cached data.
  */
 
-export async function fetchAndCacheData (path, param = '', expiration = 10000) {
+export async function fetchAndCacheData (path, param = '') { 
     const serverBaseUrl = process.env.SERVER_BASE_URL; // Base URL depending on the environment (dev or prod)
-    const fullURL = `${serverBaseUrl}${path}${param}`;
+    const fullURL = `${serverBaseUrl}${path}?${param}`;
 
     try {
         const { cachedEtag } = await returnCachedData(path); // Check if an ETag is already stored in the browser cache.
@@ -16,7 +16,7 @@ export async function fetchAndCacheData (path, param = '', expiration = 10000) {
 
         if (cachedEtag) {
             requestOptions.headers = {
-                'If-None-Match': cachedEtag
+                'If-None-Match': cachedEtag,
             }
         }
 
@@ -24,27 +24,37 @@ export async function fetchAndCacheData (path, param = '', expiration = 10000) {
 
         if ( response.status === 304) { // Data is still valid (304 status)
             const { cachedData } = await returnCachedData(path) // Retrieve the cached data from the browser.
-            
-            if (!cachedData) { // Cached data was removed, so fetch it again with the previous ETag still being valid for the backend.
-                const freshData = await response.json()
-                const freshEtag = response.headers.get('ETag')
-                storeInCache(path, freshData, freshEtag, expiration);
-                return freshData;
-            }
             return cachedData;
-        } else {
-            const etag = response.headers.get('ETag');
-            const data = await response.json();
-            if (etag && data) {
-                storeInCache(path, data, etag, expiration); // Store data and etag in the browser cache, with path being it's unique key.  
-            }
-            return data;
+        } 
+        
+        const etag = response.headers.get('ETag');
+        const data = await response.json();
+        const expirationTime = getExpirationFromHeaders(response.headers);
+
+        if (etag && data) {
+            storeInCache(path, data, etag, expirationTime); // Store data and etag in the browser cache, with path being it's unique key.  
         }
+
+        return data;
 
 
     } catch (error) {
         console.log('error while fetching, ', error)
     }
+}
+
+
+function getExpirationFromHeaders(headers) {
+    const cacheControl = headers.get('cache-control');
+    if (cacheControl) {
+      const maxAgeMatch = cacheControl.match(/max-age=(\d+)/);
+      if (maxAgeMatch && maxAgeMatch[1]) {
+        const maxAgeInSeconds = parseInt(maxAgeMatch[1]);
+        return Date.now() + maxAgeInSeconds * 1000; // Convert max-age to milliseconds
+      }
+    }
+    // Default to a fixed cache duration if headers are not available
+    return Date.now() + 60 * 60 * 1000;
 }
 
 /**
@@ -55,32 +65,33 @@ export async function fetchAndCacheData (path, param = '', expiration = 10000) {
 async function returnCachedData (path) {
     try {
         const stringifiedData = localStorage.getItem(path);
-        let parsedData;
+        
         if (!stringifiedData) { // There's no cachedData, so return null
-            return { cachedData: null } 
+            return false
         }
 
+        let parsedData;
         try {
             parsedData = JSON.parse(stringifiedData);
         } catch(parseError) {
             console.log('Failed to parse cached data:', parseError);
-            return { cachedData: null };
+            return false;
         }
 
         const { data, etag, expirationTime } = parsedData;
+
         const isExpired = expirationTime < new Date().getTime();
         if (isExpired) { // Cached data is stale: remove it from the cache.
             removeExpiredCache(path);
-            return { cachedData: null };
+            return false;
         }
+
         // all good, return the cachedData and ETag.
         return { cachedData: data, cachedEtag: etag }
-
 
     } catch (error) {
         console.log('failed while checking browser cache: ', error)
     }
-
 }
 
 /**
@@ -90,8 +101,7 @@ async function returnCachedData (path) {
  * @param {string} etag - The ETag associated with the data.
  * @param {number} expiration - Expiration time for the cached data
  */
-function storeInCache(path, data, etag, expiration) {
-    const expirationTime = new Date().getTime() + expiration;  
+function storeInCache(path, data, etag, expirationTime) {
     const cachedData = { data, etag, expirationTime }
     localStorage.setItem(path, JSON.stringify(cachedData));
 }
