@@ -40,7 +40,7 @@
 <script async setup>
   import { ref, onMounted } from 'vue';
   import { store } from '../../store.js';
-  import fetchAndCacheData from '../../hooks/useFetchAndCacheData';
+  import fetchAndCacheData from '../../utils/useFetchAndCacheData';
   
   import ProjectCardList from "./ProjectCardList.vue";
   import ProjectCard from "./ProjectCard.vue";

@@ -12,7 +12,7 @@
 
 <script async setup>
   import { ref, onMounted } from 'vue';
-  import fetchAndCacheData from "../../hooks/useFetchAndCacheData";
+  import fetchAndCacheData from "../../utils/useFetchAndCacheData";
   
   const state = ref('')
   
