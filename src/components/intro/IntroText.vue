@@ -1,14 +1,12 @@
 <template>
   <article class="content__intro">
     <p>
-      Now based in Oslo, where I'm seeking new opportunities to expand my skillset and 
-      connect people with IT and nature. 
+      Seeking new opportunities in Oslo to expand my skillset by 
+      connecting people, IT and nature. 
     </p>
     <p>
-      Last year I have developed my skills through freelancing, personal projects and travel.
-      Before that I developed user-friendly web applications at
-      <a href="https://www.schuttelaar-partners.com/" target="_blank"
-        >Schuttelaar &amp; Partners.</a>
+      I enhanced my skills last year through freelancing, personal projects and travel.
+      Currently broadening my tech stack to develop server-side-applications.
     </p>
     <p>   
       When I'm not coding, I enjoy reading books, practicing mindfulness
