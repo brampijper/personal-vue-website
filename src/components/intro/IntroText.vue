@@ -5,7 +5,7 @@
       connecting people, IT and nature. 
     </p>
     <p>
-      I enhanced my skills last year through freelancing, personal projects and travel.
+      I developed my skills last year through freelancing, personal projects and travel.
       Currently broadening my tech stack to develop server-side-applications.
     </p>
     <p>   
