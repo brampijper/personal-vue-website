@@ -2,11 +2,11 @@
   <article class="content__intro">
     <p>
       Seeking new opportunities in Oslo to expand my skillset by 
-      connecting people, IT and nature. 
+      connecting people, IT and health. 
     </p>
     <p>
       I developed my skills last year through freelancing, personal projects and travel.
-      Currently broadening my tech stack to develop server-side-applications.
+      Currently broadening my tech stack, while improving my blog and mental health platform.
     </p>
     <p>   
       When I'm not coding, I enjoy reading books, practicing mindfulness
