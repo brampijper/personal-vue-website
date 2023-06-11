@@ -51,7 +51,6 @@
   try {
     const data = await fetchAndCacheData('/api/repos', 'username=brampijper') // returns an array of objects
     const modifiedProjects = data
-      .reverse() // Display most recent projects first.
       .map( project => { 
         const image_url = `${process.env.SERVER_BASE_URL}/${project.image_url}` // add correct path to the image, that's stored on the server.
         const created_at = project.created_at.slice(0,4) // remove the time notation
