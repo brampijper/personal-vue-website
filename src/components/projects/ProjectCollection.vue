@@ -9,9 +9,9 @@
       <img class="card__image" :src="image_url" alt="/" />
     </template>
 
-    <template #name="{ name, created_at }">
+    <template #name="{ name, pushed_at }">
       <h3 class="card__title">
-        {{ `${name} ${created_at}` }} <!-- year -->
+        {{ `${name} ${pushed_at}` }} <!-- year -->
       </h3>
     </template>
 
@@ -53,8 +53,8 @@
     const modifiedProjects = data
       .map( (project) => { 
         const image_url = `${process.env.SERVER_BASE_URL}/${project.image_name}` // add correct path to the image, that's stored on the server.
-        const created_at = project.created_at.slice(0,4) // remove the time notation
-        return { ...project, image_url, created_at }
+        const pushed_at = project.pushed_at.slice(0,4) // remove the time notation
+        return { ...project, image_url, pushed_at }
       });
       
       projects.value = modifiedProjects

@@ -172,12 +172,6 @@
       cursor: pointer;
       background-color: rgb(255, 255, 255);
   
-      &__header {
-        > a {
-          transform: scale(1.2);
-        }
-      }
-  
       .card__image-container::before {
         background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255, 0) 0%);
       }
@@ -186,7 +180,7 @@
     &.card--dark {
       background-color: $card-bg-dark;
       color: $card-text-dark;
-  
+
       .card__image-container::before {
           background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(30, 30, 30, 100) 109%);
       }
