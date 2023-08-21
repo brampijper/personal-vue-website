@@ -3,7 +3,9 @@
     class="card" 
     href="https://github.com/brampijper" 
     target="_blank"
+    title="See my Github profile"
   >
+    <SmallCardLinkIcon />
     <h4>
         Github Contributions: {{ state }}
     </h4>
@@ -13,6 +15,7 @@
 <script async setup>
   import { ref, onMounted } from 'vue';
   import fetchAndCacheData from "../../utils/useFetchAndCacheData";
+  import SmallCardLinkIcon from "./SmallCardLinkIcon.vue";
   
   const state = ref('')
   
