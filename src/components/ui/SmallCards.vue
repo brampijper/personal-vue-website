@@ -1,5 +1,5 @@
 <template>
-  <ul class="small__cards">
+  <ul class="small__cards" :class="{'dark': store.isDarkMode}">
     <Suspense>
       <SmallCardBlog />
       <template #fallback> 
@@ -23,12 +23,13 @@
 </template>
 
 <script setup>
+  import { store } from "../../store.js"
   import SmallCardBlog from "../ui/SmallCardBlog.vue"
   import SmallCardContributions from "../ui/SmallCardContributions.vue"
   import SmallCardContact from "../ui/SmallCardContact.vue"
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .small__cards {
   display: flex;
@@ -51,11 +52,22 @@
     font-weight: 700;
     font-family: $title-font-family;
     min-height: 100px;
+    position:relative;
   }
     
   a:hover {
-    background-color:white;
-    color:black;
+    background-color:rgb(220, 220, 220);
+  }
+}
+
+.small__cards.dark {
+  a:hover {
+    background-color:rgb(243, 243, 243);
+    color:rgb(56, 56, 56);
+  }
+
+  a:hover > svg { // it's scoped so it will not work.
+    color:rgb(56, 56, 56);
   }
 }
 

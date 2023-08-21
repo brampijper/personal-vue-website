@@ -1,16 +1,16 @@
 <template>
   <article class="content__intro">
     <p>
-      Seeking new opportunities in Oslo to expand my skillset by 
-      connecting people, IT and health. 
+      Freelancing and traveling 🌏 enforced my passion for human connections, web development and nature.
+      This drives my work to connect the digital and physical world to help people.
     </p>
     <p>
-      I developed my skills last year through freelancing, personal projects and travel.
-      Currently broadening my tech stack, while improving my blog and mental health platform.
+      I look for new opportunities where lifelong learning, collaborating 
+      and doing hard work are highly valued. 💪🏼 
     </p>
     <p>   
-      When I'm not coding, I enjoy reading books, practicing mindfulness
-      and exploring the mountains with a Kvikk Lunsj in hand <span>&#x1F609</span>
+      When I'm not coding, I enjoy ✏️ my blog, reading books, 
+      train my physical health and exploring Norway's awesome nature. <span>&#x1F609</span>
     </p>
   </article>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <article class="heading__title">
       <h1>Hello, I'm Bram</h1>
-      <span>Creative being &amp; web developer.</span>
+      <span>A creative being &amp; web developer.</span>
     </article>
 </template>
 
