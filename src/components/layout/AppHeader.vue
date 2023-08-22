@@ -61,7 +61,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding:1rem;
+    padding:0rem 1rem;
   }
 }
 

@@ -1,25 +1,33 @@
 <template>
-    <div :class="store.isDarkMode ? 'dark' : '' ">
-        <div class="toggler">
-            <p class="toggler__light">Light</p>
-            <div class="toggler__slider">
-                <div class="toggler__slider--circle" @click="store.toggleDarkMode"></div>
-            </div>
-            <p class="toggler__dark">Dark</p>
+  <div :class="darkModeClass">
+    <div class="toggler">
+      <button 
+        class="toggler__slider" 
+        @click="store.toggleDarkMode"
+        aria-label="Toggle dark mode"
+        role="switch"
+        type="button"
+        :aria-checked="store.isDarkMode"
+      >
+        <div class="toggler__slider--circle">
+          <font-awesome-icon 
+            class="toggler__slider--icon" 
+            size="1x" 
+            :icon="['fa-solid', iconType]"
+          />
         </div>
+      </button>
     </div>
+  </div>
 </template>
 
-<script>
-import { store } from '../../store.js';
-
-export default {
-    setup() {
-        return { 
-            store,
-        } 
-    }
-}
+<script setup>
+  import { store } from '../../store.js';
+  import { computed } from 'vue'
+  
+  const iconType = computed(() => store.isDarkMode ? 'fa-moon' : 'fa-sun')
+  const darkModeClass = computed(() => store.isDarkMode ? 'dark' : '')
+    
 </script>
 
 <style scoped lang="scss">
@@ -29,59 +37,57 @@ export default {
     align-items: center;
 }
 
-.toggler p {
-    font-size: 0.825rem;
-    font-weight: 600;
-}
-
 .toggler__slider {
-    width: 25px;
-    height: 13px;
-    background-color: #2B283A;
+    width: 44px;
+    height: 22px;
+    background-color: #d7d7d7;
     border-radius: 2rem;
     margin-inline: 7px;
     cursor: pointer;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #919191;
     box-sizing: content-box;
+    transition: border-color .55s,background-color .55s;
+}
+
+.toggler__slider:hover {
+  border-color: #777777;
+}
+
+
+.toggler__slider--circle {
+    height: 22px;
+    width: 22px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
 }
 
 div.dark .toggler__slider {
-    border-color: white;
-    background-color: #F5F5F5;
+    justify-content: flex-end;
+    border-color: #bcbcbc;
+    background-color: #383838;
 }
 
-.toggler__slider--circle {
-    height: 13px;
-    width: 13px;
-    background-color: white;
-    border-radius: 50%;
+div.dark .toggler__slider:hover {
+  border-color: #FFFFFF;
 }
 
 div.dark .toggler__slider--circle {
     background-color: black;
 }
 
-.toggler__light {
+.toggler__slider--icon {
     color: #2B283A;
+    height: 14px;
 }
 
-div.dark .toggler__light {
-    color: #918E9B;
-}
-
-.toggler__dark {
-    color: #918E9B;
-}
-
-div.dark .toggler__dark {
-    color: #FFFFFF;
-}
-
-div.dark .toggler__slider {
-    justify-content: flex-end;
+div.dark .toggler__slider--icon {
+    color: #DCDCDC;
 }
 
 </style>
