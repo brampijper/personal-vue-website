@@ -5,7 +5,7 @@
     target="_blank"
     title="View my blog"
   >
-    <SmallCardLinkIcon />    
+    <ExternalLinkIcon />    
     <article class="card-content">
       <h4>Check out my latest blogpost</h4>
       <p>
@@ -21,7 +21,7 @@
 <script async setup>
   import { ref, onMounted } from 'vue';
   import fetchAndCacheData from "../../utils/useFetchAndCacheData"; 
-  import SmallCardLinkIcon from './SmallCardLinkIcon.vue';
+  import ExternalLinkIcon from './ExternalLinkIcon.vue';
 
   const state = ref({})
 

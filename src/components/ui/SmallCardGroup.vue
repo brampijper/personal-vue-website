@@ -1,7 +1,7 @@
 <template>
   <ul class="small__cards" :class="{'dark': store.isDarkMode}">
     <Suspense>
-      <SmallCardBlog />
+      <BlogCard />
       <template #fallback> 
         <div class="card">
           <span class="skeleton skeleton__text"></span>
@@ -10,7 +10,7 @@
     </Suspense>
 
     <Suspense>
-      <SmallCardContributions />
+      <GithubCard />
       <template #fallback> 
         <div class="card">
           <span class="skeleton skeleton__text"></span> <!-- uses skeleton classes (which are non scoped) -->
@@ -18,15 +18,15 @@
       </template>
     </Suspense>
 
-    <SmallCardContact />
+    <ContactCard />
   </ul>
 </template>
 
 <script setup>
   import { store } from "../../store.js"
-  import SmallCardBlog from "../ui/SmallCardBlog.vue"
-  import SmallCardContributions from "../ui/SmallCardContributions.vue"
-  import SmallCardContact from "../ui/SmallCardContact.vue"
+  import BlogCard from "./BlogCard.vue"
+  import GithubCard from "./GithubCard.vue"
+  import ContactCard from "./ContactCard.vue"
 </script>
 
 <style lang="scss">

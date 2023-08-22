@@ -1,5 +1,5 @@
 <template>
-  <div class="projects">
+  <div class="projects" id="projects">
     <div 
       v-for="project in projects"
       :key="project.id"
@@ -16,9 +16,7 @@
 
         <div class="card__header">
           <slot name="name" v-bind="project" />
-          <a target="_blank" href="#">
-            <font-awesome-icon size="1x" :icon="['fa-solid', 'fa-expand-alt']" />
-          </a>
+          <external-link-icon />
         </div>
 
         <div class="card__content">
@@ -41,6 +39,7 @@
 
 <script setup>
   import { store } from '../../store.js';
+  import ExternalLinkIcon from '../ui/ExternalLinkIcon.vue';
     
   const props = defineProps({
     projects: {
@@ -51,6 +50,7 @@
     },
     skeleton: { // not required, sets custom css to set width and height of cards.
       type: String,
+      default: ""
     }
   })
 </script>

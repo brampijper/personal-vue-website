@@ -1,18 +1,18 @@
 <template>
   <div class="cards__container">
-    <LargeCard />
-    <SmallCards />
+    <IntroCard />
+    <SmallCardGroup />
   </div>
 </template>
 
 <script>
-import LargeCard from "../ui/LargeCard.vue"
-import SmallCards from "../ui/SmallCards.vue"
+import IntroCard from "../ui/IntroCard.vue"
+import SmallCardGroup from "../ui/SmallCardGroup.vue"
 
 export default {
   components: {
-    LargeCard,
-    SmallCards
+    IntroCard,
+    SmallCardGroup
   }
 }
 </script>

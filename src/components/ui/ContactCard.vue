@@ -7,7 +7,7 @@
     @mouseleave="isActive = false"
     title="Send an email"
   >
-    <SmallCardLinkIcon />
+    <ExternalLinkIcon />
     <!-- <div class="text-box">
       <span class="left">send love</span>
     </div> -->
@@ -17,11 +17,11 @@
 
 <script>
 import { ref } from 'vue'
-import SmallCardLinkIcon from './SmallCardLinkIcon.vue'
+import ExternalLinkIcon from './ExternalLinkIcon.vue'
 
 export default {
   components: {
-    SmallCardLinkIcon
+    ExternalLinkIcon
   },
   setup() {
     const isActive = ref(false)
