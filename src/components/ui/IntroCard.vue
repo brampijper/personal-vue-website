@@ -7,29 +7,9 @@
   </div>
 </template>
 
-<script>
-import IntroText from "../intro/IntroText.vue";
-import IntroTitle from "../intro/IntroTitle.vue";
-import PrimaryButton from "./AppButton.vue";
-
-export default {
-  components: {
-    IntroTitle,
-    IntroText,
-    PrimaryButton,
-  },
-  setup(props) {
-    const scrollTo = () => {
-      document.getElementById("projects").scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-
-    return {
-      scrollTo //make method available to template
-    }
-  }
-};
+<script setup>
+  import IntroText from "../intro/IntroText.vue";
+  import IntroTitle from "../intro/IntroTitle.vue";
 </script>
 <style lang="scss" scoped>
 @import "~rfs/scss";

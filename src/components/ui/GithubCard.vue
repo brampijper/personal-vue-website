@@ -5,7 +5,7 @@
     target="_blank"
     title="See my Github profile"
   >
-    <SmallCardLinkIcon />
+    <ExternalLinkIcon />
     <h4>
         Github Contributions: {{ state }}
     </h4>
@@ -15,7 +15,7 @@
 <script async setup>
   import { ref, onMounted } from 'vue';
   import fetchAndCacheData from "../../utils/useFetchAndCacheData";
-  import SmallCardLinkIcon from "./SmallCardLinkIcon.vue";
+  import ExternalLinkIcon from "./ExternalLinkIcon.vue";
   
   const state = ref('')
   
