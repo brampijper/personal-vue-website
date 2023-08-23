@@ -5,8 +5,10 @@
       :key="project.id"
       :class="`project__card ${skeleton}`"
     >
-
       <div class="card" :class="{'card--dark': store.isDarkMode}">
+        <div class="card__header">
+          <slot name="button" v-bind="project" />
+        </div>
         
         <slot name="link" v-bind="project" />
 
@@ -14,21 +16,12 @@
           <slot name="image" v-bind="project" />
         </div>
 
-        <div class="card__header">
+
+        <article class="card__content">
           <slot name="name" v-bind="project" />
-          <external-link-icon />
-        </div>
-
-        <div class="card__content">
-          <article>
-            <slot name="description" v-bind="project" />
-          </article>
-
-          <slot name="topics" v-bind="project" />
-
-          <slot name="button" />
-
-        </div>
+          <slot name="description" v-bind="project" />
+        </article>
+        <slot name="topics" v-bind="project" />
 
       </div>
     </div>
@@ -38,8 +31,8 @@
     
 
 <script setup>
+  import { computed } from 'vue';
   import { store } from '../../store.js';
-  import ExternalLinkIcon from '../ui/ExternalLinkIcon.vue';
     
   const props = defineProps({
     projects: {
@@ -53,6 +46,7 @@
       default: ""
     }
   })
+
 </script>
 
 <style lang="scss">
@@ -64,7 +58,7 @@
   flex-wrap: wrap;
   justify-content: center;
   z-index: 1;
-  gap: 4rem;
+  gap: 2rem;
   margin: 2rem 0 0 0;
   padding: 1rem;
   width: auto;
@@ -82,16 +76,18 @@
     position: relative;
     color: $card-text;
     background-color: $card-bg;
-    border-radius: 15px;
+    border-radius: 8px;
     letter-spacing: 1.5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    row-gap: 1.7rem;
+    // justify-content: space-between;
+    // row-gap: 1.7rem;
     min-width: 300px;
     max-width: 360px;
     overflow:hidden;
     height: 100%;
+    border: 6px solid ghostwhite;
+    border-top: none;
   
     &__link {
       position:absolute;
@@ -107,7 +103,9 @@
       width: auto;
       max-height:200px;
       padding-top: 50%; /* set the aspect ratio of the image container */
-      margin-top: 45px;
+      // margin-top: 45px;
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
   
       &::before {
         content: '';
@@ -133,35 +131,39 @@
     }
   
     &__header {
-      position:absolute;
-      left:0;
-      top:0;
       width: 100%;
-      height: 45px;
+      height: auto;
+      font-size:.7rem;
+      padding-block: 0.3rem;
       display: flex;
-      flex-direction: row;
-      align-items:center;
-      justify-content: space-between;
-      padding-left: 2rem;
-      padding-right: 1rem;
+      align-items: center;
+      justify-content: center;
+
+      &-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
     }  
   
     &__title {
       font-family: $title-font-family;
       margin-bottom: .6rem;
       font-weight:700;
-      font-size: .9rem;
+      font-size: .8rem;
       margin: 0;
     }
   
     &__content {
-      padding: 0rem 2rem 2rem 2rem;
+      font-size: .85rem;
+      padding: 1.5rem 2rem 1rem 2rem;
       text-align:left;
       display: flex;
       flex-direction:column;
-      row-gap: 1.2rem;
+      row-gap: .5rem;
       height: 100%;
-      justify-content: space-between;
+      // justify-content: space-between;
     }
   
     &__content-description {
@@ -169,17 +171,26 @@
     }
   
     &:hover {
-      cursor: pointer;
       background-color: rgb(255, 255, 255);
-  
+
+      > a .card_link {
+        cursor: pointer;
+      }
+      
       .card__image-container::before {
         background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255, 0) 0%);
+      }
+
+      > ul {
+        background-color: rgb(245, 245, 245);
       }
     }
   
     &.card--dark {
       background-color: $card-bg-dark;
       color: $card-text-dark;
+      transition: background .3s ease-in-out;
+      border: 6px solid rgb(58, 58, 58);
 
       .card__image-container::before {
           background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(30, 30, 30, 100) 109%);
@@ -191,6 +202,10 @@
         .card__image-container::before {
           background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgb(30, 30, 30, 0) 0%);
         }
+
+        > ul {
+          background-color: rgb(6, 6, 6);
+        }
       }
     }
   }
@@ -198,6 +213,9 @@
 }
 
 @media (max-width: 668px) {
+  .projects {
+    padding: 1rem 0;
+  }
   .project__card {
     .card {
       max-width: 91vw;
@@ -207,6 +225,15 @@
           font-size: .9rem;
         }
       }
+
+    &__image-container {
+      background:none;
+  
+      &::before {
+        background: none;
+      }
+    }
+
     }
   }
 }

@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-  import IntroText from "../intro/IntroText.vue";
-  import IntroTitle from "../intro/IntroTitle.vue";
+  import IntroText from "../../intro/IntroText.vue";
+  import IntroTitle from "../../intro/IntroTitle.vue";
 </script>
 <style lang="scss" scoped>
 @import "~rfs/scss";

@@ -8,9 +8,10 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faExpandAlt,faEnvelope, faHome, faExternalLinkSquareAlt, faMoon, faSun);
+library.add(faExpandAlt,faEnvelope, faHome, faExternalLinkSquareAlt, faMoon, faSun, faLinkedin);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");

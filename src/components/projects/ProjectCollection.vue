@@ -1,8 +1,25 @@
 <template>    
   <ProjectCard :projects="projects">
+
+    <template #button="{ clickable }">
+      <span v-if="clickable" className="card__header-button"> 
+        View live website
+        <external-link-icon position="static" />
+      </span>
+      <span v-else className="card__header-button"> You're on this website &#128064; </span>
+    </template>
     
-    <template #link="{ homepage }">
-      <a class="card__link" :href="homepage" target="_blank" />
+    <template #link="{ homepage, name, clickable }">
+      <a 
+        v-if="clickable"
+        class="card__link" 
+        :href="homepage" 
+        target="_blank"
+        :title="'Visit ' + name"
+      />
+      <div v-else 
+        class="card__link">
+      </div>
     </template>
 
     <template #image="{ image_url }">
@@ -25,15 +42,6 @@
       <ProjectCardList :topics="topics" />
     </template>
 
-    <template #button>
-      <PrimaryButton 
-        class="content__button" 
-        button-size="tiny" 
-      >
-        view Website
-      </PrimaryButton>
-    </template>
-
   </ProjectCard>
 </template>
 
@@ -45,6 +53,7 @@
   import ProjectCardList from "./ProjectCardList.vue";
   import ProjectCard from "./ProjectCard.vue";
   import PrimaryButton from "../ui/AppButton.vue";
+  import ExternalLinkIcon from '../ui/ExternalLinkIcon.vue'
 
   const projects = ref([]);
 
@@ -54,7 +63,8 @@
       .map( (project) => { 
         const image_url = `${process.env.SERVER_BASE_URL}/${project.image_name}` // add correct path to the image, that's stored on the server.
         const pushed_at = project.pushed_at.slice(0,4) // remove the time notation
-        return { ...project, image_url, pushed_at }
+        const clickable = project.homepage !== 'https://www.brampijper.com'
+        return { ...project, image_url, pushed_at, clickable }
       });
       
       projects.value = modifiedProjects

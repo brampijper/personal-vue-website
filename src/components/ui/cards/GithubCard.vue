@@ -14,8 +14,8 @@
 
 <script async setup>
   import { ref, onMounted } from 'vue';
-  import fetchAndCacheData from "../../utils/useFetchAndCacheData";
-  import ExternalLinkIcon from "./ExternalLinkIcon.vue";
+  import fetchAndCacheData from "../../../utils/useFetchAndCacheData";
+  import ExternalLinkIcon from "../ExternalLinkIcon.vue";
   
   const state = ref('')
   

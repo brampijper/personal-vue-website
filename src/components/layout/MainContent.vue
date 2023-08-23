@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import IntroCard from "../ui/IntroCard.vue"
+import IntroCard from "../ui/cards/IntroCard.vue"
 import SmallCardGroup from "../ui/SmallCardGroup.vue"
 
 export default {
