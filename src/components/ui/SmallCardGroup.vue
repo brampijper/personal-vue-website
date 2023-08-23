@@ -18,15 +18,16 @@
       </template>
     </Suspense>
 
-    <ContactCard />
+    <LinkedInCard />
   </ul>
 </template>
 
 <script setup>
   import { store } from "../../store.js"
-  import BlogCard from "./BlogCard.vue"
-  import GithubCard from "./GithubCard.vue"
-  import ContactCard from "./ContactCard.vue"
+  import BlogCard from "./cards/BlogCard.vue"
+  import GithubCard from "./cards/GithubCard.vue"
+  // import ContactCard from "./cards/ContactCard.vue"
+  import LinkedInCard from "./cards/LinkedInCard.vue"
 </script>
 
 <style lang="scss">

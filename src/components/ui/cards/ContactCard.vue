@@ -17,7 +17,7 @@
 
 <script>
 import { ref } from 'vue'
-import ExternalLinkIcon from './ExternalLinkIcon.vue'
+import ExternalLinkIcon from '../ExternalLinkIcon.vue'
 
 export default {
   components: {

@@ -28,6 +28,7 @@
   "homepage": "https://github.com/brampijper/personal-vue-website#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "process": "^0.11.10",

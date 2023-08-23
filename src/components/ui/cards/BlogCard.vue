@@ -3,25 +3,28 @@
     class="card"
     :href="state.link"
     target="_blank"
-    title="View my blog"
+    title="Read recent blogpost"
   >
     <ExternalLinkIcon />    
     <article class="card-content">
-      <h4>Check out my latest blogpost</h4>
-      <p>
-        <i>{{ `"${state.title}"` }}</i>
-      </p>
-      <small>
-        <i>Written on {{ state.pubDate }}</i>
-      </small>
+      <p>Read recent blogpost:</p>
+      
+      <section>
+        <h4>
+          {{ state.title }}
+        </h4>
+        <small className="card-content-date">
+          Written on {{ state.pubDate }}
+        </small>
+      </section>
     </article>
   </a>      
 </template>
 
 <script async setup>
   import { ref, onMounted } from 'vue';
-  import fetchAndCacheData from "../../utils/useFetchAndCacheData"; 
-  import ExternalLinkIcon from './ExternalLinkIcon.vue';
+  import fetchAndCacheData from "../../../utils/useFetchAndCacheData"; 
+  import ExternalLinkIcon from '../ExternalLinkIcon.vue';
 
   const state = ref({})
 
@@ -51,5 +54,10 @@
     flex-direction: column;
     gap: .8rem;
     text-align: left;
+
+    .card-content-date {
+      font-size: .7rem;
+      font-weight:500;
+    }
   }
 </style>
