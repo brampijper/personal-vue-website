@@ -1,16 +1,13 @@
 <template>
   <article class="content__intro">
     <p>
-      Freelancing and traveling 🌏 enforced my passion for human connections, web development and nature.
-      This drives my work to connect the digital and physical world to help people.
+      Work and travel, while keeping an open mind made me who I am today. 🌏 I care for human connection and to live fully aware.
     </p>
     <p>
-      I look for new opportunities where lifelong learning, collaborating 
-      and doing hard work are highly valued. 💪🏼 
+      I'm looking for that combination of work where technology and human connection intersect. 💪🏼 
     </p>
     <p>   
-      When I'm not coding, I enjoy ✏️ my blog, reading books, 
-      train my physical health and exploring Norway's awesome nature. <span>&#x1F609</span>
+      I love to spend my time outdoors and explore the world's nature. <span>⛰️</span> Into reading, cooking and working on the mind and body. 
     </p>
   </article>
 </template>

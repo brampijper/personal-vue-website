@@ -18,7 +18,7 @@
       </template>
     </Suspense>
 
-    <LinkedInCard />
+    <!-- <LinkedInCard /> -->
   </ul>
 </template>
 
@@ -43,7 +43,7 @@
   .card {
     padding: 2rem;
     align-items:center;
-    flex-basis: 29%;
+    flex-basis: 45%;
     display:flex;
     align-items: center;
     justify-content: center;

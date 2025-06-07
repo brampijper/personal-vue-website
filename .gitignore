@@ -2,3 +2,4 @@ node_modules
 .env
 dist
 DIGITALOCEAN.TXT
+**/.DS_Store

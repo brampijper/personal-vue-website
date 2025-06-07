@@ -53,7 +53,7 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin(),
     new BundleAnalyzerPlugin({analyzerMode: "disabled"}),
     new webpack.DefinePlugin({
-      'process.env.SERVER_BASE_URL': JSON.stringify('https://backend-api-requests-production.up.railway.app'),
+      'process.env.SERVER_BASE_URL': JSON.stringify('http://oc0swkk.135.181.199.135.sslip.io'),
     }),
   ],
 })

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config ./build-utils/webpack.prod.js",
-    "dev": "webpack serve --open --hot --config ./build-utils/webpack.dev.js",
+    "dev": "webpack serve --open --config ./build-utils/webpack.dev.js",
     "prod": "npm run build --config ./build-utils/webpack.prod.js"
   },
   "repository": {
@@ -58,11 +58,11 @@
     "terser-webpack-plugin": "^5.3.8",
     "vue": "^3.2.47",
     "vue-loader": "^17.1.0",
-    "vue-template-compiler": "^2.7.14",
+    "vue-template-compiler": "^0.1.0",
     "webpack": "^5.73.0",
     "webpack-bundle-analyzer": "^4.5.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.15.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.2",
     "webpack-merge": "^5.8.0"
   }
 }
