@@ -53,7 +53,7 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin(),
     new BundleAnalyzerPlugin({analyzerMode: "disabled"}),
     new webpack.DefinePlugin({
-      'process.env.SERVER_BASE_URL': JSON.stringify('http://oc0swkk.135.181.199.135.sslip.io'),
+      'process.env.SERVER_BASE_URL': JSON.stringify('https://oc0swkk.135.181.199.135.sslip.io'),
     }),
   ],
 })
