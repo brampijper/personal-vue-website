@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<style lang="scss">
+<style>
 .extend-enter-active,
 .extend-leave-active {
   transition: max-height 0.9s ease-in-out;

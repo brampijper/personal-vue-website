@@ -1,0 +1,39 @@
+:root {
+  --font-family: "Roboto", sans-serif;
+  --heading-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --heading-color: #faf9f6;      /* Brighter heading for contrast */
+  --heading-weight: 900;
+  --link-color: #3fc7fa;         /* More visible accent blue for links/buttons */
+
+  --app-bg: #f7f8fa;             /* Slightly off-white for comfort */
+  --text-color: #232323;         /* Darker for readability */
+  --card-bg: #ffffff;            /* True white for cards */
+  --card-text: #232323;
+  --card-border: 1px solid rgba(60,60,60,0.08); /* Softer, subtle border */
+  --card-hover-bg: #f0f4f8;      /* Slightly blue-tinted hover for cards */
+  
+  --image-overlay: linear-gradient(to top, rgba(255,255,255,0) 0%, rgb(255,255,255) 109%);
+
+  --button-bg: var(--link-color);
+  --button-color: #fff;
+  --button-border: none;
+
+  --hover-bg: #e6f7ff;           /* Gentle blue for hovers */
+}
+
+.dark {
+  --app-bg: #181a1b;             /* Very dark gray, not pure black */
+  --text-color: #e2e2e2;
+  --card-bg: #232323;            /* Dark gray for cards */
+  --card-text: #f3f3f3;
+  --card-border: 1px solid rgba(255,255,255,0.07);
+  --card-hover-bg: #242b33;      /* Slightly lighter for hover */
+  --heading-color: #fff;
+  --link-color: #7fd3fa;         /* Lighter blue for dark mode */
+  --button-bg: var(--link-color);
+  --button-color: #181a1b;
+  --button-border: none;
+  --hover-bg: #253344;
+
+  --image-overlay: linear-gradient(to top, rgba(255,255,255,0) 0%, rgb(30,30,30,1) 109%);
+}

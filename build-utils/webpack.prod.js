@@ -39,12 +39,6 @@ module.exports = merge(common, {
         [
           MiniCssExtractPlugin.loader, 
           "css-loader", 
-          {
-            loader: "sass-loader",
-            options: {
-                additionalData: '@import "./src/scss/variables.scss";',
-            },
-          },
         ],
       },
     ],

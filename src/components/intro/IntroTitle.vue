@@ -20,41 +20,43 @@
   }
 </script>
 
-<style lang="scss" scoped>
-@import "~rfs/scss";
+<style scoped>
+.heading__title h1 {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-weight);
+  color: var(--heading-color);
+  line-height: 1;
+  margin: 0 0 10px 0;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
 
-  .heading__title h1 {
-    @include font-size(4rem);
-    font-family: $title-font-family;
-    font-weight: $title-weight;
-    line-height: 1;
-    margin: 0 0 10px 0;
-  }
+.heading__title span {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--text-color);
+}
 
-  .heading__title span {
-    @include font-size(2rem);
-  }
+.heading__title button {
+  height: 26px;
+  padding: 0 1rem;
+  border-radius: 8px;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: var(--button-border);
+  margin: 0 0 0 5px;
+  vertical-align: middle;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  transition: background-color 0.2s, color 0.2s;
+}
 
-  .heading__title button {
-    height: 26px;
-    @include font-size(.8rem);
-    padding: 0 1rem;
-    border-radius: 8px;
-    background-color: rgb(89, 89, 89);
-    color: rgb(242, 242, 242);
-    margin:0 0 0 5px;
-    vertical-align: middle;
-  }
-
-  .heading__title button:hover {
-    background-color: rgb(70, 70, 70);
-    color: rgb(255, 255, 255);
-    cursor:pointer;
-  }
+.heading__title button:hover {
+  background-color: var(--hover-bg);
+  color: var(--link-color);
+  cursor: pointer;
+}
 
 @media (min-width: 660px) {
   .heading__title button {
-    display:none;
+    display: none;
   }
 }
 

@@ -24,49 +24,46 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .icon__container {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   gap: 6rem;
-
-  a {
-    text-align: center;
-    color: inherit;
-
-    svg {
-      transition: transform 0.2s ease-out;
-      max-width: 55px;
-    }
-
-    span {
-      display: block;
-      font-size: 1.2rem;
-      text-align: center;
-      margin-top: 10px;
-      font-family: "Roboto Mono", monospace;
-      text-decoration: none;
-    }
-  }
-
-  a:hover > svg {
-    transform: translate(0, -7px);
-  }
-
-  a:hover > span {
-    text-decoration: underline;
-    transition: transform 0.3s;
-  }
 }
 
-@media (max-width: 668px) {
-  .icon__container {
-    gap: 4rem;
-    a {
-      font-size: 1.7vw;
-    }
-  }
+.icon__container a {
+  text-align: center;
+  color: var(--link-color);
+  transition: color 0.2s;
 }
+
+.icon__container a svg {
+  transition: transform 0.2s ease-out, color 0.2s;
+  max-width: 55px;
+  color: var(--text-color);
+}
+
+.icon__container a span {
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+  font-family: var(--font-family, "Roboto Mono", monospace);
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.icon__container a:hover > svg {
+  transform: translate(0, -7px);
+  color: var(--link-color);
+}
+
+.icon__container a:hover > span {
+  text-decoration: underline;
+  color: var(--link-color);
+  transition: transform 0.3s, color
+}
+
 </style>

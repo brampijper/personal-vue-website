@@ -1,14 +1,13 @@
 <template>
   <button 
     class="Button" 
-    :class="`${buttonSize} ${store.isDarkMode ? 'dark' : '' }`"
+    :class="buttonSize"
     @click="onClick">
     <slot>Button</slot>
   </button>
 </template>
 
 <script>
-import { store } from '../../store.js';
 
 export default {
   props: {
@@ -29,7 +28,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
+
 .big {
   width: 190px;
   height: 80px;
@@ -44,37 +44,27 @@ export default {
 
 .Button {
   border-radius: 5px;
-  font-family: $title-font-family;
-  border: $button-border;
-  padding: 0px;
-  color: $button-color;
+  font-family: var(--heading-font-family);
+  border: var(--button-border);
+  padding: 0;
+  color: var(--button-color);
+  background-color: var(--button-bg);
   transition: all 0.5s ease-out;
-  background-color: transparent;
   cursor: pointer;
 }
 
 .Button:hover {
-  color: white;
-  background: black;
+  color: var(--link-color);
+  background: var(--hover-bg);
 }
 
-.Button.dark {
-  color:$button-color-dark;
-  background:$button-bg-dark;
-  border: $button-border-dark;
-}
-
-.Button.dark:hover {
-  color: black;
-  background: white;
-}
-
-//specific edge cases for small and tall screens
+/* Responsive adjustments for small and tall screens */
 @media (max-width: 668px) and (max-height: 750px) {
-  button {
+  .Button {
     height: 45px;
     font-size: 1.1rem;
     margin-bottom: 15px;
   }
 }
+
 </style>

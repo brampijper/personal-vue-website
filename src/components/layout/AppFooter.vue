@@ -18,25 +18,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "~rfs/scss";
+<style scoped>
 
 footer {
-    background-color: $card-bg;
-    color: $font-colors;
-    position:relative;
-    width: 100%;
-    box-shadow: rgb(0 0 0 / 14%) 0px 0px 24px 0px;
-    border-top: 1px solid rgba(22, 22, 22, 0.2);    
-    min-height: 2rem;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-}
-
-.dark {
-  background-color: $card-bg-dark;
-  color: $font-colors-dark;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  position: relative;
+  width: 100%;
+  box-shadow: 0 0 24px 0 rgb(0 0 0 / 14%);
+  border-top: 1px solid rgba(22, 22, 22, 0.2);
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 </style>

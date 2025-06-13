@@ -28,3 +28,32 @@
   
 
 </script>
+
+<style scoped>
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: var(--card-border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  padding: 1.5rem 2rem;
+}
+
+.card:hover {
+  background-color: var(--card-hover-bg);
+  color: var(--link-color);
+}
+
+.card h4 {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-weight);
+  color: var(--heading-color);
+  margin: 0;
+}
+
+</style>

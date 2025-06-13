@@ -1,5 +1,5 @@
 <template>
-  <ul class="small__cards" :class="{'dark': store.isDarkMode}">
+  <ul class="small__cards">
     <Suspense>
       <BlogCard />
       <template #fallback> 
@@ -30,64 +30,58 @@
   import LinkedInCard from "./cards/LinkedInCard.vue"
 </script>
 
-<style lang="scss">
+<style>
 
 .small__cards {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   gap: 2.3rem;
   box-sizing: border-box;
   list-style: none;
   height: 100%;
-
-  .card {
-    padding: 2rem;
-    align-items:center;
-    flex-basis: 45%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.8rem;
-    cursor: pointer;
-    font-weight: 700;
-    font-family: $title-font-family;
-    min-height: 100px;
-    position:relative;
-  }
-    
-  a:hover {
-    background-color:rgb(220, 220, 220);
-  }
 }
 
-.small__cards.dark {
-  a:hover {
-    background-color:rgb(243, 243, 243);
-    color:rgb(56, 56, 56);
-  }
+.small__cards .card {
+  padding: 2rem;
+  align-items: center;
+  flex-basis: 45%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  min-height: 100px;
+  position: relative;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: var(--card-border);
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
 
-  a:hover > svg { // it's scoped so it will not work.
-    color:rgb(56, 56, 56);
-  }
+.small__cards .card:hover,
+.small__cards a:hover {
+  background-color: var(--hover-bg);
+  color: var(--link-color);
 }
 
 @media (min-width: 660px) {
   .small__cards {
     gap: unset;
     justify-content: space-between;
-    flex-flow:wrap;
+    flex-flow: wrap;
   }
 }
 
 @media (min-width: 990px) {
   .small__cards {
-    flex-flow:column;
-    
-    .card {
-      min-width: 250px;
-    }
+    flex-flow: column;
+  }
+  .small__cards .card {
+    min-width: 250px;
   }
 }
-  
+
 </style>

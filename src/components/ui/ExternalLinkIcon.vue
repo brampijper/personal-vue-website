@@ -2,13 +2,11 @@
   <font-awesome-icon 
     size="1x" 
     :icon="['fa-solid', 'fa-external-link-square-alt']"
-    :style="styleObject"
+    :style="{ '--icon-position': position }"
   />
 </template>
 
 <script setup>
-import { reactive } from "vue"
-
   const props = defineProps({
     position: {
       type: String,
@@ -16,18 +14,18 @@ import { reactive } from "vue"
     }
   })
 
-  const styleObject = reactive({
-    position: props.position
-  })
-
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 svg {
   top: 9px;
   right: 11px;
-  opacity: .8;
-  width:12px;
+  opacity: 0.8;
+  width: 12px;
+  color: var(--link-color);
+  position: var(--icon-position, absolute);
+  transition: color 0.2s;
 }
+
 </style>

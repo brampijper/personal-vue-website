@@ -15,7 +15,7 @@ import ExternalLinkIcon from '../ExternalLinkIcon.vue'
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 .button {
   position:relative;

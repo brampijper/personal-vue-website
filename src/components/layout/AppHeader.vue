@@ -23,60 +23,47 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "~rfs/scss";
+<style scoped>
+
 header {
-  background-color: $card-bg;
-  color: $font-colors;
+  background-color: var(--card-bg);
+  color: var(--text-color);
   display: flex;
-  align-items:center;
-  box-sizing:border-box;
+  align-items: center;
+  box-sizing: border-box;
   min-height: 45px;
   top: 0;
   position: sticky;
   width: 100%;
   height: calc(15px + 3vh);
   z-index: 4;
-  box-shadow: rgb(0 0 0 / 38%) 0px 0px 6px 0px;
-  h2 {
-    @include font-size(1.1rem);
-  }
-  h2 {
-    color: $font-colors;
-    display: flex;
-    flex-direction:row;
-    gap: .5rem;
-    align-items:center;
-    font-weight: 800;
-    padding: .5rem;
-    border-radius: 8px;
-  }
-
-  h2:hover {
-    background-color: rgb(233, 233, 233);
-  }
-
-  .header-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding:0rem 1rem;
-  }
+  box-shadow: 0 0 6px 0 rgb(0 0 0 / 38%);
 }
 
-header.dark {
-  background-color: $card-bg-dark;
-  color: $font-colors-dark;
-  box-shadow: rgba(206, 206, 206, .1) 0px 0px 6px 0px;
-  
-  h2 {
-    color: $font-colors-dark;
-  }
+header .header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+}
 
-  h2:hover {
-    background-color: rgb(73, 73, 73);
-  }
+header h2 {
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-weight);
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  transition: background-color 0.2s;
+}
+
+header h2:hover {
+  background-color: var(--hover-bg);
 }
 
 </style>

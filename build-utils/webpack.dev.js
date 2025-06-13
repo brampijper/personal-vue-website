@@ -18,17 +18,11 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: 
           [
             "style-loader",
             "css-loader",
-            {
-              loader: "sass-loader",
-              options: {
-                  additionalData: '@import "./src/scss/variables.scss";',
-              },
-            },
           ],
       },
     ],

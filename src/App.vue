@@ -1,6 +1,6 @@
 <template>
-  <AppHeader :class="darkModeClass" />
-    <main :class="darkModeClass">
+  <AppHeader  />
+    <main >
       <div class="page-wrap">
         <MainContent />
 
@@ -14,72 +14,50 @@
         
       </div>
     </main>
-    <AppFooter :class="darkModeClass" />
+    <AppFooter  />
 </template>
 
 <script setup>
-  import { computed } from "vue";
   import ProjectCollection from "./components/projects/ProjectCollection.vue";
   import AppHeader from "./components/layout/AppHeader.vue";
   import AppFooter from "./components/layout/AppFooter.vue";
   import MainContent from "./components/layout/MainContent.vue";
   import SkeletonLoader from './components/ui/SkeletonLoader.vue';
-  import { store } from './store.js';
-
-  const darkModeClass = computed(() => {
-    return store.isDarkMode ? 'dark' : '';
-  });
-
 </script>
 
-<style lang="scss">
-//base font
+<style>
+
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
-
-* {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-  box-sizing: inherit;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  text-size-adjust: 100%;
-  list-style-type: none;
-}
 
 body {
   height: 100%;
+  font-family: var(--font-family);
+  background: var(--app-bg);
+  color: var(--text-color);
 }
 
 main {
-  background-color: $bg-color;
-  color: $font-colors;
-
-  svg, a {
-     color: $font-colors; 
-  }
-
-  .card {
-    background-color: $card-bg;
-    box-shadow: rgb(0 0 0 / 5%) 0px 0px 2px 2px;
-  }
+  background-color: var(--app-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem 0;
 }
 
-main.dark {
-  background-color: $bg-color-dark;
-  color: $font-colors-dark;
+main .card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border: var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+}
 
-  svg, a {
-    color: $font-colors-dark; 
-  }
-
-  .card {
-    background-color: $card-bg-dark;
-    box-shadow: rgb(100 100 100 / 30%) 0px 0px 2px 2px;
-  }
+main .card:hover, main .card:focus-within {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.16);
+  background: var(--card-hover-bg);
+  border-color: var(--link-color);
 }
 
 .page-wrap {
@@ -89,58 +67,40 @@ main.dark {
   box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
-  -webkit-box-pack: start;
   justify-content: flex-start;
+  gap: 2rem;
 }
 
-span,
-p,
-ul,
-li {
-  font-family: $font-family;
+span, p, ul, li {
+  font-family: var(--font-family);
   font-weight: 300;
+  color: var(--text-color);
+  font-size: 1.1rem;
 }
 
 h2 {
-  font-family: $title-font-family;
-  font-weight: $title-weight;
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-weight);
+  color: var(--heading-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 a {
-  transition: all 0.5s;
-  text-decoration: none;
-  color:inherit;
+  transition: color 0.3s;
+  text-decoration: underline;
+  color: var(--link-color);
 }
 
 a:visited {
-  color: inherit;
+  color: var(--link-color);
 }
 
-@media (min-width: 360px) {
-  main {
-    min-width: calc(100vw - 64px);
-    padding: 32px 16px;
+@media (max-width: 900px) {
+  .page-wrap {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
-
-@media (min-width: 660px) {
-  main {
-    min-height: calc(100vh - calc(15px + 3vh)); //height of header
-    padding: 32px 32px;
-  }
-}
-
-@media (min-width: 1440px) {
-  main {
-    min-width: calc(100vw - 64px);
-    padding: 32px;
-  }
-}
-
-// global card styles
-.card {
-  border-radius: 16px;
-}
-
 
 </style>

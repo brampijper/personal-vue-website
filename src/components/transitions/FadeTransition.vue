@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<style lang="scss">
+<style>
 .fade-transition-wrapper {
   opacity: 1;
   will-change: opacity;

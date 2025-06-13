@@ -25,7 +25,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
+
 .icon-container {
   position: absolute;
   height: 2rem;
@@ -42,6 +43,8 @@ export default {
 svg {
   z-index: 2;
   animation: rotation 2s linear infinite;
+  color: var(--text-color);
+  /* Optionally, you could use var(--link-color) for a more accent color */
 }
 
 .paused {
@@ -52,9 +55,12 @@ svg {
 @keyframes rotation {
   0% {
     -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
+
 </style>

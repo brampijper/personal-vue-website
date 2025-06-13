@@ -16,13 +16,12 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-@import "~rfs/scss";
+<style scoped>
 
 .cards__container {
   box-sizing: border-box;
   width: 100%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   row-gap: 2rem;
 }
@@ -31,7 +30,7 @@ export default {
   .cards__container {
     flex-direction: row;
     column-gap: 2rem;
-    justify-content:center;
+    justify-content: center;
   }
 }
 

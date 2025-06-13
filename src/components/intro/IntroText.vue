@@ -12,33 +12,32 @@
   </article>
 </template>
 
-<style lang="scss" scoped>
-@import "~rfs/scss";
+<style scoped>
 .content__intro {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
 
-  p {
-    @include font-size(1.25rem);
-    font-family: "Roboto Mono", monospace;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.4;
-    max-width: 53ch;
-  }
+.content__intro p {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  font-family: var(--font-family, "Roboto Mono", monospace);
+  color: var(--text-color);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+  max-width: 53ch;
+}
 
-  a {
-    text-decoration: underline;
-  }
+.content__intro a {
+  text-decoration: underline;
+  color: var(--link-color);
 }
 
 @media (max-width: 660px) {
-  .content__intro {
-    p {
-      font-size: 1.1rem;
-      line-height:1.5;
-    }
+  .content__intro p {
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
 }
 

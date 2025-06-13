@@ -2,11 +2,11 @@
   <ProjectCard :projects="projects">
 
     <template #button="{ clickable }">
-      <span v-if="clickable" className="card__header-button"> 
+      <span v-if="clickable" class="card__header-button"> 
         View live website
         <external-link-icon position="static" />
       </span>
-      <span v-else className="card__header-button"> You're on this website &#128064; </span>
+      <span v-else class="card__header-button"> You're on this website &#128064; </span>
     </template>
     
     <template #link="{ homepage, name, clickable }">
@@ -73,7 +73,3 @@
   }
 
 </script>
-
-<style scoped lang="scss">
-
-</style>

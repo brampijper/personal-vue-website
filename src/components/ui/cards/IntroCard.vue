@@ -11,13 +11,17 @@
   import IntroText from "../../intro/IntroText.vue";
   import IntroTitle from "../../intro/IntroTitle.vue";
 </script>
-<style lang="scss" scoped>
-@import "~rfs/scss";
+<style scoped>
+
 .container {
   box-sizing: border-box;
-  margin: 0px;
+  margin: 0;
   flex-direction: row;
   max-width: 680px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: var(--card-border);
+  border-radius: 8px;
 }
 
 .container__wrap {
@@ -45,5 +49,6 @@
     margin-right: 32px;
   }
 }
+
 
 </style>

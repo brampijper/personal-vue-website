@@ -38,7 +38,7 @@ import ProjectCard from "../projects/ProjectCard.vue";
 import ProjectCardList from "../projects/ProjectCardList.vue";
 </script>
 
-<style lang="scss">
+<style>
 
 .skeleton {
     animation: skeleton-loading 1s linear infinite alternate;
