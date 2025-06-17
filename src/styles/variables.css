@@ -1,7 +1,7 @@
 :root {
   --font-family: "Roboto", sans-serif;
   --heading-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --heading-color: #faf9f6;      /* Brighter heading for contrast */
+  --heading-color: #333333;      /* Brighter heading for contrast */
   --heading-weight: 900;
   --link-color: #3fc7fa;         /* More visible accent blue for links/buttons */
 
@@ -29,7 +29,7 @@
   --card-border: 1px solid rgba(255,255,255,0.07);
   --card-hover-bg: #242b33;      /* Slightly lighter for hover */
   --heading-color: #fff;
-  --link-color: #7fd3fa;         /* Lighter blue for dark mode */
+  --link-color: #faf9f6;         /* Lighter blue for dark mode */
   --button-bg: var(--link-color);
   --button-color: #181a1b;
   --button-border: none;

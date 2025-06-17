@@ -70,7 +70,7 @@
   height: 100%;
   border: var(--card-border);
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  padding: 2.5rem 2rem;
+  /* padding: 2.5rem 2rem; */
   transition: box-shadow 0.2s, border 0.2s, background 0.2s;
 }
 
@@ -120,7 +120,7 @@
   width: 100%;
   height: auto;
   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-  padding-block: 0.3rem;
+  /* padding-block: 0.3rem; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +144,7 @@
 
 .card .card__content {
   font-size: clamp(0.85rem, 1.5vw, 1rem);
-  padding: 1.5rem 2rem 1rem 2rem;
+  /* padding: 1.5rem 2rem 1rem 2rem; */
   text-align: left;
   display: flex;
   flex-direction: column;

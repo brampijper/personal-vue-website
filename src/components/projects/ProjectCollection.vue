@@ -46,13 +46,11 @@
 </template>
 
 <script async setup>
-  import { ref, onMounted } from 'vue';
-  import { store } from '../../store.js';
+  import { ref } from 'vue';
   import fetchAndCacheData from '../../utils/useFetchAndCacheData';
   
   import ProjectCardList from "./ProjectCardList.vue";
   import ProjectCard from "./ProjectCard.vue";
-  import PrimaryButton from "../ui/AppButton.vue";
   import ExternalLinkIcon from '../ui/ExternalLinkIcon.vue'
 
   const projects = ref([]);

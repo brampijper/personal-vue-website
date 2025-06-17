@@ -62,6 +62,11 @@ header h2 {
   transition: background-color 0.2s;
 }
 
+header h2 a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 header h2:hover {
   background-color: var(--hover-bg);
 }
