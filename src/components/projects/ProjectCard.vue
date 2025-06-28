@@ -6,18 +6,22 @@
       :class="`project__card ${skeleton}`"
     >
       <div class="card">
-        <div class="card__header">
+        <!-- <div class="card__header">
           <slot name="button" v-bind="project" />
-        </div>
+        </div> -->
         <slot name="link" v-bind="project" />
+        
         <div class="card__image-container">
           <slot name="image" v-bind="project" />
         </div>
-        <article class="card__content">
-          <slot name="name" v-bind="project" />
-          <slot name="description" v-bind="project" />
-        </article>
-        <slot name="topics" v-bind="project" />
+        <div class="card__wrap">
+          <article class="card__content">
+            <slot name="name" v-bind="project" />
+            <slot name="description" v-bind="project" />
+            <slot name="topics" v-bind="project" />
+          </article>
+        </div>
+      
       </div>
     </div>
   </div>
@@ -45,9 +49,8 @@
   flex-wrap: wrap;
   justify-content: center;
   z-index: 1;
-  gap: 2rem;
+  gap: 4rem;
   margin: 2rem 0 0 0;
-  padding: 1rem;
   width: auto;
 }
 
@@ -66,12 +69,13 @@
   min-width: 300px;
   max-width: 360px;
   max-height: 480px; /* Added */
+  min-height: 300px;
   overflow: hidden;
   height: 100%;
   border: var(--card-border);
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  /* padding: 2.5rem 2rem; */
-  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+  padding: 1rem 1rem 0rem 1rem;
+  /* transition: box-shadow 0.2s, border 0.2s, background 0.2s; */
 }
 
 .card ::v-deep .card__link {
@@ -86,12 +90,15 @@
 .card .card__image-container {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  max-height: 200px;
+  max-height: 250px;
   max-width: 100%;
   overflow: hidden;
   padding-top: 50%;
   position: relative;
   width: auto;
+  border: 5px solid;
+  border-color:#e9e9e9;
+  border-radius: 16px;
 }
 
 .card .card__image-container::before {
@@ -100,8 +107,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 180px;
-  background: var(--image-overlay);
+  height: 250px;
+  /* background: var(--image-overlay); */
   z-index: 1;
 }
 
@@ -110,7 +117,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 180px; /* Fixed height */
+  height: 250px; /* Fixed height */
   object-fit: cover;
   object-position: top;
   z-index: 0;
@@ -129,7 +136,7 @@
 
 .card .card__header-button {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.5rem;
 }
 
@@ -143,12 +150,13 @@
 }
 
 .card .card__content {
+  font-family: var(--heading-font-family);
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   /* padding: 1.5rem 2rem 1rem 2rem; */
   text-align: left;
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
+  justify-content: space-around;
   height: 100%;
   color: var(--text-color);
 }
@@ -159,7 +167,7 @@
 
 .card:hover {
   background-color: var(--card-hover-bg);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.16);
+  /* box-shadow: 0 4px 24px rgba(0,0,0,0.16); */
   border-color: var(--link-color);
 }
 
@@ -168,11 +176,16 @@
 }
 
 .card:hover .card__image-container::before {
-  background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%);
+  /* background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 0%); */
 }
 
 .card:hover > ul {
   background-color: var(--hover-bg);
+}
+
+.card__wrap {
+  padding: 0 1.5rem 0 1.5rem;
+  height: 100%;
 }
 
 /* Responsive styles */
@@ -182,6 +195,7 @@
   }
   .project__card .card {
     max-width: 91vw;
+    max-height: fit-content;
   }
   .card .card__header-title {
     font-size: 0.9rem;
@@ -196,7 +210,6 @@
 
 @media (min-width: 1350px) {
   .projects {
-    justify-content: flex-start;
     padding: 2rem;
   }
 }
@@ -205,6 +218,7 @@
   .project__card .card {
     min-width: 340px;
     max-width: 420px;
+    max-height: 600px;
   }
 }
 </style>

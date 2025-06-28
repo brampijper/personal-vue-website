@@ -6,9 +6,10 @@
     title="See my Github profile"
   >
     <ExternalLinkIcon />
-    <h4>
-        Github Contributions: {{ state }}
-    </h4>
+    <h3>
+        Yearly Github contributions:
+    </h3>
+    <span>{{ state }}</span>
   </a> 
 </template>
 
@@ -49,11 +50,26 @@
   color: var(--link-color);
 }
 
-.card h4 {
+.card h3 {
   font-family: var(--heading-font-family);
-  font-weight: var(--heading-weight);
   color: var(--heading-color);
-  margin: 0;
+  margin: 0 0 1.5rem 0;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
+
+.card span {
+  font-size: clamp(5rem, 2.5vw, 7rem);
+  width: 100%;
+  text-align:center;
+  font-weight:bolder;
+}
+
+@media (max-width: 990px) {
+  .card h3 {
+    margin: 0;
+  }
+}
+
+
 
 </style>

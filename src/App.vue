@@ -34,13 +34,14 @@ body {
   font-family: var(--font-family);
   background: var(--app-bg);
   color: var(--text-color);
+  margin:0;
 }
 
 main {
   background-color: var(--app-bg);
   color: var(--text-color);
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
 main .card {
@@ -49,7 +50,7 @@ main .card {
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   border: var(--card-border);
   border-radius: 16px;
-  padding: 2rem;
+  /* padding: 2rem; */
   margin-bottom: 2rem;
   transition: box-shadow 0.2s, border 0.2s, background 0.2s;
 }
@@ -69,6 +70,7 @@ main .card:hover, main .card:focus-within {
   flex-flow: row wrap;
   justify-content: flex-start;
   gap: 2rem;
+  padding: 0 1rem 0 1rem;
 }
 
 span, p, ul, li {
@@ -100,6 +102,11 @@ a:visited {
   .page-wrap {
     flex-direction: column;
     gap: 1.5rem;
+    padding: 0 1.5rem 0 1.5rem;
+  }
+
+  main {
+    padding: 2rem 0;
   }
 }
 

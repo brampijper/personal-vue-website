@@ -5,9 +5,9 @@
   --heading-weight: 900;
   --link-color: #3fc7fa;         /* More visible accent blue for links/buttons */
 
-  --app-bg: #f7f8fa;             /* Slightly off-white for comfort */
+  --app-bg: #eff0f3;             /* Slightly off-white */
   --text-color: #232323;         /* Darker for readability */
-  --card-bg: #ffffff;            /* True white for cards */
+  --card-bg: #f6f6f6;            /* True white for cards */
   --card-text: #232323;
   --card-border: 1px solid rgba(60,60,60,0.08); /* Softer, subtle border */
   --card-hover-bg: #f0f4f8;      /* Slightly blue-tinted hover for cards */
@@ -22,7 +22,7 @@
 }
 
 .dark {
-  --app-bg: #181a1b;             /* Very dark gray, not pure black */
+  --app-bg: #000610;             /* Very dark gray, not pure black */
   --text-color: #e2e2e2;
   --card-bg: #232323;            /* Dark gray for cards */
   --card-text: #f3f3f3;

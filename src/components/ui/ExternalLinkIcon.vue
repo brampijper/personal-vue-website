@@ -26,6 +26,7 @@ svg {
   color: var(--link-color);
   position: var(--icon-position, absolute);
   transition: color 0.2s;
+  z-index: 5;
 }
 
 </style>

@@ -35,43 +35,45 @@
 .small__cards {
   display: flex;
   flex-direction: column;
-  gap: 2.3rem;
+  gap: 2rem;
   box-sizing: border-box;
   list-style: none;
   height: 100%;
+  padding:0;
+  margin:0;
 }
 
 .small__cards .card {
-  padding: 2rem;
-  align-items: center;
+  padding: 1rem;
+  align-items:flex-start;
   flex-basis: 45%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   gap: 0.8rem;
   cursor: pointer;
   font-weight: 700;
   font-family: var(--heading-font-family);
-  min-height: 100px;
+  min-height: 150px;
   position: relative;
   background-color: var(--card-bg);
   color: var(--text-color);
   border: var(--card-border);
   border-radius: 8px;
   transition: background-color 0.2s, color 0.2s;
+  margin:0;
 }
 
 .small__cards .card:hover,
 .small__cards a:hover {
   background-color: var(--hover-bg);
-  color: var(--link-color);
+  /* color: var(--link-color); */
 }
 
 @media (min-width: 660px) {
   .small__cards {
-    gap: unset;
     justify-content: space-between;
-    flex-flow: wrap;
+    flex-direction: row; 
   }
 }
 

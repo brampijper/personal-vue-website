@@ -3,7 +3,7 @@
 
     <template #button="{ clickable }">
       <span v-if="clickable" class="card__header-button"> 
-        View live website
+        <!-- View live website -->
         <external-link-icon position="static" />
       </span>
       <span v-else class="card__header-button"> You're on this website &#128064; </span>

@@ -22,7 +22,7 @@
 
 ul {
   border-radius: 8px;
-  padding: 1rem 1rem 1rem 0;
+  /* padding: 1rem 1rem 1rem 0; */
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +31,7 @@ ul {
   justify-content: flex-start;
   /* background-color: var(--card-bg); */
   box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding-left: 0;
 }
 
 ul li {
